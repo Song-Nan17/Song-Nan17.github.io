@@ -66,6 +66,149 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-sumarry_week2_1" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/23/sumarry_week2_1/" class="article-date">
+  <time datetime="2018-11-23T14:27:45.799Z" itemprop="datePublished">2018-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/23/sumarry_week2_1/">总结—第一阶段第二周</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这周主要学习了CSS基础，学习了引入CSS，CSS选择器，层叠与继承，盒模型，布局定位和调试。重点内容是<strong>选择器</strong>，<strong>盒模型</strong>，<strong>布局和调试</strong>。</p>
+<p>这周也是提前完成了任务，很棒，后面的任务会越来越重，要留出时间。</p>
+<p>线下培训做了网页布局的练习，遇到了很多在任务营学习和做题时没遇到的问题，只有做得多了才能见得多，在学习中发现问题，在问题中学习，这也是很好的学习方法。</p>
+<p>不足：</p>
+<ul>
+<li>我现在最大的问题是作息时间不好，原因一个在于长久养成的不好习惯，一个在于我总是把很多事情堆到最后期限做，导致做到很晚都做不完，最近几天都是因为做各种作业做到1、2点导致的晚睡。<ul>
+<li>我现在白天有足够的时间，所以我给自己定个时间是<strong>晚上11点</strong>，11点之后，无论任务有没有完成，都不许再做，必须把握白天的时间。</li>
+<li>早起计划连续三天做到了，但是习惯的纠正是个长期任务，所以我要继续努力!</li>
+</ul>
+</li>
+<li>没有用电脑记笔记的习惯，<strong>改</strong>！</li>
+<li>打字慢，<strong>练</strong>！</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/23/sumarry_week2_1/" data-id="cjou56etr0003u8oww76yoh28" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-notes_of_css" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/23/notes_of_css/" class="article-date">
+  <time datetime="2018-11-23T13:37:46.647Z" itemprop="datePublished">2018-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CSS-层叠样式表，用于渲染HTML元素标签的样式。"><a href="#CSS-层叠样式表，用于渲染HTML元素标签的样式。" class="headerlink" title="CSS 层叠样式表，用于渲染HTML元素标签的样式。"></a>CSS 层叠样式表，用于渲染HTML元素标签的样式。</h1><h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><p>除了几种常见的选择器外，还有：</p>
+<ul>
+<li><code>A *</code>选择A元素内的所有元素；</li>
+<li><code>A + B</code>选择所有<strong>直接</strong>跟在A元素后面的B元素；</li>
+<li><code>A ~ B</code>选择跟在A元素后面的所有B元素；</li>
+<li><code>:first-child</code>选择所有元素的第一个子级元素，如：<code>p:first-child</code>选择所有是第一个元素的p，<code>div p:first-child</code>选择所有div中的第一个p；</li>
+<li><code>:only-child</code>选择所有是父级元素唯一子元素的元素，如：<code>span:only-child</code>选择所有是唯一元素的span，<code>ul li:only-child</code>选择所有是ul中唯一元素的li；</li>
+<li><code>:last-child</code>选择所有元素的最后一个子级元素，如：<code>span:last-child</code>选择所有是最后一个元素的span，<code>div p:last-child</code>选择所有是div中最后一个元素的p；</li>
+<li><code>:nth-child(x)</code>选择有元素的第x个子级元素，如：<code>:nth-child(8)</code>选择所有第八个元素，<code>div p:nth-child(2)</code>选择所有是div中第8个元素的p；</li>
+<li><code>:nth-last-child(x)</code>选择所有元素的倒数第x个子级元素，如：<code>:nth-last-child(2)</code>选择所有的倒数第2个元素；</li>
+<li><code>:first-of-type</code>选择所有元素中的第一个某种元素，如：<code>span:first-of-type</code>选择所有的第一个span元素；</li>
+<li><code>:nth-of-type(x)</code>选择所有是type(x)的元素，如：<code>div:nth-of-type(2)</code>选择所有的第二个div元素，<code>.example:nth-of-type(odd)</code>选择所有的奇数个且类为example的元素；</li>
+<li><code>:nth-of-type(An+B)</code>从第B个开始选择所有第A个元素（包括第B个），如：<code>span:nth-of-type(6n+2)</code>从第2个开始数选择所有的第6个元素（选择包括一开始的第2个）;</li>
+<li><code>:only-of-type</code>选择在父级元素中是唯一一个该种类子级元素的子级元素，如：<code>p span:only-of-type</code>选择所有是p中唯一一个span的span；</li>
+<li><code>:last-of-type</code>选择在父级元素中是该种类子元素的最后一个的子级元素，如：<code>div:last-of-type</code>选择所有的最后一个div;</li>
+<li><code>:empty</code>选择所有没有子级元素的元素；</li>
+<li><code>:not(X)</code>选择所有非X的元素，如：<code>div:not(:first-child)</code>选择所有不是最后一个元素的div;</li>
+<li><code>[attribute^=&quot;value&quot;]</code>选择所有属性值以<code>value</code>开头的元素;</li>
+<li><code>[attribute$=&quot;value&quot;]</code>选择所有属性值以<code>value</code>结尾的元素;</li>
+<li><code>[attribute*=&quot;value&quot;]</code>选择所有属性值包含<code>value</code>的元素;<h2 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h2>CSS通过特异度解决块样式的冲突。</li>
+<li>简单选择器的特异度级别：<ul>
+<li>level 0 ：*</li>
+<li>level 1 ：标签选择器、伪元素</li>
+<li>level 2 ：类、伪类</li>
+<li>level 3 ：id</li>
+<li>level 4 ：内联</li>
+</ul>
+</li>
+<li>引入方式的样式优先级：内联 &gt; 嵌入 &gt; 外链</li>
+<li>同一级别选择器，后写的覆盖先写的。</li>
+<li>有”!important”样式的，优先级最高。<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2></li>
+<li>子元素会继承父元素的样式。</li>
+<li>子元素的样式优先级高于父级元素。<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2>从里到外由content, padding(透明), border, margin(透明)组成。</li>
+<li>width和height指content box的宽和高。</li>
+<li>添加<code>box-sizing:border-box</code>属性后，weight/height = border + padding + content.</li>
+<li>padding<br>指内边距。<ul>
+<li>缩写：padding: top值, right值, bottom值, left值;（上-右-下-左）</li>
+<li>缩写：padding: top&amp;bottom值, right&amp;left值;（上下-右左）</li>
+</ul>
+</li>
+<li>margin：<br>指外边距。<ul>
+<li>缩写：margin: top值, right值, bottom值, left值;（上-右-下-左）</li>
+<li>缩写：margin: top&amp;bottom值, right&amp;left值;（上下-右左）</li>
+</ul>
+</li>
+<li>margin折叠<br>两个或多个普通文档流盒子垂直方向上的外边距会发生折叠。margin折叠是为实现文本段落间距而提供的特性，多数情况下，折叠垂直外边距可以在视觉上显得更美观。<ul>
+<li>需要时相邻的非浮动元素</li>
+<li>折叠发生在垂直外边距上</li>
+<li>折叠后取其中最大的margin作为最终值</li>
+<li><code>overflow:hidden;</code>，会取消margin折叠<h2 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h2>指的是溢出控制</li>
+</ul>
+</li>
+<li>取值：visible | hidden | scroll | auto<h2 id="普通流"><a href="#普通流" class="headerlink" title="普通流"></a>普通流</h2>norm flow，将窗体自上而下的分为一行一行，块级元素从上至下，行内元素在每行中从左到右地挨次排放。</li>
+<li>除根元素、浮动元素和绝对定位元素外，其它元素都在常规流之内(in-flow)</li>
+<li>而根元素、 浮动和绝对定位的元素会脱离常规流(out of flow)</li>
+<li>常规流中的盒子，属于块级格式化上下文或行级格式化上下文<h2 id="float"><a href="#float" class="headerlink" title="float"></a>float</h2></li>
+<li>浮动元素从常规流中脱离，被漂浮在容器(包含块)左边或右边</li>
+<li>浮动盒会一直漂到其外边缘挨到容器边缘或另外的浮动盒</li>
+<li>浮动元素不会影响其后面的流内块级盒</li>
+<li>但是浮动元素后面的行级盒子会变短以避开浮动元素<h2 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h2>指定元素哪一边不能与之前的浮动框相邻.</li>
+<li>取值：left | right | both<h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2></li>
+<li><code>static</code>静态定位，元素出现在普通流中，不受top, left等影响。</li>
+<li><code>fixed</code>元素位置相对于浏览器窗口是固定位置，即使窗口滚动。eg: 广告。</li>
+<li><code>relative</code>元素相对于其正常位置定位。移动相对定位元素，但它原本所占空间不会改变。</li>
+<li><code>absolute</code>相对于最近的已定位父元素进行定位，元素不再占有父文档流位置。</li>
+<li><code>z-index</code>用于指定元素的堆叠顺序。</li>
+<li><code>sticky</code>基于用户的滚动位置来定位。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjou56es70001u8ow593lba7p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-summary_week1_1" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/11/19/summary_week1_1/" class="article-date">
@@ -104,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/19/summary_week1_1/" data-id="cjoo9m3wn0001v0owueeqctgs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/19/summary_week1_1/" data-id="cjou56etw0004u8owepupd78i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -165,31 +308,13 @@
 <li><code>display: inline-block</code>就是将对象呈递为内联对象。<br><code>inline-block</code>元素的特点：</li>
 <li>就是将对象呈递为内联对象，但是对象的内容作为块对象呈递。旁边的内联对象会被呈递在同一行内，允许空格。应用此特性的元素呈现为内联对象，周围元素保持在同一行，但可以设置宽度和高度，行高等块元素的属性。<h2 id="使用-lt-iframe-gt-标签嵌入其他网页时，若添加sandbox属性，应设置为allow-scripts"><a href="#使用-lt-iframe-gt-标签嵌入其他网页时，若添加sandbox属性，应设置为allow-scripts" class="headerlink" title="使用&lt;iframe&gt;标签嵌入其他网页时，若添加sandbox属性，应设置为allow-scripts."></a>使用<code>&lt;iframe&gt;</code>标签嵌入其他网页时，若添加<code>sandbox</code>属性，应设置为<code>allow-scripts</code>.</h2><h2 id="lt-table-gt-标签"><a href="#lt-table-gt-标签" class="headerlink" title="&lt;table&gt;标签"></a><code>&lt;table&gt;</code>标签</h2></li>
 <li><code>rowspan</code>代表该列跨多少行；</li>
-<li><code>colspan</code>代表改行跨多少列。<h2 id="lt-form-gt-标签可以嵌入在table中方便其中-lt-input-gt-的对齐。"><a href="#lt-form-gt-标签可以嵌入在table中方便其中-lt-input-gt-的对齐。" class="headerlink" title="&lt;form&gt;标签可以嵌入在table中方便其中&lt;input&gt;的对齐。"></a><code>&lt;form&gt;</code>标签可以嵌入在table中方便其中<code>&lt;input&gt;</code>的对齐。</h2><h1 id="CSS-层叠样式表，用于渲染HTML元素标签的样式。"><a href="#CSS-层叠样式表，用于渲染HTML元素标签的样式。" class="headerlink" title="CSS 层叠样式表，用于渲染HTML元素标签的样式。"></a>CSS 层叠样式表，用于渲染HTML元素标签的样式。</h1><h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2>除了几种常见的选择器外，还有：</li>
-<li><code>A *</code>选择A元素内的所有元素；</li>
-<li><code>A + B</code>选择所有<strong>直接</strong>跟在A元素后面的B元素；</li>
-<li><code>A ~ B</code>选择跟在A元素后面的所有B元素；</li>
-<li><code>:first-child</code>选择所有元素的第一个子级元素，如：<code>p:first-child</code>选择所有是第一个元素的p，<code>div p:first-child</code>选择所有div中的第一个p；</li>
-<li><code>:only-child</code>选择所有是父级元素唯一子元素的元素，如：<code>span:only-child</code>选择所有是唯一元素的span，<code>ul li:only-child</code>选择所有是ul中唯一元素的li；</li>
-<li><code>:last-child</code>选择所有元素的最后一个子级元素，如：<code>span:last-child</code>选择所有是最后一个元素的span，<code>div p:last-child</code>选择所有是div中最后一个元素的p；</li>
-<li><code>:nth-child(x)</code>选择有元素的第x个子级元素，如：<code>:nth-child(8)</code>选择所有第八个元素，<code>div p:nth-child(2)</code>选择所有是div中第8个元素的p；</li>
-<li><code>:nth-last-child(x)</code>选择所有元素的倒数第x个子级元素，如：<code>:nth-last-child(2)</code>选择所有的倒数第2个元素；</li>
-<li><code>:first-of-type</code>选择所有元素中的第一个某种元素，如：<code>span:first-of-type</code>选择所有的第一个span元素；</li>
-<li><code>:nth-of-type(x)</code>选择所有是type(x)的元素，如：<code>div:nth-of-type(2)</code>选择所有的第二个div元素，<code>.example:nth-of-type(odd)</code>选择所有的奇数个且类为example的元素；</li>
-<li><code>:nth-of-type(An+B)</code>从第B个开始选择所有第A个元素（包括第B个），如：<code>span:nth-of-type(6n+2)</code>从第2个开始数选择所有的第6个元素（选择包括一开始的第2个）;</li>
-<li><code>:only-of-type</code>选择在父级元素中是唯一一个该种类子级元素的子级元素，如：<code>p span:only-of-type</code>选择所有是p中唯一一个span的span；</li>
-<li><code>:last-of-type</code>选择在父级元素中是该种类子元素的最后一个的子级元素，如：<code>div:last-of-type</code>选择所有的最后一个div;</li>
-<li><code>:empty</code>选择所有没有子级元素的元素；</li>
-<li><code>:not(X)</code>选择所有非X的元素，如：<code>div:not(:first-child)</code>选择所有不是最后一个元素的div;</li>
-<li><code>[attribute^=&quot;value&quot;]</code>选择所有属性值以<code>value</code>开头的元素;</li>
-<li><code>[attribute$=&quot;value&quot;]</code>选择所有属性值以<code>value</code>结尾的元素;</li>
-<li><code>[attribute*=&quot;value&quot;]</code>选择所有属性值包含<code>value</code>的元素;</li>
+<li><code>colspan</code>代表改行跨多少列。<h2 id="lt-form-gt-标签可以嵌入在table中方便其中-lt-input-gt-的对齐。"><a href="#lt-form-gt-标签可以嵌入在table中方便其中-lt-input-gt-的对齐。" class="headerlink" title="&lt;form&gt;标签可以嵌入在table中方便其中&lt;input&gt;的对齐。"></a><code>&lt;form&gt;</code>标签可以嵌入在table中方便其中<code>&lt;input&gt;</code>的对齐。</h2></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/19/notes_of_html/" data-id="cjoo9m3xp0003v0ow0x976u9d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/19/notes_of_html/" data-id="cjou56esg0002u8ow992df60l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -295,7 +420,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/11/如何提问/" data-id="cjoo9m44n0004v0owrr7e8sw7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/11/如何提问/" data-id="cjou56evz0006u8owsha3i8t5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -331,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/09/我的博客/" data-id="cjoo9m3xb0002v0ow61k40shp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/09/我的博客/" data-id="cjou56eu30005u8ow33zfbctc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -376,7 +501,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/09/hello-world/" data-id="cjoo9m3sd0000v0own2ep0id7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/09/hello-world/" data-id="cjou56er00000u8owylajyig3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -417,6 +542,14 @@
       <ul>
         
           <li>
+            <a href="/2018/11/23/sumarry_week2_1/">总结—第一阶段第二周</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/23/notes_of_css/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/11/19/summary_week1_1/">总结—第一阶段第一周</a>
           </li>
         
@@ -426,14 +559,6 @@
         
           <li>
             <a href="/2018/11/11/如何提问/">如何提问</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/09/我的博客/">我的博客</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/09/hello-world/">Hello World</a>
           </li>
         
       </ul>

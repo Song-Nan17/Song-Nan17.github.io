@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="宋博客">
 <meta property="og:description" content="HTML 超文本标记语言，用于告诉浏览器如何构造要访问的网页，使用标签来描述内容和结构。标签 一个完整的标签应该有开始标签和闭合标签，如：&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt; 。 元素 = 开始标签 + 内容 + 结束标签 。 自闭和标签在标签末加/，如：&amp;lt;img src=&amp;quot;&amp;quot; /&amp;gt; 。display: inline; block; inline-block di">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-19T10:05:20.038Z">
+<meta property="og:updated_time" content="2018-11-23T13:38:22.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML基础笔记">
 <meta name="twitter:description" content="HTML 超文本标记语言，用于告诉浏览器如何构造要访问的网页，使用标签来描述内容和结构。标签 一个完整的标签应该有开始标签和闭合标签，如：&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt; 。 元素 = 开始标签 + 内容 + 结束标签 。 自闭和标签在标签末加/，如：&amp;lt;img src=&amp;quot;&amp;quot; /&amp;gt; 。display: inline; block; inline-block di">
@@ -119,31 +119,13 @@
 <li><code>display: inline-block</code>就是将对象呈递为内联对象。<br><code>inline-block</code>元素的特点：</li>
 <li>就是将对象呈递为内联对象，但是对象的内容作为块对象呈递。旁边的内联对象会被呈递在同一行内，允许空格。应用此特性的元素呈现为内联对象，周围元素保持在同一行，但可以设置宽度和高度，行高等块元素的属性。<h2 id="使用-lt-iframe-gt-标签嵌入其他网页时，若添加sandbox属性，应设置为allow-scripts"><a href="#使用-lt-iframe-gt-标签嵌入其他网页时，若添加sandbox属性，应设置为allow-scripts" class="headerlink" title="使用&lt;iframe&gt;标签嵌入其他网页时，若添加sandbox属性，应设置为allow-scripts."></a>使用<code>&lt;iframe&gt;</code>标签嵌入其他网页时，若添加<code>sandbox</code>属性，应设置为<code>allow-scripts</code>.</h2><h2 id="lt-table-gt-标签"><a href="#lt-table-gt-标签" class="headerlink" title="&lt;table&gt;标签"></a><code>&lt;table&gt;</code>标签</h2></li>
 <li><code>rowspan</code>代表该列跨多少行；</li>
-<li><code>colspan</code>代表改行跨多少列。<h2 id="lt-form-gt-标签可以嵌入在table中方便其中-lt-input-gt-的对齐。"><a href="#lt-form-gt-标签可以嵌入在table中方便其中-lt-input-gt-的对齐。" class="headerlink" title="&lt;form&gt;标签可以嵌入在table中方便其中&lt;input&gt;的对齐。"></a><code>&lt;form&gt;</code>标签可以嵌入在table中方便其中<code>&lt;input&gt;</code>的对齐。</h2><h1 id="CSS-层叠样式表，用于渲染HTML元素标签的样式。"><a href="#CSS-层叠样式表，用于渲染HTML元素标签的样式。" class="headerlink" title="CSS 层叠样式表，用于渲染HTML元素标签的样式。"></a>CSS 层叠样式表，用于渲染HTML元素标签的样式。</h1><h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2>除了几种常见的选择器外，还有：</li>
-<li><code>A *</code>选择A元素内的所有元素；</li>
-<li><code>A + B</code>选择所有<strong>直接</strong>跟在A元素后面的B元素；</li>
-<li><code>A ~ B</code>选择跟在A元素后面的所有B元素；</li>
-<li><code>:first-child</code>选择所有元素的第一个子级元素，如：<code>p:first-child</code>选择所有是第一个元素的p，<code>div p:first-child</code>选择所有div中的第一个p；</li>
-<li><code>:only-child</code>选择所有是父级元素唯一子元素的元素，如：<code>span:only-child</code>选择所有是唯一元素的span，<code>ul li:only-child</code>选择所有是ul中唯一元素的li；</li>
-<li><code>:last-child</code>选择所有元素的最后一个子级元素，如：<code>span:last-child</code>选择所有是最后一个元素的span，<code>div p:last-child</code>选择所有是div中最后一个元素的p；</li>
-<li><code>:nth-child(x)</code>选择有元素的第x个子级元素，如：<code>:nth-child(8)</code>选择所有第八个元素，<code>div p:nth-child(2)</code>选择所有是div中第8个元素的p；</li>
-<li><code>:nth-last-child(x)</code>选择所有元素的倒数第x个子级元素，如：<code>:nth-last-child(2)</code>选择所有的倒数第2个元素；</li>
-<li><code>:first-of-type</code>选择所有元素中的第一个某种元素，如：<code>span:first-of-type</code>选择所有的第一个span元素；</li>
-<li><code>:nth-of-type(x)</code>选择所有是type(x)的元素，如：<code>div:nth-of-type(2)</code>选择所有的第二个div元素，<code>.example:nth-of-type(odd)</code>选择所有的奇数个且类为example的元素；</li>
-<li><code>:nth-of-type(An+B)</code>从第B个开始选择所有第A个元素（包括第B个），如：<code>span:nth-of-type(6n+2)</code>从第2个开始数选择所有的第6个元素（选择包括一开始的第2个）;</li>
-<li><code>:only-of-type</code>选择在父级元素中是唯一一个该种类子级元素的子级元素，如：<code>p span:only-of-type</code>选择所有是p中唯一一个span的span；</li>
-<li><code>:last-of-type</code>选择在父级元素中是该种类子元素的最后一个的子级元素，如：<code>div:last-of-type</code>选择所有的最后一个div;</li>
-<li><code>:empty</code>选择所有没有子级元素的元素；</li>
-<li><code>:not(X)</code>选择所有非X的元素，如：<code>div:not(:first-child)</code>选择所有不是最后一个元素的div;</li>
-<li><code>[attribute^=&quot;value&quot;]</code>选择所有属性值以<code>value</code>开头的元素;</li>
-<li><code>[attribute$=&quot;value&quot;]</code>选择所有属性值以<code>value</code>结尾的元素;</li>
-<li><code>[attribute*=&quot;value&quot;]</code>选择所有属性值包含<code>value</code>的元素;</li>
+<li><code>colspan</code>代表改行跨多少列。<h2 id="lt-form-gt-标签可以嵌入在table中方便其中-lt-input-gt-的对齐。"><a href="#lt-form-gt-标签可以嵌入在table中方便其中-lt-input-gt-的对齐。" class="headerlink" title="&lt;form&gt;标签可以嵌入在table中方便其中&lt;input&gt;的对齐。"></a><code>&lt;form&gt;</code>标签可以嵌入在table中方便其中<code>&lt;input&gt;</code>的对齐。</h2></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/19/notes_of_html/" data-id="cjoo9m3xp0003v0ow0x976u9d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/19/notes_of_html/" data-id="cjou56esg0002u8ow992df60l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -201,6 +183,14 @@
       <ul>
         
           <li>
+            <a href="/2018/11/23/sumarry_week2_1/">总结—第一阶段第二周</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/23/notes_of_css/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/11/19/summary_week1_1/">总结—第一阶段第一周</a>
           </li>
         
@@ -210,14 +200,6 @@
         
           <li>
             <a href="/2018/11/11/如何提问/">如何提问</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/09/我的博客/">我的博客</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/09/hello-world/">Hello World</a>
           </li>
         
       </ul>
