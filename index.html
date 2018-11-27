@@ -690,7 +690,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/27/shortcut_keys/" data-id="cjozukpb50006x4owzl9o5q7m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/27/shortcut_keys/" data-id="cjozvil5j0006xgow2ufrj77s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -739,7 +739,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/sumarry_week2_1/" data-id="cjozukp9o0002x4owcks3i0g0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/23/sumarry_week2_1/" data-id="cjozvil470002xgowgy2fyxhh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -915,9 +915,12 @@
 <li>px，em，rem<ul>
 <li>px: 像素，相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</li>
 <li>em: 相对长度单位。相对于当前对象内文本的字体尺寸。em的值并不是固定的，em会继承父级元素的字体大小。任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。</li>
-<li>rem: CSS3新增的一个相对单位（root em，根em）。使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。无论是在哪个内容里，同样的rem大小，显示的字体大小都一样。<h2 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h2>CSS通过特异度解决块样式的冲突。</li>
+<li>rem: CSS3新增的一个相对单位（root em，根em）。使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。无论是在哪个内容里，同样的rem大小，显示的字体大小都一样。<h2 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h2></li>
 </ul>
 </li>
+</ul>
+<p>CSS通过特异度解决块样式的冲突。</p>
+<ul>
 <li>简单选择器的特异度级别：<ul>
 <li>level 0 ：*</li>
 <li>level 1 ：标签选择器、伪元素</li>
@@ -930,7 +933,7 @@
 <li>同一级别选择器，后写的覆盖先写的。</li>
 <li>有”!important”样式的，优先级最高。<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2></li>
 <li>子元素会继承父元素的样式。</li>
-<li>子元素的样式优先级高于父级元素。<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2>从里到外由<code>content</code>, <code>padding</code>(透明), <code>border</code>, <code>margin</code>(透明)组成。</li>
+<li>子元素的样式优先级高于父级元素。<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxn0q0dh1yj20ua0go3zz.jpg" alt=""><br>从里到外由<code>content</code>, <code>padding</code>(透明), <code>border</code>, <code>margin</code>(透明)组成。</li>
 <li><code>width</code>和<code>height</code>指<code>content box</code>的宽和高。</li>
 <li>添加<code>box-sizing:border-box</code>属性后，weight/height = border + padding + content.</li>
 <li>padding<br>指内边距。<ul>
@@ -947,18 +950,18 @@
 <li>需要时相邻的非浮动元素</li>
 <li>折叠发生在垂直外边距上</li>
 <li>折叠后取其中最大的margin作为最终值</li>
-<li><code>overflow:hidden;</code>，会取消margin折叠<h2 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h2>指的是溢出控制</li>
+<li><code>overflow:hidden;</code>，会取消margin折叠<h3 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h3>指的是溢出控制</li>
 </ul>
 </li>
-<li>取值：<code>visible</code> | <code>hidden</code> | <code>scroll</code> | <code>auto</code><h2 id="普通流"><a href="#普通流" class="headerlink" title="普通流"></a>普通流</h2>norm flow，将窗体自上而下的分为一行一行，块级元素从上至下，行内元素在每行中从左到右地挨次排放。</li>
+<li>取值：<code>visible</code> | <code>hidden</code> | <code>scroll</code> | <code>auto</code><h3 id="普通流"><a href="#普通流" class="headerlink" title="普通流"></a>普通流</h3>norm flow，将窗体自上而下的分为一行一行，块级元素从上至下，行内元素在每行中从左到右地挨次排放。</li>
 <li>除根元素、浮动元素和绝对定位元素外，其它元素都在常规流之内(in-flow)</li>
 <li>而根元素、 浮动和绝对定位的元素会脱离常规流(out of flow)</li>
-<li>常规流中的盒子，属于块级格式化上下文或行级格式化上下文<h2 id="float"><a href="#float" class="headerlink" title="float"></a>float</h2></li>
+<li>常规流中的盒子，属于块级格式化上下文或行级格式化上下文<h3 id="float"><a href="#float" class="headerlink" title="float"></a>float</h3></li>
 <li>浮动元素从常规流中脱离，被漂浮在容器(包含块)左边或右边</li>
 <li>浮动盒会一直漂到其外边缘挨到容器边缘或另外的浮动盒</li>
 <li>浮动元素不会影响其后面的流内块级盒</li>
-<li>但是浮动元素后面的行级盒子会变短以避开浮动元素<h2 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h2>指定元素哪一边不能与之前的浮动框相邻.</li>
-<li>取值：<code>left</code> | <code>right</code> | <code>both</code><h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2></li>
+<li>但是浮动元素后面的行级盒子会变短以避开浮动元素<h3 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h3>指定元素哪一边不能与之前的浮动框相邻.</li>
+<li>取值：<code>left</code> | <code>right</code> | <code>both</code><h3 id="position"><a href="#position" class="headerlink" title="position"></a>position</h3></li>
 <li><code>static</code>静态定位，元素出现在普通流中，不受top, left等影响。</li>
 <li><code>fixed</code>元素位置相对于浏览器窗口是固定位置，即使窗口滚动。eg: 广告。</li>
 <li><code>relative</code>元素相对于其正常位置定位。移动相对定位元素，但它原本所占空间不会改变。</li>
@@ -970,7 +973,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjozukpb00005x4owy3eq28dm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjozvil5e0005xgowyf1ir43h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1018,7 +1021,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/19/summary_week1_1/" data-id="cjozukp9x0003x4ow6hhmd8lz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/19/summary_week1_1/" data-id="cjozvil4f0003xgow0dhpsayc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1085,7 +1088,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/19/notes_of_html/" data-id="cjozukp9b0001x4ow049o3w6n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/19/notes_of_html/" data-id="cjozvil3s0001xgow66rako92" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1191,7 +1194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/11/如何提问/" data-id="cjozukpbc0007x4owea9qpu5j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/11/如何提问/" data-id="cjozvil5p0007xgowz3dot57x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1227,7 +1230,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/09/我的博客/" data-id="cjozukpa40004x4owt3b067di" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/09/我的博客/" data-id="cjozvil4m0004xgow860o97lz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1272,7 +1275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/09/hello-world/" data-id="cjozukp7x0000x4ow07gmbn6e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/09/hello-world/" data-id="cjozvil230000xgowyh0e5c4w" class="article-share-link">Share</a>
       
       
     </footer>
