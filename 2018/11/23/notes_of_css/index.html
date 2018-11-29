@@ -20,7 +20,8 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9tv050fj20b705tdh8.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9utr9sbj208l0braa8.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxn0q0dh1yj20ua0go3zz.jpg">
-<meta property="og:updated_time" content="2018-11-29T13:52:34.843Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxpahcwrsnj20ge09faa6.jpg">
+<meta property="og:updated_time" content="2018-11-29T14:22:06.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS基础笔记">
 <meta name="twitter:description" content="CSS 层叠样式表，用于渲染HTML元素标签的样式。CSS基础 应用CSS  外链： 1&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/path/to/style.css&amp;quot;&amp;gt;  嵌入： 1234&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;  li &amp;#123; margin: 0; list-sty">
@@ -315,7 +316,7 @@
 <li><code>hidden</code>内容会被修剪，并且其余内容是不可见的。</li>
 <li><code>scroll</code>内容会被修剪，但浏览器会显示滚动条以便查看其余的内容。</li>
 <li><code>auto</code>如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。</li>
-<li><code>inherit</code>从父元素继承<code>overflow</code>属性的值。</li>
+<li><code>inherit</code>从父元素继承<code>overflow</code>属性的值。<br><a href="">overflow</a></li>
 </ul>
 </li>
 </ul>
@@ -325,12 +326,13 @@
 <li><code>visible</code>默认值，元素是可见的。</li>
 <li><code>hidden</code>元素不可见</li>
 <li><code>collapse</code>在表格元素中使用时，此值可删除一列或一行，但不会影响表格的布局。被行或列占据的空间会留给其他内容使用。如果此值被用在其他的元素上，会呈现为<code>hidden</code>。</li>
-<li><code>inherit</code>从父元素继承<code>visibility</code>属性的值。<h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2></li>
+<li><code>inherit</code>从父元素继承<code>visibility</code>属性的值。<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxpahcwrsnj20ge09faa6.jpg" alt=""><br><a href="">visibility</a><h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>定位模式<ul>
+<li><p>定位模式</p>
+<ul>
 <li>常规流<br>norm flow，将窗体自上而下的分为一行一行，块级元素从上至下，行内元素在每行中从左到右地挨次排放。<ul>
 <li>除根元素、浮动元素和绝对定位元素外，其它元素都在常规流之内(in-flow)</li>
 <li>而根元素、 浮动和绝对定位的元素会脱离常规流(out of flow)</li>
@@ -366,39 +368,23 @@
 <li>定位position<br>指定了元素的定位类型。<ul>
 <li><code>static</code>默认值，即没有定位，元素出现在普通流中。</li>
 <li><code>fixed</code>元素的位置相对于浏览器窗口是固定位置。即使窗口是滚动的它也不会移动（广告）。</li>
-<li><code>relative</code>相对定位元素的定位是相对其正常位置。移动相对定位元素，但它<strong>原本所占的空间不会改变</strong>相对定位元素经常被用来作为绝对定位元素的容器块。</li>
+<li><code>relative</code>相对定位元素的定位是相对其正常位置。移动相对定位元素，但它<strong>原本所占的空间不会改变</strong>相对定位元素经常被用来作为绝对定位元素的容器块。<br><a href="">relative</a></li>
 <li><code>absolute</code>绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于<html>。absolute 定位使元素的位置与文档流无关，因此<strong>不占据空间</strong>。</html></li>
 <li><code>sticky</code>粘性定位，基于用户的滚动位置来定位。</li>
-<li>元素重叠<br>-元素的定位与文档流无关，所以它们可以覆盖页面上的其它元素。<code>z-index</code>属性指定了一个元素的堆叠顺序（哪个元素应该放在前面，或后面）,具有更高堆叠顺序的元素总是在较低的堆叠顺序元素的前面。</li>
+<li>元素重叠<br>-元素的定位与文档流无关，所以它们可以覆盖页面上的其它元素。<code>z-index</code>属性指定了一个元素的堆叠顺序（哪个元素应该放在前面，或后面）,具有更高堆叠顺序的元素总是在较低的堆叠顺序元素的前面。<br><a href="">z-index</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>clear<br>清除浮动，指定元素哪一边不能与之前的浮动框相邻。</li>
-<li><p>取值：<code>left</code> | <code>right</code> | <code>both</code></p>
+<li><p>clear<br>清除浮动，指定元素哪一边不能与之前的浮动框相邻。</p>
 </li>
-<li><p>Ctrl + shift + N/W</p>
-</li>
-<li>Ctrl + P</li>
-<li>Ctrl + K + O</li>
-<li>Alt + 单击</li>
-<li>Ctrl + ]/[</li>
-<li>Ctrl + Shift +]/[</li>
-<li>Ctrl + /</li>
-<li>Ctrl + F</li>
-<li>Ctrl + H</li>
-<li>Alt + Enter</li>
-<li>Shift + A + F</li>
-<li>Ctrl + K + F</li>
-<li>Ctrl + A</li>
-<li>Ctrl + ↑/↓</li>
-<li>Shift + ↑/↓</li>
+<li>取值：<code>left</code> | <code>right</code> | <code>both</code></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjp2o6ip20006bcowzvxv7glq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjp2owjw5000azcowia5boxej" class="article-share-link">Share</a>
       
       
     </footer>
@@ -456,23 +442,23 @@
       <ul>
         
           <li>
-            <a href="/2018/11/29/overflow/">(no title)</a>
+            <a href="/2018/11/29/z_index/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/29/relative/">relative</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/29/visibility/">visibility</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/29/overflow/">overflow</a>
           </li>
         
           <li>
             <a href="/2018/11/27/shortcut_keys/">VsCode快捷键</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/24/notes_of_javascript/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/23/sumarry_week2_1/">总结—第一阶段第二周</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/23/notes_of_css/">CSS基础笔记</a>
           </li>
         
       </ul>
