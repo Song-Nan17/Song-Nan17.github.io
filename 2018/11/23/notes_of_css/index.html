@@ -7,19 +7,19 @@
   
   <title>CSS基础笔记 | 宋博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CSS 层叠样式表，用于渲染HTML元素标签的样式。CSS基础 应用CSS  外链： 嵌入： 1234&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;  li &amp;#123; margin: 0; list-style: none; &amp;#125;  p &amp;#123; margin: 1em 0; &amp;#125;&amp;lt;/style&amp;gt;  内联：Example Con">
+  <meta name="description" content="CSS 层叠样式表，用于渲染HTML元素标签的样式。CSS基础 应用CSS  外链： 嵌入： 1234&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;  li &amp;#123; margin: 0; list-style: none; &amp;#125;  p &amp;#123; margin: 1em 0; &amp;#125;&amp;lt;/style&amp;gt;  内联： 1&amp;lt;p sty">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS基础笔记">
 <meta property="og:url" content="http://yoursite.com/2018/11/23/notes_of_css/index.html">
 <meta property="og:site_name" content="宋博客">
-<meta property="og:description" content="CSS 层叠样式表，用于渲染HTML元素标签的样式。CSS基础 应用CSS  外链： 嵌入： 1234&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;  li &amp;#123; margin: 0; list-style: none; &amp;#125;  p &amp;#123; margin: 1em 0; &amp;#125;&amp;lt;/style&amp;gt;  内联：Example Con">
+<meta property="og:description" content="CSS 层叠样式表，用于渲染HTML元素标签的样式。CSS基础 应用CSS  外链： 嵌入： 1234&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;  li &amp;#123; margin: 0; list-style: none; &amp;#125;  p &amp;#123; margin: 1em 0; &amp;#125;&amp;lt;/style&amp;gt;  内联： 1&amp;lt;p sty">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxmzl0qyvej20ic08mjrw.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxn0q0dh1yj20ua0go3zz.jpg">
-<meta property="og:updated_time" content="2018-11-27T15:11:25.858Z">
+<meta property="og:updated_time" content="2018-11-29T11:55:11.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS基础笔记">
-<meta name="twitter:description" content="CSS 层叠样式表，用于渲染HTML元素标签的样式。CSS基础 应用CSS  外链： 嵌入： 1234&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;  li &amp;#123; margin: 0; list-style: none; &amp;#125;  p &amp;#123; margin: 1em 0; &amp;#125;&amp;lt;/style&amp;gt;  内联：Example Con">
+<meta name="twitter:description" content="CSS 层叠样式表，用于渲染HTML元素标签的样式。CSS基础 应用CSS  外链： 嵌入： 1234&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;  li &amp;#123; margin: 0; list-style: none; &amp;#125;  p &amp;#123; margin: 1em 0; &amp;#125;&amp;lt;/style&amp;gt;  内联： 1&amp;lt;p sty">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxmzl0qyvej20ic08mjrw.jpg">
   
     <link rel="alternate" href="/atom.xml" title="宋博客" type="application/atom+xml">
@@ -101,11 +101,13 @@
 <li><p>嵌入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">  li &#123; margin: 0; list-style: none; &#125;</span><br><span class="line">  p &#123; margin: 1em 0; &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>内联：</p><p style="margin:1em 0">Example Content</p><p></p>
+<li><p>内联：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style=&quot;margin:1em 0&quot;&gt;Example Content&lt;/p&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li>颜色<ul>
+<li><p>颜色</p>
+<ul>
 <li>关键字，如：red → 红色，blue → 蓝色等</li>
 <li>Hex，用三位16进制的数字来表示，分别代表rgb三色的值大小，从 0 到 ff，以此代表0-255，如：#4286f4</li>
 <li>RGB &amp; RGBA，rgb分别代表红色、绿色、蓝色，值分别为0-255，其中a代表透明度，如：rgb(66, 134, 244), rgba(66, 134, 244,0.5), </li>
@@ -113,13 +115,13 @@
 </ul>
 </li>
 <li>单位<ul>
-<li>px：像素，对应显示器的一个像素点（绝对单位）</li>
-<li>em：相对于该元素的一个 font-size</li>
-<li>rem：相对于 html 元素的 font-size</li>
-<li>vh：浏览器窗口高度的 1%</li>
-<li>vw：浏览器窗口宽度的 1%</li>
-<li>vmin：vh 和 vw 中的较小者</li>
-<li>vmax：vh 和 vw 中的较大者</li>
+<li><code>px</code>：像素，对应显示器的一个像素点（绝对单位）</li>
+<li><code>em</code>：相对于该元素的一个 font-size</li>
+<li><code>rem</code>：相对于 html 元素的 font-size</li>
+<li><code>vh</code>：浏览器窗口高度的 1%</li>
+<li><code>vw</code>：浏览器窗口宽度的 1%</li>
+<li><code>vmin</code>：vh 和 vw 中的较小者</li>
+<li><code>vmax</code>：vh 和 vw 中的较大者</li>
 </ul>
 </li>
 </ul>
@@ -239,9 +241,9 @@
 </ul>
 </li>
 <li>px，em，rem<ul>
-<li>px: 像素，相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</li>
-<li>em: 相对长度单位。相对于当前对象内文本的字体尺寸。em的值并不是固定的，em会继承父级元素的字体大小。任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。</li>
-<li>rem: CSS3新增的一个相对单位（root em，根em）。使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。无论是在哪个内容里，同样的rem大小，显示的字体大小都一样。</li>
+<li><code>px</code>: 像素，相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</li>
+<li><code>em</code>: 相对长度单位。相对于当前对象内文本的字体尺寸。em的值并不是固定的，em会继承父级元素的字体大小。任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。</li>
+<li><code>rem</code>: CSS3新增的一个相对单位（root em，根em）。使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。无论是在哪个内容里，同样的rem大小，显示的字体大小都一样。</li>
 </ul>
 </li>
 </ul>
@@ -263,8 +265,15 @@
 <li>子元素会继承父元素的样式。</li>
 <li>子元素的样式优先级高于父级元素。</li>
 </ul>
-<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxn0q0dh1yj20ua0go3zz.jpg" alt=""><br>从里到外由<code>content</code>, <code>padding</code>(透明), <code>border</code>, <code>margin</code>(透明)组成。</p>
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxn0q0dh1yj20ua0go3zz.jpg" alt=""></p>
 <ul>
+<li>从里到外由<code>content</code>, <code>padding</code>(透明), <code>border</code>, <code>margin</code>(透明)组成。<ul>
+<li>Margin（外边距）- 清除边框外的区域，外边距是透明的</li>
+<li>Border（边框）- 围绕在内边距和内容外的边框</li>
+<li>Padding（内边距）- 清除内容周围的区域，内边距是透明的</li>
+<li>Content（内容）- 盒子的内容，可用来显示文本和各类型多媒体文件</li>
+</ul>
+</li>
 <li><code>width</code>和<code>height</code>指<code>content box</code>的宽和高。</li>
 <li>添加<code>box-sizing:border-box</code>属性后，weight/height = border + padding + content.</li>
 <li>padding<br>指内边距。<ul>
@@ -272,52 +281,104 @@
 <li>缩写：<code>padding: top&amp;bottom值, right&amp;left值;（上下-右左）</code></li>
 </ul>
 </li>
+<li>border<ul>
+<li>边框的三个要素：<ul>
+<li><code>border-width</code>：<code>&lt;length&gt;</code> | <code>thin</code> | <code>medium</code> | <code>thick</code> </li>
+<li><code>border-style</code>: <code>none</code> | <code>solid</code> | <code>dashed</code> | <code>dotted</code> | <code>double</code></li>
+<li><code>border-color</code>: <code>&lt;color&gt;</code></li>
+</ul>
+</li>
+<li>四个方向：<code>border-top</code>, <code>border-right</code>, <code>border-bottom</code>, <code>border-left</code> </li>
+</ul>
+</li>
 <li>margin：<br>指外边距。<ul>
 <li>缩写：<code>margin: top值, right值, bottom值, left值;（上-右-下-左）</code></li>
 <li>缩写：<code>margin: top&amp;bottom值, right&amp;left值;（上下-右左）</code></li>
 </ul>
 </li>
-<li>margin折叠<br>两个或多个普通文档流盒子垂直方向上的外边距会发生折叠。margin折叠是为实现文本段落间距而提供的特性，多数情况下，折叠垂直外边距可以在视觉上显得更美观。<ul>
-<li>需要时相邻的非浮动元素</li>
+<li><p>margin折叠</p>
+<ul>
+<li>两个或多个<strong>普通文档流</strong>盒子<strong>垂直方向</strong>上的外边距会发生折叠。margin折叠是为实现文本段落间距而提供的特性，多数情况下，折叠垂直外边距可以在视觉上显得更美观。</li>
+<li>需要是相邻的非浮动元素</li>
 <li>折叠发生在垂直外边距上</li>
 <li>折叠后取其中最大的margin作为最终值</li>
 <li><code>overflow:hidden;</code>，会取消margin折叠</li>
 </ul>
 </li>
-</ul>
-<h3 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h3><p>指的是溢出控制</p>
+<li><p>overflow<br>规定当内容溢出元素框时发生的事情</p>
 <ul>
-<li>取值：<code>visible</code> | <code>hidden</code> | <code>scroll</code> | <code>auto</code></li>
+<li>取值：<ul>
+<li><code>visible</code>默认值，内容不会被修剪，会呈现在元素框之外。</li>
+<li><code>hidden</code>内容会被修剪，并且其余内容是不可见的。</li>
+<li><code>scroll</code>内容会被修剪，但浏览器会显示滚动条以便查看其余的内容。</li>
+<li><code>auto</code>如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。</li>
+<li><code>inherit</code>从父元素继承<code>overflow</code>属性的值。</li>
 </ul>
-<h3 id="普通流"><a href="#普通流" class="headerlink" title="普通流"></a>普通流</h3><p>norm flow，将窗体自上而下的分为一行一行，块级元素从上至下，行内元素在每行中从左到右地挨次排放。</p>
-<ul>
+</li>
+</ul>
+</li>
+<li>visibility<br>规定元素是否可见<ul>
+<li>取值：<ul>
+<li><code>visible</code>默认值，元素是可见的。</li>
+<li><code>hidden</code>元素不可见</li>
+<li><code>collapse</code>在表格元素中使用时，此值可删除一列或一行，但不会影响表格的布局。被行或列占据的空间会留给其他内容使用。如果此值被用在其他的元素上，会呈现为<code>hidden</code>。</li>
+<li><code>inherit</code>从父元素继承<code>visibility</code>属性的值。<h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>定位模式<ul>
+<li>常规流<br>norm flow，将窗体自上而下的分为一行一行，块级元素从上至下，行内元素在每行中从左到右地挨次排放。<ul>
 <li>除根元素、浮动元素和绝对定位元素外，其它元素都在常规流之内(in-flow)</li>
 <li>而根元素、 浮动和绝对定位的元素会脱离常规流(out of flow)</li>
-<li>常规流中的盒子，属于块级格式化上下文或行级格式化上下文</li>
+<li>常规流中的盒子，属于块级格式化上下文(BFC)或行级格式化上下文(IFC)<ul>
+<li>块级格式化上下文（Block Formatting Context）<ul>
+<li>盒子在容器（包含块）内从上到下一个接一个地放置</li>
+<li>两个兄弟盒之间的竖直距离由 margin 属性决定</li>
+<li>同一个 BFC 内垂直 margin 会合并</li>
+<li>盒子的左外边缘挨着容器（包含块）的左边</li>
 </ul>
-<h3 id="float"><a href="#float" class="headerlink" title="float"></a>float</h3><ul>
+</li>
+<li>行级格式化上下文（Inline Formatting Context）<ul>
+<li>盒子一个接一个水平放置盒之间的水平</li>
+<li>margin，border和padding 都有效</li>
+<li>同一行的盒子所在的矩形区域叫行盒(Line box)</li>
+<li>当一个行盒放不下上下文内所有盒子时，会被分到多个垂直堆叠的行盒里</li>
+<li>行盒内的水平分布由’text-align’属性决定</li>
+<li>如果一个行级块无法分割(单词、inline-block)，该元素会被作为一个整体决定分布在哪一个行盒</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>浮动float<ul>
 <li>浮动元素从常规流中脱离，被漂浮在容器(包含块)左边或右边</li>
 <li>浮动盒会一直漂到其外边缘挨到容器边缘或另外的浮动盒</li>
 <li>浮动元素不会影响其后面的流内块级盒</li>
 <li>但是浮动元素后面的行级盒子会变短以避开浮动元素</li>
+<li>取值：<code>left</code> | <code>right</code> | <code>none</code> | <code>inherit</code> </li>
 </ul>
-<h3 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h3><p>指定元素哪一边不能与之前的浮动框相邻.</p>
-<ul>
+</li>
+<li>定位position<br>指定了元素的定位类型。<ul>
+<li><code>static</code>默认值，即没有定位，元素出现在普通流中。</li>
+<li><code>fixed</code>元素的位置相对于浏览器窗口是固定位置。即使窗口是滚动的它也不会移动（广告）。</li>
+<li><code>relative</code>相对定位元素的定位是相对其正常位置。移动相对定位元素，但它<strong>原本所占的空间不会改变</strong>相对定位元素经常被用来作为绝对定位元素的容器块。</li>
+<li><code>absolute</code>绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于<html>。absolute 定位使元素的位置与文档流无关，因此<strong>不占据空间</strong>。</html></li>
+<li><code>sticky</code>粘性定位，基于用户的滚动位置来定位。</li>
+<li>元素重叠<br>-元素的定位与文档流无关，所以它们可以覆盖页面上的其它元素。<code>z-index</code>属性指定了一个元素的堆叠顺序（哪个元素应该放在前面，或后面）,具有更高堆叠顺序的元素总是在较低的堆叠顺序元素的前面。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>clear<br>清除浮动，指定元素哪一边不能与之前的浮动框相邻。</li>
 <li>取值：<code>left</code> | <code>right</code> | <code>both</code></li>
-</ul>
-<h3 id="position"><a href="#position" class="headerlink" title="position"></a>position</h3><ul>
-<li><code>static</code>静态定位，元素出现在普通流中，不受top, left等影响。</li>
-<li><code>fixed</code>元素位置相对于浏览器窗口是固定位置，即使窗口滚动。eg: 广告。</li>
-<li><code>relative</code>元素相对于其正常位置定位。移动相对定位元素，但它原本所占空间不会改变。</li>
-<li><code>absolute</code>相对于最近的已定位父元素进行定位，元素不再占有父文档流位置。</li>
-<li><code>z-index</code>用于指定元素的堆叠顺序。</li>
-<li><code>sticky</code>基于用户的滚动位置来定位。</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjozvquvd0005p0owcry804qn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjp2jpb8f00022kow2fgxcu2a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -379,6 +440,10 @@
           </li>
         
           <li>
+            <a href="/2018/11/24/notes_of_javascript/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/11/23/sumarry_week2_1/">总结—第一阶段第二周</a>
           </li>
         
@@ -388,10 +453,6 @@
         
           <li>
             <a href="/2018/11/19/summary_week1_1/">总结—第一阶段第一周</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/19/notes_of_html/">HTML基础笔记</a>
           </li>
         
       </ul>
