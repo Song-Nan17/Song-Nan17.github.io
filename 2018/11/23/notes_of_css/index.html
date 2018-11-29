@@ -14,13 +14,17 @@
 <meta property="og:site_name" content="宋博客">
 <meta property="og:description" content="CSS 层叠样式表，用于渲染HTML元素标签的样式。CSS基础 应用CSS  外链： 1&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/path/to/style.css&amp;quot;&amp;gt;  嵌入： 1234&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;  li &amp;#123; margin: 0; list-sty">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9v7ks69j20bx0gyq3c.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9v7ks69j20bx0gyq3c.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxmzl0qyvej20ic08mjrw.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9tv050fj20b705tdh8.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9utr9sbj208l0braa8.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxn0q0dh1yj20ua0go3zz.jpg">
-<meta property="og:updated_time" content="2018-11-29T12:42:14.122Z">
+<meta property="og:updated_time" content="2018-11-29T13:52:34.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS基础笔记">
 <meta name="twitter:description" content="CSS 层叠样式表，用于渲染HTML元素标签的样式。CSS基础 应用CSS  外链： 1&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/path/to/style.css&amp;quot;&amp;gt;  嵌入： 1234&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;  li &amp;#123; margin: 0; list-sty">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxmzl0qyvej20ic08mjrw.jpg">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9v7ks69j20bx0gyq3c.jpg">
   
     <link rel="alternate" href="/atom.xml" title="宋博客" type="application/atom+xml">
   
@@ -204,13 +208,11 @@
 </ul>
 </li>
 <li>target 伪类<ul>
-<li><code>E:target</code>    匹配文档中特定”id”点击后的效果</li>
+<li><code>E:target</code>    匹配文档中特定”id”点击后的效果<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9v7ks69j20bx0gyq3c.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9v7ks69j20bx0gyq3c.jpg" alt=""><h2 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h2></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-<h2 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h2><ul>
 <li>字体匹配算法简介<ul>
 <li>浏览器先获取一个系统字体列表</li>
 <li>对于元素中每一个字符，使用 <code>font-family</code> 属性及其它属性进行匹配，如果能匹配就暂定该字体</li>
@@ -242,16 +244,15 @@
 </li>
 </ul>
 </li>
-<li>px，em，rem<ul>
+<li><p>px，em，rem</p>
+<ul>
 <li><code>px</code>: 像素，相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</li>
 <li><code>em</code>: 相对长度单位。相对于当前对象内文本的字体尺寸。em的值并不是固定的，em会继承父级元素的字体大小。任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。</li>
-<li><code>rem</code>: CSS3新增的一个相对单位（root em，根em）。使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。无论是在哪个内容里，同样的rem大小，显示的字体大小都一样。</li>
+<li><code>rem</code>: CSS3新增的一个相对单位（root em，根em）。使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。无论是在哪个内容里，同样的rem大小，显示的字体大小都一样。<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9tv050fj20b705tdh8.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9utr9sbj208l0braa8.jpg" alt=""><h2 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h2>CSS通过特异度解决块样式的冲突。</li>
 </ul>
 </li>
-</ul>
-<h2 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h2><p>CSS通过特异度解决块样式的冲突。</p>
+<li><p>简单选择器的特异度级别：</p>
 <ul>
-<li>简单选择器的特异度级别：<ul>
 <li>level 0 ：*</li>
 <li>level 1 ：标签选择器、伪元素</li>
 <li>level 2 ：类、伪类</li>
@@ -397,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjp2lfbnm00050oowfw96jqip" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjp2o3mzk00060kowy5wh1q3x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -455,6 +456,10 @@
       <ul>
         
           <li>
+            <a href="/2018/11/29/overflow/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/11/27/shortcut_keys/">VsCode快捷键</a>
           </li>
         
@@ -468,10 +473,6 @@
         
           <li>
             <a href="/2018/11/23/notes_of_css/">CSS基础笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/19/summary_week1_1/">总结—第一阶段第一周</a>
           </li>
         
       </ul>
