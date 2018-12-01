@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="宋博客">
 <meta property="og:description" content="作用域 作用域是你的代码在运行时，各个变量、函数和对象的可访问性。为什么需要作用域？ 最小访问原则 通过显示变量的可见性，为代码提供了一个安全层级。JavaScript作用域   全局作用域 局部作用域全局作用域 JavaScript 文档中（document）只有一个全局作用域。定义在函数之外的变量会被保存在全局作用域中。 全局作用域里的变量能够在其他作用域中被访问和修改。 一个应用中全局作用域">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-01T14:48:08.549Z">
+<meta property="og:updated_time" content="2018-12-01T15:05:53.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS基础1笔记">
 <meta name="twitter:description" content="作用域 作用域是你的代码在运行时，各个变量、函数和对象的可访问性。为什么需要作用域？ 最小访问原则 通过显示变量的可见性，为代码提供了一个安全层级。JavaScript作用域   全局作用域 局部作用域全局作用域 JavaScript 文档中（document）只有一个全局作用域。定义在函数之外的变量会被保存在全局作用域中。 全局作用域里的变量能够在其他作用域中被访问和修改。 一个应用中全局作用域">
@@ -178,16 +178,17 @@
 </li>
 <li><p>字符串搜索</p>
 <ul>
-<li><p><code>includes()</code>：判断一个字符串是否包含在另一个字符串中，根据情况返回<code>true</code>或<code>false</code>，区分大小写。如：</p>
+<li><code>includes()</code>：判断一个字符串是否包含在另一个字符串中，根据情况返回<code>true</code>或<code>false</code>，区分大小写。如：</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;Blue Whale&apos;.includes(&apos;blue&apos;); // false (大小写不同)</span><br><span class="line">&apos;Blue Whale&apos;.includes(&apos;Blue&apos;); // true</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+<ul>
 <li><p><code>indexOf()</code>：从字符串的开头开始搜索子字符串（传入的第一个参数），并返回第一次出现的子字符串的开始位置。如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var stringOne = “Johnny Waldo Harrison Waldo” ;</span><br><span class="line">var wheresWaldo = stringOne.indexOf（“Waldo”）; // 7</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>lastIndexOf()</code>：返回传入的子字符串的最后一次出现的起始位置。如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var stringOne = “Johnny Waldo Harrison Waldo” ;</span><br><span class="line">var wheresWaldo = stringOne.lastIndexOf（“Waldo”）; // 22</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
 </li>
 <li><p>替换字符串</p>
 <ul>
@@ -195,22 +196,22 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var slugger = “Josh Hamilton” ;</span><br><span class="line">var betterSlugger = slugger.replace（“h Hamilton”，“e Bautista”）;</span><br><span class="line">console .log（betterSlugger）; //“Jose Bautista”</span><br></pre></td></tr></table></figure>
 <ul>
 <li>第一个参数是要替换的子字符串，第二个参数是新的子字符串。这只会替换匹配的子字符串的第一个实例。</li>
-<li>要替换匹配的子字符串的所有实例，请使用带有全局标志的正则表达式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   var myString = &quot;She sells automotive shells on the automotive shore&quot;;</span><br><span class="line">var newString = myString.replace(/automotive/g, &quot;sea&quot;);</span><br><span class="line">console.log(newString); // &quot;She sells sea shells on the sea shore&quot;</span><br></pre></td></tr></table></figure>
-</li>
+<li>要替换匹配的子字符串的所有实例，请使用带有全局标志的正则表达式。</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   var myString = &quot;She sells automotive shells on the automotive shore&quot;;</span><br><span class="line">var newString = myString.replace(/automotive/g, &quot;sea&quot;);</span><br><span class="line">console.log(newString); // &quot;She sells sea shells on the sea shore&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>提取子字符串</p>
 <ul>
-<li><p><code>substr()</code>: 返回一个字符串中从指定位置开始到指定字符数的字符，两个参数分别为<strong>开始提取字符的位置</strong>和<strong>提取的字符数长度</strong>（可选）。如：</p>
+<li><code>substr()</code>: 返回一个字符串中从指定位置开始到指定字符数的字符，两个参数分别为<strong>开始提取字符的位置</strong>和<strong>提取的字符数长度</strong>（可选）。如：</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;abcdefghij&apos;;</span><br><span class="line">str.substr(0,3); // &apos;abc&apos;</span><br><span class="line">tr.substr(3,3); // &apos;def&apos;</span><br><span class="line">str.substr(3); // &apos;defghij&apos;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>substring()</code>：返回一个字符串在开始索引位置到结束索引位置之间的一个子集，或从开始索引直到字符串的末尾的一个子集。与<code>substr()</code>方法不同的是，<code>substring()</code>方法的第二个参数是<strong>结束提取字符的位置</strong>（可选）。如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;abcdefghij&apos;;</span><br><span class="line">str.substring(0,3); // &apos;abc&apos;</span><br><span class="line">str.substring(3,3); // &apos;&apos;  (因为从3到3，中间没有字符)</span><br><span class="line">str.substring(3); // &apos;defghij&apos;</span><br><span class="line">str.substring(2,3); // &apos;c&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>slice()</code>：与<code>substring()</code>参数相同。</p>
-</li>
+<ul>
+<li><code>slice()</code>：与<code>substring()</code>参数相同。</li>
 </ul>
 </li>
 <li><p>将字符串转换为大写或小写</p>
@@ -219,9 +220,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var stringOne = &quot;Speak up, I can&apos;t hear you.&quot;;</span><br><span class="line">var stringTwo = stringOne.toLocaleUpperCase(); // &quot;SPEAK UP, I CAN&apos;T HEAR YOU&quot;</span><br><span class="line">var stringThree = stringOne.toUpperCase(); // &quot;SPEAK UP, I CAN&apos;T HEAR YOU&quot;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>将字符串全部转换为小写<code>toLocalLowerCase()</code>, <code>toLowerCase()</code>。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var stringOne = &quot;YOU DON&apos;T HAVE TO YELL&quot;;</span><br><span class="line">var stringTwo = stringOne.toLocaleLowerCase(); // &quot;you don&apos;t have to yell&quot;</span><br><span class="line">var stringThree = stringOne.toLowerCase(); // &quot;you don&apos;t have to yell&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var stringOne = &quot;YOU DON&apos;T HAVE TO YELL&quot;;</span><br><span class="line">var stringTwo = stringOne.toLocaleLowerCase(); // &quot;you don&apos;t have to yell&quot;</span><br><span class="line">var stringThree = stringOne.toLowerCase(); // &quot;you don&apos;t have to yell&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>数组是数据的有序列表，在JavaScript中，数组中的每一项可以保存任何类型的数据，也就是说可以用数组的第一项保存字符串，第二项保存数值，第三项保存对象等，同时，JavaScript中数组的长度是可以动态调整的，即可以随着数据的添加自动增长以容纳新增数据。</p>
@@ -253,12 +254,13 @@
 <ul>
 <li><p>语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.every(callback[, thisArg])</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>callback</code> 用来测试每个元素的函数。</li>
-<li><code>thisArg</code> 执行<code>callback</code>时使用的<code>this</code> 值。</li>
-</ul>
 </li>
-<li>示例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function isBigEnough(element, index, array) &#123;</span><br><span class="line">return (element &gt;= 10);</span><br><span class="line">&#125;</span><br><span class="line">var passed = [12, 5, 8, 130, 44].every(isBigEnough);</span><br><span class="line">// passed is false</span><br><span class="line">passed = [12, 54, 18, 130, 44].every(isBigEnough);</span><br><span class="line">// passed is true</span><br></pre></td></tr></table></figure>
+<li><p><code>callback</code> 用来测试每个元素的函数。</p>
+</li>
+<li><p><code>thisArg</code> 执行<code>callback</code>时使用的<code>this</code> 值。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function isBigEnough(element, index, array) &#123;</span><br><span class="line">return (element &gt;= 10);</span><br><span class="line">&#125;</span><br><span class="line">var passed = [12, 5, 8, 130, 44].every(isBigEnough);</span><br><span class="line">// passed is false</span><br><span class="line">passed = [12, 54, 18, 130, 44].every(isBigEnough);</span><br><span class="line">// passed is true</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -305,9 +307,8 @@
 <ul>
 <li><p>语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.includes(searchElement)</span><br><span class="line">arr.includes(searchElement, fromIndex)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>fromIndex</code>(可选)从该索引处开始查找 <code>searchElement</code>。如果为负值，则按升序从 <code>array.length - fromIndex</code> 的索引开始搜索。默认为 0。</li>
-</ul>
+</li>
+<li><p><code>fromIndex</code>(可选)从该索引处开始查找 <code>searchElement</code>。如果为负值，则按升序从 <code>array.length - fromIndex</code> 的索引开始搜索。默认为 0。</p>
 </li>
 <li>示例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3].includes(2);     // true</span><br><span class="line">[1, 2, 3].includes(4);     // false</span><br><span class="line">[1, 2, 3].includes(3, 3);  // false</span><br><span class="line">[1, 2, 3].includes(3, -1); // true</span><br><span class="line">[1, 2, NaN].includes(NaN); // true</span><br></pre></td></tr></table></figure>
 </li>
@@ -317,9 +318,8 @@
 <ul>
 <li><p>语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.indexOf(searchElement)</span><br><span class="line">arr.indexOf(searchElement[, fromIndex = 0])</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>fromIndex</code>开始查找的位置。如果该索引值大于或等于数组长度，意味着不会在数组里查找，返回-1。如果参数中提供的索引值是一个负值，则将其作为数组末尾的一个抵消，即-1表示从最后一个元素开始查找，-2表示从倒数第二个元素开始查找 ，以此类推。 注意：如果参数中提供的索引值是一个负值，并不改变其查找顺序，<strong>查找顺序仍然是从前向后查询数组</strong>。如果抵消后的索引值仍小于0，则整个数组都将会被查询。其默认值为0.</li>
-</ul>
+</li>
+<li><p><code>fromIndex</code>开始查找的位置。如果该索引值大于或等于数组长度，意味着不会在数组里查找，返回-1。如果参数中提供的索引值是一个负值，则将其作为数组末尾的一个抵消，即-1表示从最后一个元素开始查找，-2表示从倒数第二个元素开始查找 ，以此类推。 注意：如果参数中提供的索引值是一个负值，并不改变其查找顺序，<strong>查找顺序仍然是从前向后查询数组</strong>。如果抵消后的索引值仍小于0，则整个数组都将会被查询。其默认值为0.</p>
 </li>
 <li>示例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var array = [2, 5, 9];</span><br><span class="line">array.indexOf(2);     // 0</span><br><span class="line">array.indexOf(7);     // -1</span><br><span class="line">array.indexOf(9, 2);  // 2</span><br><span class="line">array.indexOf(2, -1); // -1</span><br></pre></td></tr></table></figure>
 </li>
@@ -439,7 +439,7 @@ return str;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/24/notes_of_js_1/" data-id="cjp5kqj6f000a2kowj4lw2smy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/24/notes_of_js_1/" data-id="cjp5lbcj5000cp0owo9gjppx5" class="article-share-link">Share</a>
       
       
     </footer>
