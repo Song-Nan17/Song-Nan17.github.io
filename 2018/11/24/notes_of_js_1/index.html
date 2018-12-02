@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="宋博客">
 <meta property="og:description" content="作用域 作用域是你的代码在运行时，各个变量、函数和对象的可访问性。为什么需要作用域？ 最小访问原则 通过显示变量的可见性，为代码提供了一个安全层级。JavaScript作用域   全局作用域 局部作用域全局作用域 JavaScript 文档中（document）只有一个全局作用域。定义在函数之外的变量会被保存在全局作用域中。 全局作用域里的变量能够在其他作用域中被访问和修改。 一个应用中全局作用域">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-02T14:05:39.633Z">
+<meta property="og:updated_time" content="2018-12-02T14:08:37.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS基础1笔记">
 <meta name="twitter:description" content="作用域 作用域是你的代码在运行时，各个变量、函数和对象的可访问性。为什么需要作用域？ 最小访问原则 通过显示变量的可见性，为代码提供了一个安全层级。JavaScript作用域   全局作用域 局部作用域全局作用域 JavaScript 文档中（document）只有一个全局作用域。定义在函数之外的变量会被保存在全局作用域中。 全局作用域里的变量能够在其他作用域中被访问和修改。 一个应用中全局作用域">
@@ -400,50 +400,133 @@
 </li>
 <li><p><code>sort()</code> 方法用原地算法对数组的元素进行排序，并返回数组。排序算法现在是稳定的。<strong>默认排序顺序是根据字符串Unicode码点</strong>。</p>
 <ul>
-<li><p>语法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    arr.sort([compareFunction])</span><br><span class="line">    ``` </span><br><span class="line">- `splice()`方法通过删除现有元素和/或添加新元素来修改数组,并以数组返回原数组中被修改的内容。</span><br><span class="line">    - 语法：</span><br></pre></td></tr></table></figure>
-<p>array.splice(start[, deleteCount[, item1[, item2[, …]]]])</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    - `start`​指定修改的开始位置（从0计数）。如果超出了数组的长度，则从数组末尾开始添加内容；如果是负值，则表示从数组末位开始的第几位（从-1计数）；如果负数的绝对值大于数组的长度，则表示开始位置为第0位。</span><br><span class="line">    - `deleteCount`(可选)整数，表示要移除的数组元素的个数。</span><br><span class="line">- `unshift()` 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度。</span><br><span class="line">    - 语法：</span><br></pre></td></tr></table></figure>
-<p>arr.unshift(element1, …, elementN)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">## [对象方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)</span><br><span class="line">## 数学运算符</span><br><span class="line">- 赋值</span><br><span class="line">  - `===`：严格相等，包括**值**和**数据类型**的相等</span><br><span class="line">  - `==`：**值**得相等，不判断数据类型</span><br></pre></td></tr></table></figure>
+<li>语法：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.sort([compareFunction])</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>alert(‘0’ === 0); // false 严格相等判断，’0‘是字符串，而0是数字，故不严格相等。<br>alert(‘0’ == 0); // true 非严格相等判断，会将’0‘隐式转换为0，再比较，即 0==0，故返回true。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- 加法`+`</span><br><span class="line">- 减法`-`</span><br><span class="line">- 乘法`*`</span><br><span class="line">- 除法`/`</span><br><span class="line">- 取模，即求余数`%`</span><br><span class="line">- 自加`++`</span><br><span class="line">  - `++x`（预增量），“增量变量，表达式的值是最终值”。即先进行增量，再返回增量后的值。</span><br><span class="line">  - `x++`（增量后），“记住原始值，然后增加变量；表达式的值就是原始值”。即先返回原始值，在进行增量。</span><br><span class="line">    - 作为独立语句语句使用时，它们的含义是相同的：</span><br></pre></td></tr></table></figure>
-<p>  var x = y = 2;<br>  x++;<br>  alert(x); // 3<br>  ++y;<br>  alert(y); // 3</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 当在其他地方使用表达式的值时，就会出现差异。</span><br></pre></td></tr></table></figure>
-<p>  var x = y = 2;<br>  alert(x++); // 2<br>  alert(++y); // 3</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">- 加等`+=`</span><br><span class="line">- 自减`--`</span><br><span class="line">- 减等`-=`</span><br><span class="line">- 判断`&gt;`, `&gt;=`, `&lt;`, `&lt;=`</span><br><span class="line">- 优先级：和数学中一样，先算乘除，再算加减；有括号要先算括号里面的。</span><br><span class="line">### Math对象</span><br><span class="line">Math 对象用于执行数学任务。</span><br><span class="line"></span><br><span class="line">Math 对象并不像 Date 和 String 那样是对象的类，因此没有构造函数 Math()。</span><br><span class="line">- Math对象属性</span><br><span class="line">|属性|描述|</span><br><span class="line">|-------|------|</span><br><span class="line">|`E`|返回算术常量 e，即自然对数的底数（约等于2.718）。|</span><br><span class="line">|`LN2`|返回 2 的自然对数（约等于0.693）。|</span><br><span class="line">|`LN10`|返回 10 的自然对数（约等于2.302）。|</span><br><span class="line">|`LOG2E`|返回以 2 为底的 e 的对数（约等于 1.4426950408889634）。|</span><br><span class="line">|`LOG10E`|返回以 10 为底的 e 的对数（约等于0.434）。|</span><br><span class="line">|`PI`|返回圆周率（约等于3.14159）。|</span><br><span class="line">|`SQRT1_2`|返回 2 的平方根的倒数（约等于 0.707）。|</span><br><span class="line">|`SQRT2`|返回 2 的平方根（约等于 1.414）。|</span><br><span class="line">- Math对象方法</span><br><span class="line">|方法|描述|</span><br><span class="line">|------|-------|</span><br><span class="line">|`abs(x)`|返回 x 的绝对值。|</span><br><span class="line">|`asin(x)`|返回 x 的反正弦值。|</span><br><span class="line">|`atan(x)`|以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值。|</span><br><span class="line">|`atan2(y,x)`|返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）。|</span><br><span class="line">|`ceil(x)`|对数进行上舍入。|</span><br><span class="line">|`cos(x)`|返回数的余弦。|</span><br><span class="line">|`exp(x)`|返回 Ex 的指数。|</span><br><span class="line">|`floor(x)`|对 x 进行下舍入。|</span><br><span class="line">|`log(x)`|返回数的自然对数（底为e）。|</span><br><span class="line">|`max(x,y,z,...,n)`|返回 x,y,z,...,n 中的最高值。|</span><br><span class="line">|`min(x,y,z,...,n)`|返回 x,y,z,...,n中的最低值。|</span><br><span class="line">|`pow(x,y)`|返回 x 的 y 次幂。|</span><br><span class="line">|`random()`|返回 0 ~ 1 之间的随机数。|</span><br><span class="line">|`round(x)`|四舍五入。|</span><br><span class="line">|`sin(x)`|返回数的正弦。|</span><br><span class="line">|`sqrt(x)`|返回数的平方根。|</span><br><span class="line">|`tan(x)`|返回角的正切。|</span><br><span class="line">- 保留两位小数</span><br><span class="line">    - 不补位：</span><br></pre></td></tr></table></figure>
-<p>  var y = 2.367;<br>  y = Math.round(y * 100) / 100;<br>  alert(y); // 2.37</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 补位</span><br></pre></td></tr></table></figure>
-<p>  function reserveTwoDecimals(num) {</p>
-<pre><code>num = Math.round(num * 100) / 100;
-var str = num.toString();
-var decimalPoint = str.indexOf(&apos;.&apos;);
-if (decimalPoint &lt; 0) {
-    decimalPoint = str.length;
-    str += &apos;.&apos;;
-}
-while (str.length &lt;= decimalPoint + 2) {
-    str += &apos;0&apos;;
-}
-return str;
-</code></pre><p>  }<br>  console.log(reserveTwoDecimals(2.3)); // 2.30<br>  console.log(reserveTwoDecimals(2.367)); // 2.37</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 四舍五入`round(x)`</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p>var x = Math.round(2.3);<br>alert(x); // 2<br>var x = Math.round(2.6);<br>alert(x); // 3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 向上取整`ceil(x)`</span><br></pre></td></tr></table></figure></p>
-<p>var x = Math.ceil(2.35);<br>alert(x); // 3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 向下取整`floor(x)`</span><br></pre></td></tr></table></figure></p>
-<p>var x = Math.floor(2.35,);<br>alert(x); // 2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">## 逻辑运算符</span><br><span class="line">|运算符|示例|说明|</span><br><span class="line">|------|----|----|</span><br><span class="line">|逻辑与 (`&amp;&amp;`)|`expr1 &amp;&amp; expr2`|如果`expr1` 能转换成`false`则返回`expr1`，否则返回`expr2`。因此，与布尔值一起使用时，如果两个操作数都为`true`时`&amp;&amp;`返回`true`，否则返回`false`。|</span><br><span class="line">|逻辑或 (&amp;#124;&amp;#124;)|expr1 &amp;#124;&amp;#124; expr2|如果`expr1`能转换成`true`则返回`expr1`，否则返回`expr2`。因此，与布尔值一起使用时，如果任意一个操作数为`true`时**&amp;#124;&amp;#124;**返回`true`。|</span><br><span class="line">|逻辑非(`!`)|`!expr`|如果`expr`能转换为`true`，返回`false`；如果`expr`能转换为`false`，则返回`true`。|</span><br><span class="line">- 如果一个值可以被转换为`true`，那么这个值就是所谓的`truthy`，如果可以被转换为`false`，那么这个值就是所谓的`falsy`。</span><br><span class="line">- 能够转换为`false`的表达式有：</span><br><span class="line">  - `null`；</span><br><span class="line">  - `NaN`；</span><br><span class="line">  - `0`；</span><br><span class="line">  - 空字符串（`&quot;&quot;`）；</span><br><span class="line">  - `undefined`。</span><br><span class="line">## 条件运算符</span><br><span class="line">- 语法：</span><br></pre></td></tr></table></figure></p>
-<p>condition ? expr1 : expr2<br><code>`</code></p>
+<li><p><code>splice()</code>方法通过删除现有元素和/或添加新元素来修改数组,并以数组返回原数组中被修改的内容。</p>
 <ul>
-<li>如果<code>condition</code>为<code>true</code>，运算符就会返回 <code>expr1</code> 的值；否则， 就会返回 <code>expr2</code> 的值。</li>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.splice(start[, deleteCount[, item1[, item2[, ...]]]])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>start</code>​指定修改的开始位置（从0计数）。如果超出了数组的长度，则从数组末尾开始添加内容；如果是负值，则表示从数组末位开始的第几位（从-1计数）；如果负数的绝对值大于数组的长度，则表示开始位置为第0位。</p>
+</li>
+<li><code>deleteCount</code>(可选)整数，表示要移除的数组元素的个数。</li>
+</ul>
+</li>
+<li><code>unshift()</code> 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度。<ul>
+<li>语法：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.unshift(element1, ..., elementN)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="对象方法"><a href="#对象方法" class="headerlink" title="对象方法"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">对象方法</a></h2><h2 id="数学运算符"><a href="#数学运算符" class="headerlink" title="数学运算符"></a>数学运算符</h2><ul>
+<li><p>赋值</p>
+<ul>
+<li><code>===</code>：严格相等，包括<strong>值</strong>和<strong>数据类型</strong>的相等</li>
+<li><code>==</code>：<strong>值</strong>得相等，不判断数据类型<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert(&apos;0&apos; === 0); // false 严格相等判断，’0‘是字符串，而0是数字，故不严格相等。</span><br><span class="line">alert(&apos;0&apos; == 0); // true 非严格相等判断，会将’0‘隐式转换为0，再比较，即 0==0，故返回true。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>加法<code>+</code></p>
+</li>
+<li>减法<code>-</code></li>
+<li>乘法<code>*</code></li>
+<li>除法<code>/</code></li>
+<li>取模，即求余数<code>%</code></li>
+<li><p>自加<code>++</code></p>
+<ul>
+<li><code>++x</code>（预增量），“增量变量，表达式的值是最终值”。即先进行增量，再返回增量后的值。</li>
+<li><p><code>x++</code>（增量后），“记住原始值，然后增加变量；表达式的值就是原始值”。即先返回原始值，在进行增量。</p>
+<ul>
+<li><p>作为独立语句语句使用时，它们的含义是相同的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x = y = 2;</span><br><span class="line">x++;</span><br><span class="line">alert(x); // 3</span><br><span class="line">++y;</span><br><span class="line">alert(y); // 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当在其他地方使用表达式的值时，就会出现差异。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var x = y = 2;</span><br><span class="line">alert(x++); // 2</span><br><span class="line">alert(++y); // 3</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>加等<code>+=</code></p>
+</li>
+<li>自减<code>--</code></li>
+<li>减等<code>-=</code></li>
+<li>判断<code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code></li>
+<li>优先级：和数学中一样，先算乘除，再算加减；有括号要先算括号里面的。<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3>Math 对象用于执行数学任务。</li>
+</ul>
+<p>Math 对象并不像 Date 和 String 那样是对象的类，因此没有构造函数 Math()。</p>
+<ul>
+<li>Math对象属性<br>|属性|描述|<br>|——-|——|<br>|<code>E</code>|返回算术常量 e，即自然对数的底数（约等于2.718）。|<br>|<code>LN2</code>|返回 2 的自然对数（约等于0.693）。|<br>|<code>LN10</code>|返回 10 的自然对数（约等于2.302）。|<br>|<code>LOG2E</code>|返回以 2 为底的 e 的对数（约等于 1.4426950408889634）。|<br>|<code>LOG10E</code>|返回以 10 为底的 e 的对数（约等于0.434）。|<br>|<code>PI</code>|返回圆周率（约等于3.14159）。|<br>|<code>SQRT1_2</code>|返回 2 的平方根的倒数（约等于 0.707）。|<br>|<code>SQRT2</code>|返回 2 的平方根（约等于 1.414）。|</li>
+<li>Math对象方法<br>|方法|描述|<br>|——|——-|<br>|<code>abs(x)</code>|返回 x 的绝对值。|<br>|<code>asin(x)</code>|返回 x 的反正弦值。|<br>|<code>atan(x)</code>|以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值。|<br>|<code>atan2(y,x)</code>|返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）。|<br>|<code>ceil(x)</code>|对数进行上舍入。|<br>|<code>cos(x)</code>|返回数的余弦。|<br>|<code>exp(x)</code>|返回 Ex 的指数。|<br>|<code>floor(x)</code>|对 x 进行下舍入。|<br>|<code>log(x)</code>|返回数的自然对数（底为e）。|<br>|<code>max(x,y,z,...,n)</code>|返回 x,y,z,…,n 中的最高值。|<br>|<code>min(x,y,z,...,n)</code>|返回 x,y,z,…,n中的最低值。|<br>|<code>pow(x,y)</code>|返回 x 的 y 次幂。|<br>|<code>random()</code>|返回 0 ~ 1 之间的随机数。|<br>|<code>round(x)</code>|四舍五入。|<br>|<code>sin(x)</code>|返回数的正弦。|<br>|<code>sqrt(x)</code>|返回数的平方根。|<br>|<code>tan(x)</code>|返回角的正切。|</li>
+<li><p>保留两位小数</p>
+<ul>
+<li><p>不补位：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var y = 2.367;</span><br><span class="line">y = Math.round(y * 100) / 100;</span><br><span class="line">alert(y); // 2.37</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>补位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function reserveTwoDecimals(num) &#123;</span><br><span class="line">    num = Math.round(num * 100) / 100;</span><br><span class="line">    var str = num.toString();</span><br><span class="line">    var decimalPoint = str.indexOf(&apos;.&apos;);</span><br><span class="line">    if (decimalPoint &lt; 0) &#123;</span><br><span class="line">        decimalPoint = str.length;</span><br><span class="line">        str += &apos;.&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    while (str.length &lt;= decimalPoint + 2) &#123;</span><br><span class="line">        str += &apos;0&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    return str;</span><br><span class="line">&#125;</span><br><span class="line">console.log(reserveTwoDecimals(2.3)); // 2.30</span><br><span class="line">console.log(reserveTwoDecimals(2.367)); // 2.37</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>四舍五入<code>round(x)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var x = Math.round(2.3);</span><br><span class="line">alert(x); // 2</span><br><span class="line">var x = Math.round(2.6);</span><br><span class="line">alert(x); // 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>向上取整<code>ceil(x)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = Math.ceil(2.35);</span><br><span class="line">alert(x); // 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>向下取整<code>floor(x)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = Math.floor(2.35,);</span><br><span class="line">alert(x); // 2</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>逻辑与 (<code>&amp;&amp;</code>)</td>
+<td><code>expr1 &amp;&amp; expr2</code></td>
+<td>如果<code>expr1</code> 能转换成<code>false</code>则返回<code>expr1</code>，否则返回<code>expr2</code>。因此，与布尔值一起使用时，如果两个操作数都为<code>true</code>时<code>&amp;&amp;</code>返回<code>true</code>，否则返回<code>false</code>。</td>
+</tr>
+<tr>
+<td>逻辑或 (&#124;&#124;)</td>
+<td>expr1 &#124;&#124; expr2</td>
+<td>如果<code>expr1</code>能转换成<code>true</code>则返回<code>expr1</code>，否则返回<code>expr2</code>。因此，与布尔值一起使用时，如果任意一个操作数为<code>true</code>时<strong>&#124;&#124;</strong>返回<code>true</code>。</td>
+</tr>
+<tr>
+<td>逻辑非(<code>!</code>)</td>
+<td><code>!expr</code></td>
+<td>如果<code>expr</code>能转换为<code>true</code>，返回<code>false</code>；如果<code>expr</code>能转换为<code>false</code>，则返回<code>true</code>。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>如果一个值可以被转换为<code>true</code>，那么这个值就是所谓的<code>truthy</code>，如果可以被转换为<code>false</code>，那么这个值就是所谓的<code>falsy</code>。</li>
+<li>能够转换为<code>false</code>的表达式有：<ul>
+<li><code>null</code>；</li>
+<li><code>NaN</code>；</li>
+<li><code>0</code>；</li>
+<li>空字符串（<code>&quot;&quot;</code>）；</li>
+<li><code>undefined</code>。<h2 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h2></li>
+</ul>
+</li>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">condition ? expr1 : expr2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果<code>condition</code>为<code>true</code>，运算符就会返回 <code>expr1</code> 的值；否则， 就会返回 <code>expr2</code> 的值。</p>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/24/notes_of_js_1/" data-id="cjp6ylecf000cr8ow16n96v36" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/24/notes_of_js_1/" data-id="cjp6ypvrv000cu4ow986owxui" class="article-share-link">Share</a>
       
       
     </footer>
