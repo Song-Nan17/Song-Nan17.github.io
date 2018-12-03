@@ -15,7 +15,7 @@
 <meta property="og:description" content="条件分支语句条件分支语句就是基于不同的条件去执行不同的动作。 条件分支语句每次只执行多种情况中的一种情况。  if语句  语法格式123if (condition)&amp;#123;// 当 condition==true 时执行的语句块&amp;#125;    if-else语句  语法格式 12345if (condition)&amp;#123;// 当 condition==true 时执行的语句块1&amp;#12">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LEnFv3jMWsHS31RfsLD%2F-LEnFymU6ro7LIcUvFQV%2F-LEnG-4J9dKFWiSXiSED%2Fhtml-dom.png?generation=1528794719454822&alt=media">
-<meta property="og:updated_time" content="2018-12-02T15:01:17.640Z">
+<meta property="og:updated_time" content="2018-12-03T12:23:33.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS基础2笔记">
 <meta name="twitter:description" content="条件分支语句条件分支语句就是基于不同的条件去执行不同的动作。 条件分支语句每次只执行多种情况中的一种情况。  if语句  语法格式123if (condition)&amp;#123;// 当 condition==true 时执行的语句块&amp;#125;    if-else语句  语法格式 12345if (condition)&amp;#123;// 当 condition==true 时执行的语句块1&amp;#12">
@@ -275,15 +275,78 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var myNode = document.getElementById(&apos;myId&apos;);</span><br><span class="line">myNode.id // 获取该节点的 id ，即 ‘myId‘</span><br><span class="line">myNode.tagName // 获取该节点的节点名，即 &apos;P&apos;，大部分浏览器返回的标签名都是大写</span><br><span class="line">myNode.className //获取该节点的 class</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>常用方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//假如我们有一个 input，我们想要获取 input 的 type 属性，并对 type 属性进行操作</span><br><span class="line">&lt;input type=&apos;text&apos; id=&apos;input&apos;/&gt;</span><br><span class="line">​</span><br><span class="line">var myNode = document.getElementById(&apos;input&apos;)</span><br><span class="line">myNode.getAttribute(&apos;type&apos;) // 获取属性值，即 ‘text’</span><br><span class="line">myNode.setAttribute(&apos;type&apos;,&apos;password&apos;) // 将 type 属性值改为 password 类型</span><br><span class="line">myNode.removeAttribute(&apos;type&apos;) // 移除 type 属性</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//假如我们有一个 input，我们想要获取 input 的 type 属性，并对 type 属性进行操作</span><br><span class="line">&lt;input type=&apos;text&apos; id=&apos;input&apos;/&gt;</span><br><span class="line">​</span><br><span class="line">var myNode = document.getElementById(&apos;input&apos;)</span><br><span class="line">myNode.getAttribute(&apos;type&apos;) // 获取属性值，即 ‘text’</span><br><span class="line">myNode.setAttribute(&apos;type&apos;,&apos;password&apos;) // 将 type 属性值改为 password 类型</span><br><span class="line">myNode.removeAttribute(&apos;type&apos;) // 移除 type 属性</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ul>
+<li>JavaScript对象就是一组<strong>属性</strong>和<strong>方法（函数）</strong>的集合。</li>
+<li><p>创建对象</p>
+<ul>
+<li><p>字面量表示法：<br>  一个对象也需要用一个变量来存储，然后通过点(.)来访问该对象的属性和方法。</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var objectName = &#123;</span><br><span class="line">member1Name : member1Value,</span><br><span class="line">member2Name : member2Value,</span><br><span class="line">member3Name : member3Value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对象成员的值可以是任意的。比如现在创建一个<code>person</code>对象:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">name : [&apos;Bob&apos;, &apos;Smith&apos;],</span><br><span class="line">age : 32,</span><br><span class="line">gender : &apos;male&apos;,</span><br><span class="line">interests : [&apos;music&apos;, &apos;skiing&apos;],</span><br><span class="line">bio : function() &#123;</span><br><span class="line">    alert(this.name[0] + &apos; &apos; + this.name[1] + &apos; is &apos; + this.age + &apos; years old. He likes &apos; + this.interests[0] + &apos; and &apos; + this.interests[1] + &apos;.&apos;);</span><br><span class="line">&#125;,</span><br><span class="line">greeting: function() &#123;</span><br><span class="line">    alert(&apos;Hi! I\&apos;m &apos; + this.name[0] + &apos;.&apos;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在<code>person</code>对象里有字符串(string)，数字(number)，两个数组(array)，两个函数(function)。前4个成员是资料项目，被称为<strong>对象的属性</strong>(property)，后两个成员是函数，允许对象对资料做一些操作，被称为<strong>对象的方法</strong>(method)。</p>
+<p>这样一个<code>person</code>对象被称之为<code>对象的字面量</code>(literal)——手动的写出对象的内容来创建一个对象。</p>
+</li>
+</ul>
+</li>
+<li><p>使用<code>new</code>关键字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var o = new Object(); // 创建一个空对象，效果等同&#123;&#125;.</span><br><span class="line"></span><br><span class="line">var d = new Date(); // 创建一个表示当前时间的对象</span><br><span class="line"></span><br><span class="line">var r = new RegExp(&quot;js&quot;); // 创建一个正则表达式对象</span><br><span class="line"></span><br><span class="line">varperson = new Object();</span><br><span class="line"></span><br><span class="line">person.name = &quot;狼狼的蓝胖子&quot;;</span><br><span class="line"></span><br><span class="line">person.age = 25;</span><br></pre></td></tr></table></figure>
+<p>或：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age) &#123;</span><br><span class="line"></span><br><span class="line">    this.name = name;</span><br><span class="line"></span><br><span class="line">    this.age = age;</span><br><span class="line"></span><br><span class="line">this.show=function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person = new Person(&quot;Jack&quot;,15);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>访问对象成员（属性或方法）</p>
+<ul>
+<li><p>点表示法<br>可以用点表示法(dot notation)来访问对象的属性和方法。</p>
+<p>对象的<strong>名字</strong>表现为一个命名空间(namespace)，它必须<strong>写在第一位</strong>——当你想访问对象内部的属性或方法时，然后是一个点(<strong>.</strong>)，紧接着是你<strong>想要访问的项目</strong>，标识可以是简单属性的名字(name)，或者是数组属性的一个子元素，又或者是对象的方法调用。如下所示访问<code>person</code>对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">person.name[0] // &apos;Bob&apos;</span><br><span class="line">person.age // 32</span><br><span class="line">person.interests[1] // &apos;skiing&apos;</span><br><span class="line">person.bio() // Bob Smith is 32 years old. He likes music and skiing.</span><br><span class="line">person.greeting() // Hi! I&apos;m Bob.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>子命名空间<br>可以用一个对象来做另一个对象成员的值，如将name:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name : &#123;</span><br><span class="line">first : &apos;Bob&apos;,</span><br><span class="line">last : &apos;Smith&apos;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>这就是创建了一个子命名空间。再要访问到Bobs属性时，只需要链式的再使用一次点表示法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person.name.first // &apos;Bob&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>括号表示法<br>还可以使用括号法访问对象属性。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">person[&apos;age&apos;] // 32</span><br><span class="line">person[&apos;name&apos;][&apos;first&apos;] // &apos;Bob&apos;</span><br></pre></td></tr></table></figure>
+<p>看起来很像访问一个数组元素。对象做了字符串到值的映射，而数组做的是数字到值的映射。所以对象有时被称之为关联数组。</p>
+</li>
+</ul>
+</li>
+<li><p>设置对象成员</p>
+<ul>
+<li><p>更改已存在的属性（或方法）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">person.age = 45</span><br><span class="line">person[&apos;name&apos;][&apos;last&apos;] = &apos;Cratchit&apos;</span><br><span class="line">person.age // 45</span><br><span class="line">person[&apos;name&apos;][&apos;last&apos;] // &apos;Cratchit&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建新的属性（或方法（</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">person[&apos;eyes&apos;] = &apos;hazel&apos;</span><br><span class="line">person.farewell = function() &#123; alert(&quot;Bye everybody!&quot;) &#125;</span><br><span class="line">person[&apos;eyes&apos;] // &apos;hazel&apos;</span><br><span class="line">person.farewell() // Bye everybody!</span><br></pre></td></tr></table></figure>
+<p>括号表示法一个有用的地方是它不仅可以动态的去设置对象成员的值，还可以动态的去设置成员的名字。</p>
+</li>
+<li><p>删除属性（或方法）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete person.eyes;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断有无属性<code>in</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;name&apos; in person; // true</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>this</code><br>在<code>person</code>对象的<code>greeting</code>方法中使用了<code>this</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">greeting: function() &#123;</span><br><span class="line">    alert(&apos;Hi! I\&apos;m &apos; + this.name[0] + &apos;.&apos;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>关键字<code>this</code>指向了当前代码运行时的对象( 原文：the current object the code is being written inside )——这里即指<code>person</code>对象，<strong>保证了当代码的上下文(context)改变时变量的值的正确性</strong>（比如：不同的<code>person</code>对象拥有不同的<code>name</code>这个属性，很明显<code>greeting</code>这个方法需要使用的是它们自己的<code>name</code>）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var person1 = &#123;</span><br><span class="line">  name : &apos;Chris&apos;,</span><br><span class="line">  greeting: function() &#123;</span><br><span class="line">    alert(&apos;Hi! I\&apos;m &apos; + this.name + &apos;.&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person2 = &#123;</span><br><span class="line">  name : &apos;Brian&apos;,</span><br><span class="line">  greeting: function() &#123;</span><br><span class="line">    alert(&apos;Hi! I\&apos;m &apos; + this.name + &apos;.&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">person1.greeting() // Hi! I&apos;m Chris.</span><br><span class="line">person2.greeting() // Hi! I&apos;m Brain.</span><br></pre></td></tr></table></figure></p>
+<p>JavaScript对象基础​（<a href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Basics" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Basics</a>）<br>​JavaScript对象基础讲解​（<a href="http://www.codexiu.cn/javascript/blog/40328/" target="_blank" rel="noopener">http://www.codexiu.cn/javascript/blog/40328/</a>）<br>JavaScript 对象基础​（<a href="http://wanwu.tech/2017/06/03/object-basics/" target="_blank" rel="noopener">http://wanwu.tech/2017/06/03/object-basics/</a>）</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjp70kwl90002gsowkknz4731" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjp8ihl5k000afsowj7c537e8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -341,23 +404,23 @@
       <ul>
         
           <li>
+            <a href="/2018/12/04/tw-stage-1-project-1/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/tw-stage-1-project-1/main/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/tw-stage-1-project-1/index/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/12/02/summary_week3_1/">总结—第一阶段第三周</a>
           </li>
         
           <li>
             <a href="/2018/12/01/notes_of_js_2/">JS基础2笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/29/relative/">relative.html</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/29/visibility/">visibility.html</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/29/overflow/">overflow.html</a>
           </li>
         
       </ul>
