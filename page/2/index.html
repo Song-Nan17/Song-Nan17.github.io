@@ -66,421 +66,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-sumarry_week2_1" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/23/sumarry_week2_1/" class="article-date">
-  <time datetime="2018-11-23T14:27:45.799Z" itemprop="datePublished">2018-11-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/23/sumarry_week2_1/">总结—第一阶段第二周</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这周主要学习了CSS基础，学习了引入CSS，CSS选择器，层叠与继承，盒模型，布局定位和调试。重点内容是<strong>选择器</strong>，<strong>盒模型</strong>，<strong>布局和调试</strong>。</p>
-<p>这周也是提前完成了任务，很棒，后面的任务会越来越重，要留出时间。</p>
-<p>线下培训做了网页布局的练习，遇到了很多在任务营学习和做题时没遇到的问题，只有做得多了才能见得多，在学习中发现问题，在问题中学习，这也是很好的学习方法。</p>
-<p>不足：</p>
-<ul>
-<li>我现在最大的问题是作息时间不好，原因一个在于长久养成的不好习惯，一个在于我总是把很多事情堆到最后期限做，导致做到很晚都做不完，最近几天都是因为做各种作业做到1、2点导致的晚睡。<ul>
-<li>我现在白天有足够的时间，所以我给自己定个时间是<strong>晚上11点</strong>，11点之后，无论任务有没有完成，都不许再做，必须把握白天的时间。</li>
-<li>早起计划连续三天做到了，但是习惯的纠正是个长期任务，所以我要继续努力!</li>
-</ul>
-</li>
-<li>没有用电脑记笔记的习惯，<strong>改</strong>！</li>
-<li>打字慢，<strong>练</strong>！</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/sumarry_week2_1/" data-id="cjp8ihl200003fsowczc9cwbv" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-notes_of_css" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/23/notes_of_css/" class="article-date">
-  <time datetime="2018-11-23T13:37:46.647Z" itemprop="datePublished">2018-11-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/23/notes_of_css/">CSS基础笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>CSS 层叠样式表，用于渲染HTML元素标签的样式。<h2 id="CSS基础"><a href="#CSS基础" class="headerlink" title="CSS基础"></a>CSS基础</h2></li>
-<li><p>应用CSS</p>
-<ul>
-<li><p>外链：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/path/to/style.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>嵌入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">  li &#123; margin: 0; list-style: none; &#125;</span><br><span class="line">  p &#123; margin: 1em 0; &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>内联：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style=&quot;margin:1em 0&quot;&gt;Example Content&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>颜色</p>
-<ul>
-<li>关键字，如：red → 红色，blue → 蓝色等</li>
-<li><code>Hex</code>，用三位16进制的数字来表示，分别代表rgb三色的值大小，从 0 到 ff，以此代表0-255，如：#4286f4</li>
-<li><code>RGB</code> &amp; <code>RGBA</code>，rgb分别代表红色、绿色、蓝色，值分别为0-255，其中a代表透明度，如：rgb(66, 134, 244), rgba(66, 134, 244,0.5), </li>
-<li><code>HSL</code> &amp; <code>HSLA</code>，代表色相、饱和度和亮度，色相是色彩的基本属性,就是平常所说的颜色名称，如红色、黄色等，以0-360度衡量，饱和度(S)是指色彩的纯度,越高色彩越纯,低则逐渐变灰，亮度越高颜色越亮，饱和度和亮度使用0%-100%的范围，其中a代表透明度，值为0-1，如：hsl(120, 100%, 50%)</li>
-</ul>
-</li>
-<li>单位<ul>
-<li><code>px</code>：像素，对应显示器的一个像素点（绝对单位）</li>
-<li><code>em</code>：相对于该元素的一个 font-size</li>
-<li><code>rem</code>：相对于 html 元素的 font-size</li>
-<li><code>vh</code>：浏览器窗口高度的 1%</li>
-<li><code>vw</code>：浏览器窗口宽度的 1%</li>
-<li><code>vmin</code>：vh 和 vw 中的较小者</li>
-<li><code>vmax</code>：vh 和 vw 中的较大者</li>
-</ul>
-</li>
-</ul>
-<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><ul>
-<li>简单选择器：通配选择器<code>*</code>、标签选择器<code>label</code>、ID选择器<code>#id</code>、类选择器<code>.class</code></li>
-<li>复杂选择器：<ul>
-<li>属性选择器<ul>
-<li><code>[attribute]</code>选择具有<code>attribute</code>属性的元素</li>
-<li><code>[attribute=value]</code>选择属性值为”value”的元素</li>
-<li>选择属性值以”value”开头的元素<ul>
-<li><code>[attribute^=&quot;value&quot;]</code></li>
-<li><code>[attribute|=value]</code>选择所有<code>attribute</code>属性具有多个连字号分隔（hyphen-separated）的值、其中一个值以”value”开头的E元素，主要用于lang属性，比如”en”、”en-us”、”en-gb”等等</li>
-</ul>
-</li>
-<li>选择属性值包含”value”的元素<ul>
-<li><code>[attribute~=value]</code>选择所有<code>attribute</code>属性具有多个空格分隔的值、其中一个值等于”value”的E元素</li>
-<li><code>[attribute*=&quot;value&quot;]</code></li>
-</ul>
-</li>
-<li>选择属性值以”value”结尾的元素<ul>
-<li><code>[attribute$=&quot;value&quot;]</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>多元素组合选择器<ul>
-<li><code>E,F</code>    多元素选择器，同时选择所有E元素或F元素，E和F之间用逗号分隔</li>
-<li><code>E F</code>    后代元素选择器，选择所有属于E元素后代的F元素，E和F之间用空格分隔</li>
-<li><code>E &gt; F</code>    子元素选择器，选择所有E元素的子元素F</li>
-<li><code>E + F</code>    毗邻元素选择器，选择所有紧随E元素之后的同级元素F</li>
-</ul>
-</li>
-<li>伪类选择器<ul>
-<li><code>E:first-child</code>    选择父元素的第一个子元素。如：<code>p:first-child</code>选择所有是第一个元素的p，<code>div p:first-child</code>选择所有div中的第一个p；</li>
-<li><code>E:link</code>    选择所有未被点击的链接</li>
-<li><code>E:visited</code>    选择所有已被点击的链接</li>
-<li><code>E:active</code>    选择鼠标已经其上按下、还没有释放的E元素</li>
-<li><code>E:hover</code>    选择鼠标悬停其上的E元素</li>
-<li><code>E:focus</code>    选择获得当前焦点的E元素</li>
-<li><code>E:lang(c)</code>    选择lang属性等于c的E元素</li>
-</ul>
-</li>
-<li>伪元素<ul>
-<li><code>E:first-line</code>    匹配E元素的第一行</li>
-<li><code>E:first-letter</code>    匹配E元素的第一个字母</li>
-<li><code>E:before</code>    在E元素之前插入生成的内容</li>
-<li><code>E:after</code>    在E元素之后插入生成的内容</li>
-</ul>
-</li>
-<li>同级元素通用选择器<ul>
-<li><code>A + B</code>选择所有<strong>直接</strong>跟在A元素后面的B元素；</li>
-<li><code>A ~ B</code>选择跟在A元素后面的所有B元素；</li>
-</ul>
-</li>
-<li>与用户界面有关的伪类<ul>
-<li><code>E:enabled</code>    匹配表单中激活的元素</li>
-<li><code>E:disabled</code>    匹配表单中禁用的元素</li>
-<li><code>E:checked</code>    匹配表单中被选中的radio（单选框）或checkbox（复选框）元素</li>
-<li><code>E::selection</code>    匹配用户当前选中的元素</li>
-</ul>
-</li>
-<li>结构性伪类<ul>
-<li><code>:only-child</code>选择所有是父级元素唯一子元素的元素，如：<code>span:only-child</code>选择所有是唯一元素的span，<code>ul li:only-child</code>选择所有是ul中唯一元素的li；</li>
-<li><code>:last-child</code>选择所有元素的最后一个子级元素，如：<code>span:last-child</code>选择所有是最后一个元素的span，<code>div p:last-child</code>选择所有是div中最后一个元素的p；</li>
-<li><code>:nth-child(x)</code>选择有元素的第x个子级元素，第一个编号为1。如：<code>:nth-child(8)</code>选择所有第八个元素，<code>div p:nth-child(2)</code>选择所有是div中第8个元素的p；</li>
-<li><code>:nth-last-child(x)</code>选择所有元素的倒数第x个子级元素，第一个编号为1。如：<code>:nth-last-child(2)</code>选择所有的倒数第2个元素；</li>
-<li><code>:first-of-type</code>选择所有元素中的第一个某种元素，如：<code>span:first-of-type</code>选择所有的第一个span元素；</li>
-<li><code>:nth-of-type(x)</code>选择所有是type(x)的元素，第一个编号为1。如：<code>div:nth-of-type(2)</code>选择所有的第二个div元素，- - - <code>.example:nth-of-type(odd)</code>选择所有的奇数个且类为example的元素；</li>
-<li><code>:nth-of-type(An+B)</code>从第B个开始选择所有第A个元素（包括第B个），如：<code>span:nth-of-type(6n+2)</code>从第2个开始数选择所有的第6个元素（选择包括一开始的第2个）;</li>
-<li><code>:only-of-type</code>选择在父级元素中是唯一一个该种类子级元素的子级元素，如：<code>p span:only-of-type</code>选择所有是p中唯一一个span的span；</li>
-<li><code>:last-of-type</code>选择在父级元素中是该种类子元素的最后一个的子级元素，如：<code>div:last-of-type</code>选择所有的最后一个div;</li>
-<li><code>:empty</code>选择所有没有子级元素的元素；</li>
-<li><code>E:root</code>    匹配文档的根元素，对于HTML文档，就是HTML元</li>
-</ul>
-</li>
-<li>反选伪类<ul>
-<li><code>:not(X)</code>选择所有非X的元素，如：<code>div:not(:first-child)</code>选择所有不是最后一个元素的div;</li>
-</ul>
-</li>
-<li>target 伪类<ul>
-<li><code>E:target</code>    匹配文档中特定”id”点击后的效果<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9v7ks69j20bx0gyq3c.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxpb4zw7xwj20ft09tmx2.jpg" alt=""><h2 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h2></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>字体匹配算法简介<ul>
-<li>浏览器先获取一个系统字体列表</li>
-<li>对于元素中每一个字符，使用 <code>font-family</code> 属性及其它属性进行匹配，如果能匹配就暂定该字体</li>
-<li>如果步骤2没有匹配上，选择下一个可选的 <code>font-family</code> 执行步骤2</li>
-<li>如果匹配到一个字体，但是字体中没有该字符，继续对下一个可选的 <code>font-family</code> 执行步骤2</li>
-<li>如果还没有匹配到字体，使用浏览器默认字体</li>
-</ul>
-</li>
-<li>CSS中五种通用的字体系列：<ul>
-<li><code>Serif</code> 衬线体：Georgia、宋体</li>
-<li><code>Sans-Serif</code> 无衬线体：Arial、Helvetica、黑体、微软雅黑</li>
-<li><code>Cursive</code> 手写体：Caflisch Script、楷体</li>
-<li><code>Fantasy</code> 梦幻字体：Comic Sans MS, Papyrus, Zapfino</li>
-<li><code>Monospace</code> 等宽字体：Consolas、Courier、中文字体<br>效果如下：<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxmzl0qyvej20ic08mjrw.jpg" alt=""></li>
-</ul>
-</li>
-<li><p>设置多个字体</p>
-<ul>
-<li><p>设置多个字体例子如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p &#123;font-family: Times, TimesNR, &apos;New Century Schoolbook&apos;, Georgia, &apos;New York&apos;, serif;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>需注意：</p>
-<ul>
-<li>把这些字体按照优先顺序排列，然后用逗号进行连接。</li>
-<li>提供一个通用字体系列，如serif,这样就提供了一条后路，在用户代理无法提供与规则匹配的特定字体时，就可以选择一个候选字体。</li>
-<li>当字体名中有一个或多个空格（比如 New York），或者如果字体名包括 # 或 $ 之类的符号，才需要在 font-family 声明中加引号。单引号或双引号都可以接受。</li>
-<li>如果列出的所有字体都不可用，就会简单地选择一种可用的 serif 字体。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>px，em，rem</p>
-<ul>
-<li><code>px</code>: 像素，相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</li>
-<li><code>em</code>: 相对长度单位。相对于当前对象内文本的字体尺寸。em的值并不是固定的，em会继承父级元素的字体大小。任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。</li>
-<li><code>rem</code>: CSS3新增的一个相对单位（root em，根em）。使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。无论是在哪个内容里，同样的rem大小，显示的字体大小都一样。<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9tv050fj20b705tdh8.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9utr9sbj208l0braa8.jpg" alt=""><h2 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h2>CSS通过特异度解决块样式的冲突。</li>
-</ul>
-</li>
-<li><p>简单选择器的特异度级别：</p>
-<ul>
-<li>level 0 ：*</li>
-<li>level 1 ：标签选择器、伪元素</li>
-<li>level 2 ：类、伪类</li>
-<li>level 3 ：id</li>
-<li>level 4 ：内联</li>
-</ul>
-</li>
-<li>引入方式的样式优先级：内联 &gt; 嵌入 &gt; 外链</li>
-<li>同一级别选择器，后写的覆盖先写的。</li>
-<li>有”!important”样式的，优先级最高。</li>
-</ul>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
-<li>子元素会继承父元素的样式。</li>
-<li>子元素的样式优先级高于父级元素。</li>
-</ul>
-<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxn0q0dh1yj20ua0go3zz.jpg" alt=""></p>
-<ul>
-<li>从里到外由<code>content</code>, <code>padding</code>(透明), <code>border</code>, <code>margin</code>(透明)组成。<ul>
-<li>Margin（外边距）- 清除边框外的区域，外边距是透明的</li>
-<li>Border（边框）- 围绕在内边距和内容外的边框</li>
-<li>Padding（内边距）- 清除内容周围的区域，内边距是透明的</li>
-<li>Content（内容）- 盒子的内容，可用来显示文本和各类型多媒体文件</li>
-</ul>
-</li>
-<li><code>width</code>和<code>height</code>指<code>content box</code>的宽和高。</li>
-<li>添加<code>box-sizing:border-box</code>属性后，weight/height = border + padding + content.</li>
-<li>padding<br>指内边距。<ul>
-<li>缩写：<code>padding: top值, right值, bottom值, left值;（上-右-下-左）</code></li>
-<li>缩写：<code>padding: top&amp;bottom值, right&amp;left值;（上下-右左）</code></li>
-</ul>
-</li>
-<li>border<ul>
-<li>边框的三个要素：<ul>
-<li><code>border-width</code>：<code>&lt;length&gt;</code> | <code>thin</code> | <code>medium</code> | <code>thick</code> </li>
-<li><code>border-style</code>: <code>none</code> | <code>solid</code> | <code>dashed</code> | <code>dotted</code> | <code>double</code></li>
-<li><code>border-color</code>: <code>&lt;color&gt;</code></li>
-</ul>
-</li>
-<li>四个方向：<code>border-top</code>, <code>border-right</code>, <code>border-bottom</code>, <code>border-left</code> </li>
-</ul>
-</li>
-<li>margin：<br>指外边距。<ul>
-<li>缩写：<code>margin: top值, right值, bottom值, left值;（上-右-下-左）</code></li>
-<li>缩写：<code>margin: top&amp;bottom值, right&amp;left值;（上下-右左）</code></li>
-</ul>
-</li>
-<li><p>margin折叠</p>
-<ul>
-<li>两个或多个<strong>普通文档流</strong>盒子<strong>垂直方向</strong>上的外边距会发生折叠。margin折叠是为实现文本段落间距而提供的特性，多数情况下，折叠垂直外边距可以在视觉上显得更美观。</li>
-<li>需要是相邻的非浮动元素</li>
-<li>折叠发生在垂直外边距上</li>
-<li>折叠后取其中最大的margin作为最终值</li>
-<li><code>overflow:hidden;</code>，会取消margin折叠</li>
-</ul>
-</li>
-<li><p>overflow<br>规定当内容溢出元素框时发生的事情</p>
-<ul>
-<li>取值：<ul>
-<li><code>visible</code>默认值，内容不会被修剪，会呈现在元素框之外。</li>
-<li><code>hidden</code>内容会被修剪，并且其余内容是不可见的。</li>
-<li><code>scroll</code>内容会被修剪，但浏览器会显示滚动条以便查看其余的内容。</li>
-<li><code>auto</code>如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。</li>
-<li><code>inherit</code>从父元素继承<code>overflow</code>属性的值。<br><a href="https://song-nan17.github.io/2018/11/29/overflow/" target="_blank" rel="noopener">overflow</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>visibility<br>规定元素是否可见<ul>
-<li>取值：<ul>
-<li><code>visible</code>默认值，元素是可见的。</li>
-<li><code>hidden</code>元素不可见</li>
-<li><code>collapse</code>在表格元素中使用时，此值可删除一列或一行，但不会影响表格的布局。被行或列占据的空间会留给其他内容使用。如果此值被用在其他的元素上，会呈现为<code>hidden</code>。</li>
-<li><code>inherit</code>从父元素继承<code>visibility</code>属性的值。<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxpahcwrsnj20ge09faa6.jpg" alt=""><br><a href="https://song-nan17.github.io/2018/11/29/visibility/" target="_blank" rel="noopener">visibility</a><h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>定位模式</p>
-<ul>
-<li>常规流<br>norm flow，将窗体自上而下的分为一行一行，块级元素从上至下，行内元素在每行中从左到右地挨次排放。<ul>
-<li>除根元素、浮动元素和绝对定位元素外，其它元素都在常规流之内(in-flow)</li>
-<li>而根元素、 浮动和绝对定位的元素会脱离常规流(out of flow)</li>
-<li>常规流中的盒子，属于块级格式化上下文(BFC)或行级格式化上下文(IFC)<ul>
-<li>块级格式化上下文（Block Formatting Context）<ul>
-<li>盒子在容器（包含块）内从上到下一个接一个地放置</li>
-<li>两个兄弟盒之间的竖直距离由 margin 属性决定</li>
-<li>同一个 BFC 内垂直 margin 会合并</li>
-<li>盒子的左外边缘挨着容器（包含块）的左边</li>
-</ul>
-</li>
-<li>行级格式化上下文（Inline Formatting Context）<ul>
-<li>盒子一个接一个水平放置盒之间的水平</li>
-<li>margin，border和padding 都有效</li>
-<li>同一行的盒子所在的矩形区域叫行盒(Line box)</li>
-<li>当一个行盒放不下上下文内所有盒子时，会被分到多个垂直堆叠的行盒里</li>
-<li>行盒内的水平分布由’text-align’属性决定</li>
-<li>如果一个行级块无法分割(单词、inline-block)，该元素会被作为一个整体决定分布在哪一个行盒</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>浮动float<ul>
-<li>浮动元素从常规流中脱离，被漂浮在容器(包含块)左边或右边</li>
-<li>浮动盒会一直漂到其外边缘挨到容器边缘或另外的浮动盒</li>
-<li>浮动元素不会影响其后面的流内块级盒</li>
-<li>但是浮动元素后面的行级盒子会变短以避开浮动元素</li>
-<li>取值：<code>left</code> | <code>right</code> | <code>none</code> | <code>inherit</code> </li>
-</ul>
-</li>
-<li>定位position<br>指定了元素的定位类型。<ul>
-<li><code>static</code>默认值，即没有定位，元素出现在普通流中。</li>
-<li><code>fixed</code>元素的位置相对于浏览器窗口是固定位置。即使窗口是滚动的它也不会移动（广告）。</li>
-<li><code>relative</code>相对定位元素的定位是相对其正常位置。移动相对定位元素，但它<strong>原本所占的空间不会改变</strong>相对定位元素经常被用来作为绝对定位元素的容器块。<br><a href="https://song-nan17.github.io/2018/11/29/relative/" target="_blank" rel="noopener">relative</a></li>
-<li><code>absolute</code>绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于<html>。absolute 定位使元素的位置与文档流无关，因此<strong>不占据空间</strong>。</html></li>
-<li><code>sticky</code>粘性定位，基于用户的滚动位置来定位。</li>
-<li>元素重叠<br>-元素的定位与文档流无关，所以它们可以覆盖页面上的其它元素。<code>z-index</code>属性指定了一个元素的堆叠顺序（哪个元素应该放在前面，或后面）,具有更高堆叠顺序的元素总是在较低的堆叠顺序元素的前面。<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxpbim43o6j20py09rmxc.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxpbiun89dj20gl069jsb.jpg" alt=""></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>clear<br>清除浮动，指定元素哪一边不能与之前的浮动框相邻。</p>
-</li>
-<li>取值：<code>left</code> | <code>right</code> | <code>both</code></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjp8ihl590009fsowvt8gw2n4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-summary_week1_1" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/19/summary_week1_1/" class="article-date">
-  <time datetime="2018-11-19T11:46:58.845Z" itemprop="datePublished">2018-11-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/19/summary_week1_1/">总结—第一阶段第一周</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这一周主要学习了HTML的基础，学习的重点是各种标签的使用和特点。学习方式是线下线上互相补充，自己在线上学习了基础知识，线下由老师带领做了些练习，还学到了线上学习遗漏的知识，如inline, block等。</p>
-<p>这一周来我觉得自己做得最好的地方在于能够按时甚至提前完成学习任务。</p>
-<p>也有做得不好的地方，比如：</p>
-<ul>
-<li>每天的学习时间太不均匀，有时候一天学习时间太长，有时候又太短，不利于知识的巩固。</li>
-<li>还有上周的retro,我自己的action<strong>早睡早起</strong>没有做到。</li>
-</ul>
-<p>针对这两点，我要：</p>
-<ul>
-<li>后面学校的事情不多了，我要合理分配每天的学习时间，保持在每天5-6小时，每天做2-3个任务，不太多也不太少。</li>
-<li>早睡早起，因为我的作息已经成了习惯，所以我计划一步步调整，先调整为每天晚上12:30前入睡，早上8:00起床。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/19/summary_week1_1/" data-id="cjp8ihl2g0005fsowmppxwish" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-notes_of_html" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/11/19/notes_of_html/" class="article-date">
@@ -538,7 +123,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/19/notes_of_html/" data-id="cjp8ihky10000fsowqt2etgp6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/19/notes_of_html/" data-id="cjp8inolv00018sowy41tdtae" class="article-share-link">Share</a>
       
       
     </footer>
@@ -644,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/11/如何提问/" data-id="cjp8ihl9b000gfsow2kqevm0o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/11/如何提问/" data-id="cjp8inoqp000c8sow805wyrsb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -680,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/09/我的博客/" data-id="cjp8ihl2u0007fsow1pthoysw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/09/我的博客/" data-id="cjp8inomy00068sowmfetg5qc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -725,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/09/hello-world/" data-id="cjp8ihl270004fsowqnl5gyr7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/09/hello-world/" data-id="cjp8inoik00008sowwhrkhcg5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -771,23 +356,23 @@
       <ul>
         
           <li>
-            <a href="/2018/12/04/tw-stage-1-project-1/README/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/04/tw-stage-1-project-1/main/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/04/tw-stage-1-project-1/index/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2018/12/02/summary_week3_1/">总结—第一阶段第三周</a>
           </li>
         
           <li>
             <a href="/2018/12/01/notes_of_js_2/">JS基础2笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/29/relative/">relative.html</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/29/visibility/">visibility.html</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/29/overflow/">overflow.html</a>
           </li>
         
       </ul>
