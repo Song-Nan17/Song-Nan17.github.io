@@ -66,6 +66,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-summary_week4_1" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/08/summary_week4_1/" class="article-date">
+  <time datetime="2018-12-08T12:22:29.145Z" itemprop="datePublished">2018-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/08/summary_week4_1/">总结—第一阶段第一周</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这周重点学习了DOM、事件、对象和AJAX，做了NASA主页，打地鼠，简单音乐播放器等的练习。</p>
+<p>如果说上周处于学习圈的话，那我这周就是处于舒适圈。首先，对于上周，一个是有学校的一篇论文要完成，花费了一天，再是JS1的很多任务卡我开始都是用的<code>for</code>和<code>if</code>等语句写的，后来又再用JS的方法重做了一遍，也花费了很多时间和精力。而这周，因为之前的进度还可以，所以这周的任务卡不多，而且这周学校没有事情，时间比较充沛。这周学了DOM后，对事件又有了更好的理解，加上后面几个任务卡的完成的成就感，都会给了我心理上轻松的感觉吧。</p>
+<p>这周的学习中我还是有许多不足，比较突出的是两点：</p>
+<ul>
+<li>太纠结于不重要的细节。比如做NASA主页时的颜色和尺寸的选择，花费了许多时间。后面的学习中，我应该抓住每个任务卡考核的重点，首先把重点都完成了，有余力时可以再调整一些细节。</li>
+<li>写代码时抽成方法的意识和能力还不好。这一点我觉得卫林霄做得挺好的，我要向她学习，合理抽成方法，减少注释，提高自己代码的可读性。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/08/summary_week4_1/" data-id="cjpfh85ww0004mcowvbuu9qme" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-summary_week3_1" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/02/summary_week3_1/" class="article-date">
@@ -95,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/02/summary_week3_1/" data-id="cjpc6r90s0006jgowe5w39bak" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/02/summary_week3_1/" data-id="cjpfh85xg0009mcowg4mgsdwh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -209,8 +252,8 @@
 <li>JavaScript语言将任务的执行模式可以分成两种：<strong>同步</strong>（Synchronous）和<strong>异步</strong>（Asychronous）。<ul>
 <li>同步模式：一个任务完成之后，后边跟着一个任务接着执行；程序的执行顺序和排列顺序是一致的。</li>
 <li>异步模式：则完全不同，每一个任务都有一个或者多个回调函数（callback），前一个任务结束的时候，不是执行下一个任务，而是执行回调函数，后一个任务则是不等前一个任务结束就执行。基本的异步模式有：<ul>
-<li><a href="https://www.cnblogs.com/moltboy/archive/2013/04/24/3040213.html" target="_blank" rel="noopener">回调函数</a>（callback）</li>
-<li><a href="https://segmentfault.com/a/1190000006934031" target="_blank" rel="noopener">事件监听</a>（Event） ,<a href="https://www.cnblogs.com/liugang-vip/p/5616484.html" target="_blank" rel="noopener">链接2</a></li>
+<li><a href="https://www.cnblogs.com/moltboy/archive/2013/04/24/3040213.html" target="_blank" rel="noopener">回调函数</a>（callback）：当函数的实现过程非常漫长时，使用回调函数进行异步处理，代码无需等待，可以继续其他任务。</li>
+<li>事件是与浏览器或文档交互的瞬间，如点击按钮，填写表格等，它是JS与HTML之间交互的桥梁。<br><a href="https://segmentfault.com/a/1190000006934031" target="_blank" rel="noopener">事件监听</a>（Event） ,<a href="https://www.cnblogs.com/liugang-vip/p/5616484.html" target="_blank" rel="noopener">事件委托</a></li>
 </ul>
 </li>
 </ul>
@@ -463,9 +506,69 @@
 <li>Ajax不支持浏览器back按钮</li>
 <li>安全问题, Ajax暴露了与服务器交互的细节</li>
 <li>对搜索引擎的支持比较弱，不利于SEO</li>
-<li>不容易调试<br>##LocalStorage</li>
+<li>不容易调试</li>
 </ul>
 </li>
+<li><p>创建<code>AJAX</code>的步骤</p>
+<ol>
+<li><p>创建<code>XMLHttpRequest</code>对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var xhr = new XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>准备请求.初始化该XMLHttpRequest对象，接受三个参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(method,url,async);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>第一个参数表示请求类型的字符串，其值可以是<code>GET</code>或者<code>POST</code>。</li>
+<li>第二个参数是要作为请求发送目标的<code>URL</code>。</li>
+<li>第三个参数是<code>true</code>或<code>false</code>，表示请求是以异步还是同步的模式发出。（默认为<code>true</code>，一般不建议为<code>false</code>）。</li>
+</ul>
+<ol start="3">
+<li>发送请求<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.send();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>一般情况下，使用Ajax提交的参数多是些简单的字符串，可以直接使用GET方法将要提交的参数写到open方法的url参数中，此时send方法的参数为null或为空。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(&quot;GET&quot;,demo.php?name=tsrot&amp;age=24,true);</span><br><span class="line">xhr.send(null);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader()来添加 HTTP 头。然后在send()方法中规定希望发送的数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(&quot;POST&quot;,demo.php,true);</span><br><span class="line">xhr.setRequestHeder(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded;charset=UTF-8&quot;);</span><br><span class="line">xhr.sen</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="4">
+<li>处理响应<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange = function()&#123;</span><br><span class="line">    if(xhr.readyState == 4 &amp;&amp; xhr.status == 200)&#123;</span><br><span class="line">        console.log(xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><code>onreadystatechange</code> ：当处理过程发生变化的时候执行下面的函数</li>
+<li><code>readyState</code> ：ajax处理过程<ul>
+<li><code>0</code>：请求未初始化（还没有调用 open()）。</li>
+<li><code>1</code>：请求已经建立，但是还没有发送（还没有调用 send()）。</li>
+<li><code>2</code>：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。</li>
+<li><code>3</code>：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。</li>
+<li><code>4</code>：响应已完成；您可以获取并使用服务器的响应了。</li>
+</ul>
+</li>
+<li><code>status</code>属性：<ul>
+<li><code>200</code>:”OK”</li>
+<li><code>404</code>: 未找到页面</li>
+</ul>
+</li>
+<li><code>responseText</code>：获得字符串形式的响应数据</li>
+<li><code>responseXML</code>：获得 XML形式的响应数据</li>
+<li>对象转换为JSON格式使用<code>JSON.stringify()</code></li>
+<li>json转换为对象格式用<code>JSON.parse()</code></li>
+<li>返回值一般为json字符串，可以用<code>JSON.parse(xhr.responseText)</code>转化为对象</li>
+</ul>
+</li>
+<li><p>如下创建了一个名为ajax的XHR对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var ajax = &#123;</span><br><span class="line">    request: function (url, method, callback, data) &#123;</span><br><span class="line">    var xhr = null;</span><br><span class="line">    xhr = new XMLHttpRequest();</span><br><span class="line">    xhr.open(method, url, true);</span><br><span class="line">    if (method == &quot;post&quot;) &#123;</span><br><span class="line">        xhr.send(data);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        xhr.send(null);</span><br><span class="line">    &#125;</span><br><span class="line">    xhr.onreadystatechange = function() &#123;</span><br><span class="line">        if (xhr.readyState == 4 &amp;&amp; xhr.status == 200)&#123;</span><br><span class="line">        callback(xhr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其示例用法如下： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function myCallback(xhr)&#123; </span><br><span class="line">alert(xhr.responseText); </span><br><span class="line">&#125;</span><br><span class="line">ajax.request(“somefile.txt”,”get”,myCallback);</span><br><span class="line">ajax.request(“script.php”,”post”,myCallback,”first=John&amp;last=Smith”);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h2><ul>
 <li><code>localStorage</code>主要是用来作为本地存储来使用的,解决了cookie存储空间不足的问题(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小，这个在不同的浏览器中localStorage会有所不同。</li>
 <li><code>localStorage</code>只支持<code>String</code>类型的存储。</li>
 <li><p><code>localstorage</code>的方法：</p>
@@ -514,7 +617,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjpc6r94p000djgowk2ygkbjq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjpfh860g000emcowqusgupjf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -570,7 +673,7 @@ h2.pos_top
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/29/relative/" data-id="cjpc6r9030002jgowmq39p324" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/29/relative/" data-id="cjpfh85wj0001mcowaotxwbun" class="article-share-link">Share</a>
       
       
     </footer>
@@ -622,7 +725,7 @@ h1.hidden {visibility:hidden}
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/29/visibility/" data-id="cjpc6r90y0007jgowq0oo5f1q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/29/visibility/" data-id="cjpfh85wz0005mcowdlswahqs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -711,7 +814,7 @@ div.ex4 {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/29/overflow/" data-id="cjpc6r90a0003jgow92kjnrtq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/29/overflow/" data-id="cjpfh85wo0002mcow1rtnegbv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1346,7 +1449,7 @@ div.ex4 {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/27/shortcut_keys/" data-id="cjpc6r922000ajgow1ors76ug" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/27/shortcut_keys/" data-id="cjpfh85yc000bmcowh71ezvn1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1814,7 +1917,7 @@ div.ex4 {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/24/notes_of_js_1/" data-id="cjpc6r94k000cjgowh43qosxy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/24/notes_of_js_1/" data-id="cjpfh85zp000dmcow0g643upn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1824,9 +1927,9 @@ div.ex4 {
 
 
   
-    <article id="post-sumarry_week2_1" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-summary_week2_1" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/11/23/sumarry_week2_1/" class="article-date">
+    <a href="/2018/11/23/summary_week2_1/" class="article-date">
   <time datetime="2018-11-23T14:27:45.799Z" itemprop="datePublished">2018-11-23</time>
 </a>
     
@@ -1838,7 +1941,7 @@ div.ex4 {
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/23/sumarry_week2_1/">总结—第一阶段第二周</a>
+      <a class="article-title" href="/2018/11/23/summary_week2_1/">总结—第一阶段第二周</a>
     </h1>
   
 
@@ -1863,7 +1966,7 @@ div.ex4 {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/sumarry_week2_1/" data-id="cjpc6r90g0004jgowhkw8zy1o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/23/summary_week2_1/" data-id="cjpfh85xe0008mcowf0ofisq2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2181,55 +2284,7 @@ div.ex4 {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjpc6r91x0009jgowcz7x6ch3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-summary_week1_1" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/19/summary_week1_1/" class="article-date">
-  <time datetime="2018-11-19T11:46:58.845Z" itemprop="datePublished">2018-11-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/19/summary_week1_1/">总结—第一阶段第一周</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这一周主要学习了HTML的基础，学习的重点是各种标签的使用和特点。学习方式是线下线上互相补充，自己在线上学习了基础知识，线下由老师带领做了些练习，还学到了线上学习遗漏的知识，如inline, block等。</p>
-<p>这一周来我觉得自己做得最好的地方在于能够按时甚至提前完成学习任务。</p>
-<p>也有做得不好的地方，比如：</p>
-<ul>
-<li>每天的学习时间太不均匀，有时候一天学习时间太长，有时候又太短，不利于知识的巩固。</li>
-<li>还有上周的retro,我自己的action<strong>早睡早起</strong>没有做到。</li>
-</ul>
-<p>针对这两点，我要：</p>
-<ul>
-<li>后面学校的事情不多了，我要合理分配每天的学习时间，保持在每天5-6小时，每天做2-3个任务，不太多也不太少。</li>
-<li>早睡早起，因为我的作息已经成了习惯，所以我计划一步步调整，先调整为每天晚上12:30前入睡，早上8:00起床。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/19/summary_week1_1/" data-id="cjpc6r90m0005jgow3qc8elm9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjpfh85y2000amcowmxxm0at5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2275,6 +2330,10 @@ div.ex4 {
       <ul>
         
           <li>
+            <a href="/2018/12/08/summary_week4_1/">总结—第一阶段第一周</a>
+          </li>
+        
+          <li>
             <a href="/2018/12/02/summary_week3_1/">总结—第一阶段第三周</a>
           </li>
         
@@ -2288,10 +2347,6 @@ div.ex4 {
         
           <li>
             <a href="/2018/11/29/visibility/">visibility.html</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/29/overflow/">overflow.html</a>
           </li>
         
       </ul>
