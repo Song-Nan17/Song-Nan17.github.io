@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JavaScript进阶笔记 | 宋博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Node.js Node.js概述 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 Node.js 的包管理器 npm，是全球最大的开源库生态系统。   Node.js特点 使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript进阶笔记">
+<meta property="og:url" content="http://yoursite.com/2018/12/09/notes_of_advanced_js/index.html">
+<meta property="og:site_name" content="宋博客">
+<meta property="og:description" content="Node.js Node.js概述 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 Node.js 的包管理器 npm，是全球最大的开源库生态系统。   Node.js特点 使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-09T12:05:20.341Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript进阶笔记">
+<meta name="twitter:description" content="Node.js Node.js概述 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 Node.js 的包管理器 npm，是全球最大的开源库生态系统。   Node.js特点 使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去">
+  
+    <link rel="alternate" href="/atom.xml" title="宋博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">宋博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">我爱学习</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-notes_of_advanced_js" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/09/notes_of_advanced_js/" class="article-date">
+  <time datetime="2018-12-09T10:37:53.798Z" itemprop="datePublished">2018-12-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript进阶笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><ul>
+<li><code>Node.js</code>概述<ul>
+<li><code>Node.js</code> 是一个基于 Chrome V8 引擎的 <code>JavaScript</code> 运行环境。</li>
+<li><code>Node.js</code> 使用了一个事件驱动、非阻塞式 <code>I/O</code> 的模型，使其轻量又高效。</li>
+<li><code>Node.js</code> 的包管理器 <code>npm</code>，是全球最大的开源库生态系统。</li>
+</ul>
+</li>
+<li><code>Node.js</code>特点<ul>
+<li>使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去掉了中间环节，执行的不是字节码，用的也不是解释器，而是直接编译成了本地机器码。</li>
+<li><code>JavaScript</code>语言</li>
+<li>事件驱动，非阻塞式<code>I/O</code></li>
+<li>使用 <code>npm</code> 来管理包</li>
+</ul>
+</li>
+<li>在命令提示符(<code>cmd</code>)输入<code>node</code>，将进入<code>Node.js</code>的交互环境。在交互环境下，可以输入任意JavaScript语句。</li>
+<li>要退出<code>Node.js</code>环境，连按两次<code>Ctrl+C</code>。<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2></li>
+<li>NPM是什么？<br>NPM（node package manager)，通常称为node包管理器，主要功能就是管理node包，包括：安装、卸载、更新、查看、搜索、发布等。NPM是基于couchdb一个数据库，详细记录了每个包的信息（作者、版本、依赖、授权信息等）。它是世界上最大的软件注册表，每星期大约有 30 亿次的下载量，包含超过 600000 个 包（package） （即，代码模块）。来自各大洲的开源软件开发者使用 npm 互相分享和借鉴。包的结构使您能够轻松跟踪依赖项和版本。</li>
+<li>NPM的作用<ul>
+<li>允许用户从NPM服务器下载别人编写的第三方包到本地使用。</li>
+<li>允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。</li>
+<li>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。</li>
+</ul>
+</li>
+<li>NPM常用命令<ul>
+<li><code>npm -v</code>：查看npm版本号</li>
+<li><code>npm init</code>: 初始化项目</li>
+<li><code>npm install --save module</code>:安装需要的模块module</li>
+<li><code>npm install module -g</code>:全局安装需要的模块module</li>
+<li>在<code>package.json</code>文件的<code>dependencies</code>块下或通过<code>npm ls</code>命令查看当前项目下依赖的包</li>
+<li><code>npm uninstall module</code>：卸载模块</li>
+<li><code>npm update module</code>：更新模块</li>
+<li><code>npm search module</code>:搜索模块</li>
+<li><code>npm help &lt;command&gt;</code>:查看某条命令的详细帮助</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjpgueygg0000y8ow3rny8x1k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/12/08/summary_week4_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">总结—第一阶段第四周</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/09/notes_of_advanced_js/">JavaScript进阶笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/08/summary_week4_1/">总结—第一阶段第四周</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/02/summary_week3_1/">总结—第一阶段第三周</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/01/notes_of_js_2/">JS基础2笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/29/relative/">relative.html</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Song Nan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
