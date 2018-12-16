@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="宋博客">
 <meta property="og:description" content="Node.js Node.js概述 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 Node.js 的包管理器 npm，是全球最大的开源库生态系统。   Node.js特点 使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-09T12:09:00.288Z">
+<meta property="og:updated_time" content="2018-12-16T14:43:39.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript进阶笔记">
 <meta name="twitter:description" content="Node.js Node.js概述 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 Node.js 的包管理器 npm，是全球最大的开源库生态系统。   Node.js特点 使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去">
@@ -128,11 +128,131 @@
 </ul>
 </li>
 </ul>
+<h2 id="ECMAScript-6"><a href="#ECMAScript-6" class="headerlink" title="ECMAScript 6"></a>ECMAScript 6</h2><ul>
+<li>ECMAScript 6 简介：<ul>
+<li>ECMAScript(ES6) 是JavaScript语言的下一代标准，已经在2015年6月正式发布了；在 JavaScript 的基础上做了重大的更新，提供了更优雅的语法和特性。</li>
+</ul>
+</li>
+<li>ECMAScript 和 JavaScript 的关系<ul>
+<li>ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现。名字不同的原因：<ol>
+<li>商标，1996年11月，JavaScript的创造者Netscape公司，决定将JavaScript提交给国际标准化组织ECMA，希望这种语言能够成为国际标准。根据授权协议，只有Netscape公司(Javascript 的创造者)可以合法地使用JavaScript这个名字，且 JavaScript 本身也已经被 Netscape 公司注册为商标</li>
+<li>想体现这门语言的制定者是 ECMA，不是 Netscape，这样有利于保证这门语言的开放性和中立性。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>块级作用域</li>
+</ul>
+<h4 id="没有块级作用域，会带来很多不合理的场景。如："><a href="#没有块级作用域，会带来很多不合理的场景。如：" class="headerlink" title="没有块级作用域，会带来很多不合理的场景。如："></a>没有块级作用域，会带来很多不合理的场景。如：</h4><ul>
+<li>第一种场景，内层变量可能会覆盖外层变量。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var tmp = new Date();</span><br><span class="line"></span><br><span class="line">function f() &#123;</span><br><span class="line">  console.log(tmp);</span><br><span class="line">  if (false) &#123;</span><br><span class="line">    var tmp = &apos;hello world&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); // undefined</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>函数<code>f</code>执行后，输出结果为<code>undefined</code>，原因在于<code>if</code>内的<code>tmp</code>用<code>var</code>声明，在全局范围内有效，导致内层的tmp变量覆盖了外层的tmp变量，变量提升，输出语句写在<code>tmp</code>声明语句之前，输出<code>undefined</code>。</p>
+<ul>
+<li>第二种场景，用来计数的循环变量泄露为全局变量。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var s = &apos;hello&apos;;</span><br><span class="line"></span><br><span class="line">for (var i = 0; i &lt; s.length; i++) &#123;</span><br><span class="line">  console.log(s[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(i); // 5</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上面代码中，变量<code>i</code>只用来控制循环，但是循环结束后，它并没有消失，泄露成了全局变量。</p>
+<p>为了避免这些不合理的场景，ES6通过<code>let</code>和<code>const</code>增加了块级作用域。<code>let</code> 和 <code>const</code> 只在于当前的块作用域中有效，而 <code>var</code> 声明的变量是在函数作用域内有效。<code>const</code> 和 <code>let</code> 的区别则在于， <code>const</code> 声明变量的同时必须立即给一个初始值，且无法在对该值进行修改。如果该初始值是一个对象，那么该对象的值是可以被修改的。</p>
+<h4 id="有块级作用域后："><a href="#有块级作用域后：" class="headerlink" title="有块级作用域后："></a>有块级作用域后：</h4><ul>
+<li><p>ES6 允许块级作用域的任意嵌套。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#123;&#123;&#123;let insane = &apos;Hello World&apos;&#125;&#125;&#125;&#125;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>外层作用域无法读取内层作用域的变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#123;&#123;</span><br><span class="line">  &#123;let insane = &apos;Hello World&apos;&#125;</span><br><span class="line">  console.log(insane); // 报错</span><br><span class="line">&#125;&#125;&#125;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>内层作用域可以定义外层作用域的同名变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#123;&#123;</span><br><span class="line">  let insane = &apos;Hello World&apos;;</span><br><span class="line">  &#123;let insane = &apos;Hello World&apos;&#125;</span><br><span class="line">&#125;&#125;&#125;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>let</code>不允许在相同作用域内，重复声明同一个变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 报错</span><br><span class="line">function func() &#123;</span><br><span class="line">  let a = 10;</span><br><span class="line">  var a = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 报错</span><br><span class="line">function func() &#123;</span><br><span class="line">  let a = 10;</span><br><span class="line">  let a = 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在块级作用域内，使用<code>let</code>命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if (true) &#123;</span><br><span class="line">  // TDZ开始</span><br><span class="line">  tmp = &apos;abc&apos;; // ReferenceError</span><br><span class="line">  console.log(tmp); // ReferenceError</span><br><span class="line"></span><br><span class="line">  let tmp; // TDZ结束</span><br><span class="line">  console.log(tmp); // undefined</span><br><span class="line"></span><br><span class="line">  tmp = 123;</span><br><span class="line">  console.log(tmp); // 123</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>块级作用域与函数声明</p>
+</li>
+</ul>
+<p>ES6 规定，块级作用域之中，函数声明语句的行为类似于<code>let</code>，在块级作用域之外不可引用。但是为了减轻对老代码的影响，，ES6 在附录 B里面规定，浏览器的实现可以不遵守上面的规定，有自己的行为方式。</p>
+<ul>
+<li>允许在块级作用域内声明函数。</li>
+<li>函数声明类似于var，即会提升到全局作用域或函数作用域的头部。</li>
+<li>同时，函数声明还会提升到所在的块级作用域的头部。</li>
+</ul>
+<p>根据这三条规则，在浏览器的 ES6 环境中，块级作用域内声明的函数，行为类似于<code>var</code>声明的变量。考虑到环境导致的行为差异太大，应该避免在块级作用域内声明函数。如果确实需要，也应该写成函数表达式，而不是函数声明语句。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 函数声明语句</span><br><span class="line">&#123;</span><br><span class="line">  let a = &apos;secret&apos;;</span><br><span class="line">  function f() &#123;</span><br><span class="line">    return a;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 函数表达式</span><br><span class="line">&#123;</span><br><span class="line">  let a = &apos;secret&apos;;</span><br><span class="line">  let f = function () &#123;</span><br><span class="line">    return a;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另外，还有一个需要注意的地方。ES6 的块级作用域允许声明函数的规则，只在使用大括号的情况下成立，如果没有使用大括号，就会报错。</p>
+<ul>
+<li>变量的解构赋值</li>
+</ul>
+<p>ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。</p>
+<ul>
+<li><p>数组的解构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">let [foo, [[bar], baz]] = [1, [[2], 3]];</span><br><span class="line">foo // 1</span><br><span class="line">bar // 2</span><br><span class="line">baz // 3</span><br><span class="line"></span><br><span class="line">let [ , , third] = [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;];</span><br><span class="line">third // &quot;baz&quot;</span><br><span class="line"></span><br><span class="line">let [x, , y] = [1, 2, 3];</span><br><span class="line">x // 1</span><br><span class="line">y // 3</span><br><span class="line"></span><br><span class="line">let [head, ...tail] = [1, 2, 3, 4];</span><br><span class="line">head // 1</span><br><span class="line">tail // [2, 3, 4]</span><br><span class="line"></span><br><span class="line">let [x, y, ...z] = [&apos;a&apos;];</span><br><span class="line">x // &quot;a&quot;</span><br><span class="line">y // undefined</span><br><span class="line">z // []</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>如果解构不成功，变量的值就等于undefined。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let [foo] = [];</span><br><span class="line">let [bar, foo] = [1];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不完全解构：等号左边的模式，只匹配一部分的等号右边的数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let [x, y] = [1, 2, 3];</span><br><span class="line">x // 1</span><br><span class="line">y // 2</span><br><span class="line"></span><br><span class="line">let [a, [b], d] = [1, [2, 3], 4];</span><br><span class="line">a // 1</span><br><span class="line">b // 2</span><br><span class="line">d // 4</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果等号的右边不是数组（或者严格地说，不是可遍历的结构，参见《Iterator》一章），那么将会报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 报错</span><br><span class="line">let [foo] = 1;</span><br><span class="line">let [foo] = false;</span><br><span class="line">let [foo] = NaN;</span><br><span class="line">let [foo] = undefined;</span><br><span class="line">let [foo] = null;</span><br><span class="line">let [foo] = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>对象的解构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let &#123; foo, bar &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">foo // &quot;aaa&quot;</span><br><span class="line">bar // &quot;bbb&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let &#123; bar, foo &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">foo // &quot;aaa&quot;</span><br><span class="line">bar // &quot;bbb&quot;</span><br><span class="line"></span><br><span class="line">let &#123; baz &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">baz // undefined</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象的解构赋值的内部机制，是先找到同名属性，然后再赋给对应的变量。真正被赋值的是后者，而不是前者。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let &#123; foo: baz &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">baz // &quot;aaa&quot;</span><br><span class="line">foo // error: foo is not defined</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>字符串的解构赋值<br>字符串也可以解构赋值。这是因为此时，字符串被转换成了一个类似数组的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const [a, b, c, d, e] = &apos;hello&apos;;</span><br><span class="line">a // &quot;h&quot;</span><br><span class="line">b // &quot;e&quot;</span><br><span class="line">c // &quot;l&quot;</span><br><span class="line">d // &quot;l&quot;</span><br><span class="line">e // &quot;o&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>字符串拓展</p>
+<ul>
+<li>模版字符串</li>
+</ul>
+<p>模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串（所有的空格和缩进都会被保留在输出之中），或者在字符串中嵌入变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 普通字符串</span><br><span class="line">`In JavaScript &apos;\n&apos; is a line-feed.`</span><br><span class="line"></span><br><span class="line">// 多行字符串</span><br><span class="line">`In JavaScript this is</span><br><span class="line">not legal.`</span><br><span class="line"></span><br><span class="line">console.log(`string text line 1</span><br><span class="line">string text line 2`);</span><br><span class="line"></span><br><span class="line">// 字符串中嵌入变量</span><br><span class="line">let name = &quot;Bob&quot;, time = &quot;today&quot;;</span><br><span class="line">`Hello $&#123;name&#125;, how are you $&#123;time&#125;?`</span><br></pre></td></tr></table></figure>
+<p>上面代码中的模板字符串，都是用反引号表示。如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let greeting = `\`Yo\` World!`;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数的扩展</p>
+<ul>
+<li><p>ES6 允许为函数的参数设置默认值，即直接写在参数定义的后面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function log(x, y = &apos;World&apos;) &#123;</span><br><span class="line">  console.log(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">log(&apos;Hello&apos;) // Hello World</span><br><span class="line">log(&apos;Hello&apos;, &apos;China&apos;) // Hello China</span><br><span class="line">log(&apos;Hello&apos;, &apos;&apos;) // Hello</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ES6 引入 <code>rest</code> 参数（形式为…变量名），用于获取函数的多余参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function example(...values)&#123;</span><br><span class="line">    console.log(values)// console: [1,2,3,4]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">example(1,2,3,4) </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var a = [1,2,3]</span><br><span class="line"></span><br><span class="line">var b = [...a,4,5,6] //b = [1,2,3,4,5,6]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>箭头函数</p>
+<ul>
+<li><p>ES6 允许使用“箭头”（=&gt;）定义函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var f = v =&gt; v;</span><br><span class="line"></span><br><span class="line">// 等同于</span><br><span class="line">var f = function (v) &#123;</span><br><span class="line">  return v;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var f = () =&gt; 5;</span><br><span class="line">// 等同于</span><br><span class="line">var f = function () &#123; return 5 &#125;;</span><br><span class="line"></span><br><span class="line">var sum = (num1, num2) =&gt; num1 + num2;</span><br><span class="line">// 等同于</span><br><span class="line">var sum = function(num1, num2) &#123;</span><br><span class="line">  return num1 + num2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果箭头函数的函数体只包含一行代码，则可以不需要写大括号以及 return 语句返回（如果有返回值）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var sum = (num1,num2) =&gt; num1+num2</span><br><span class="line">等同于</span><br><span class="line">var sum = (num1,num2) =&gt; &#123;return num1+num2&#125;</span><br><span class="line">等同于</span><br><span class="line">var sum = function(num1,num2)&#123;return num1+num2&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjppfv09r00077kowa9emujzq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjpr05l3l0000soowp4k5ppxa" class="article-share-link">Share</a>
       
       
     </footer>
