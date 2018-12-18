@@ -14,10 +14,12 @@
 <meta property="og:site_name" content="宋博客">
 <meta property="og:description" content="Node.js Node.js概述 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 Node.js 的包管理器 npm，是全球最大的开源库生态系统。   Node.js特点 使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-16T14:43:39.895Z">
+<meta property="og:image" content="https://pic1.zhimg.com/80/664ba37eeee9f4623c06c066867f1d38_hd.jpg">
+<meta property="og:updated_time" content="2018-12-18T08:43:43.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript进阶笔记">
 <meta name="twitter:description" content="Node.js Node.js概述 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 Node.js 的包管理器 npm，是全球最大的开源库生态系统。   Node.js特点 使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去">
+<meta name="twitter:image" content="https://pic1.zhimg.com/80/664ba37eeee9f4623c06c066867f1d38_hd.jpg">
   
     <link rel="alternate" href="/atom.xml" title="宋博客" type="application/atom+xml">
   
@@ -242,17 +244,45 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var f = () =&gt; 5;</span><br><span class="line">// 等同于</span><br><span class="line">var f = function () &#123; return 5 &#125;;</span><br><span class="line"></span><br><span class="line">var sum = (num1, num2) =&gt; num1 + num2;</span><br><span class="line">// 等同于</span><br><span class="line">var sum = function(num1, num2) &#123;</span><br><span class="line">  return num1 + num2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果箭头函数的函数体只包含一行代码，则可以不需要写大括号以及 return 语句返回（如果有返回值）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var sum = (num1,num2) =&gt; num1+num2</span><br><span class="line">等同于</span><br><span class="line">var sum = (num1,num2) =&gt; &#123;return num1+num2&#125;</span><br><span class="line">等同于</span><br><span class="line">var sum = function(num1,num2)&#123;return num1+num2&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var sum = (num1,num2) =&gt; num1+num2</span><br><span class="line">等同于</span><br><span class="line">var sum = (num1,num2) =&gt; &#123;return num1+num2&#125;</span><br><span class="line">等同于</span><br><span class="line">var sum = function(num1,num2)&#123;return num1+num2&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><ul>
+<li>面向对象编程：<br>把一组数据结构和处理它们的方法组成<strong>对象</strong>(Object), 把相同行为的对象归纳为<strong>类</strong>(Class), 通过类的<strong>封装</strong>(encapsulation)隐藏内部细节，通过<strong>继承</strong>(inheritance)实现类的<strong>特化</strong>(specializetion)/<strong>泛化</strong>(generalization), 通过<strong>多态</strong>(polymorphism)实现基于对象类型的<strong>动态分派</strong>。其实就是我们按照正常的思维去写程序，我们会将现实世界中的东西视为一个个对象，然后他们的行为就是一个个方法。<br><img src="https://pic1.zhimg.com/80/664ba37eeee9f4623c06c066867f1d38_hd.jpg" alt=""></li>
+<li>面向对象这个<strong>对象</strong>，指的是客体。所谓客体是指客观存在的对象实体和主观抽象的概念。 </li>
+<li>面向对象的好处？<ol>
+<li>接近人的思维，符合人类对现实世界的认知；</li>
+<li>封装特性可以使开发者不必在意内部的具体实现，更方便互相协作；</li>
+<li>继承特性可以减少代码冗余，实现代码复用；</li>
+<li>多态特性令子类相比父类有不同的行为，这是非常接近现实的。</li>
+</ol>
+</li>
+<li>面向对象是为了解决系统的<strong>可维护性</strong>，<strong>可扩展性</strong>，<strong>可重用性</strong>。<ul>
+<li>面向对象的三大特征： <ul>
+<li>封装：找到变化并且把它封装起来。封装的作用，就解决了程序的可扩展性。 </li>
+<li>继承：子类继承父类，可以继承父类的方法及属性，实现了多态以及代码的重用，因此也解决了系统的重用性和扩展性，但是继承破坏了封装，因为他是对子类开放的，修改父类会导致所有子类的改变，因此继承一定程度上又破坏了系统的可扩展性，所以继承需要慎用。</li>
+<li>多态：接口的多种不同的实现方式即为多态。</li>
 </ul>
 </li>
 </ul>
 </li>
+<li>面对对象编程三大步骤：<ul>
+<li>面向对象的分析(OOA)：分析需求，先不要思考怎么用程序实现它，先分析需求中稳定不变的客体都是些什么，这些客体之间的关系是什么。</li>
+<li>面向对象的设计(OOD)：把第一步分析出来的需求，通过进一步扩充模型，变成可实现的、符合成本的、模块化的、低耦合高内聚的模型。</li>
+<li>面向对象的编程实现(OOP)：使用面向对象的实现模型 。</li>
+</ul>
+</li>
+<li>面向对象和基于对象的区别<br>“面向对象”和“基于对象”都实现了“封装”的概念，但是面向对象实现了“继承和多态”，而“基于对象”没有实现这些</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjpr05l3l0000soowp4k5ppxa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjptv9g94000agoow6z1dhdxo" class="article-share-link">Share</a>
       
       
     </footer>
