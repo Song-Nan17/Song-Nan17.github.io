@@ -15,7 +15,7 @@
 <meta property="og:description" content="Node.js Node.js概述 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 Node.js 的包管理器 npm，是全球最大的开源库生态系统。   Node.js特点 使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://pic1.zhimg.com/80/664ba37eeee9f4623c06c066867f1d38_hd.jpg">
-<meta property="og:updated_time" content="2018-12-18T08:43:43.914Z">
+<meta property="og:updated_time" content="2018-12-19T11:07:15.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript进阶笔记">
 <meta name="twitter:description" content="Node.js Node.js概述 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 Node.js 的包管理器 npm，是全球最大的开源库生态系统。   Node.js特点 使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去">
@@ -106,8 +106,11 @@
 <li>使用 <code>npm</code> 来管理包</li>
 </ul>
 </li>
-<li>在命令提示符(<code>cmd</code>)输入<code>node</code>，将进入<code>Node.js</code>的交互环境。在交互环境下，可以输入任意JavaScript语句。</li>
-<li>要退出<code>Node.js</code>环境，连按两次<code>Ctrl+C</code>。</li>
+<li>使用<code>node</code>运行<code>js</code>文件：<ul>
+<li>交互模式（连按两次<code>Ctrl+C</code>退出交互模式）</li>
+<li>命令行模式</li>
+</ul>
+</li>
 </ul>
 <h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><ul>
 <li>NPM是什么？<br>NPM（node package manager)，通常称为node包管理器，主要功能就是管理node包，包括：安装、卸载、更新、查看、搜索、发布等。NPM是基于couchdb一个数据库，详细记录了每个包的信息（作者、版本、依赖、授权信息等）。它是世界上最大的软件注册表，每星期大约有 30 亿次的下载量，包含超过 600000 个 包（package） （即，代码模块）。来自各大洲的开源软件开发者使用 npm 互相分享和借鉴。包的结构使您能够轻松跟踪依赖项和版本。</li>
@@ -120,7 +123,7 @@
 <li>NPM常用命令<ul>
 <li><code>npm -v</code>：查看npm版本号</li>
 <li><code>npm init</code>: 初始化项目</li>
-<li><code>npm install --save module</code>:安装需要的模块module</li>
+<li><code>npm install module</code>:本地安装需要的模块module</li>
 <li><code>npm install module -g</code>:全局安装需要的模块module</li>
 <li>在<code>package.json</code>文件的<code>dependencies</code>块下或通过<code>npm ls</code>命令查看当前项目下依赖的包</li>
 <li><code>npm uninstall module</code>：卸载模块</li>
@@ -282,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjptv9g94000agoow6z1dhdxo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjpv324y8000bwgow4u25wv9p" class="article-share-link">Share</a>
       
       
     </footer>
