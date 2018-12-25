@@ -14,10 +14,21 @@
 <meta property="og:site_name" content="宋博客">
 <meta property="og:description" content="HTML 超文本标记语言，用于告诉浏览器如何构造要访问的网页，使用标签来描述内容和结构。标签 一个完整的标签应该有开始标签和闭合标签，如：&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt; 。 元素 = 开始标签 + 内容 + 结束标签 。 自闭和标签在标签末加/，如：&amp;lt;img src=&amp;quot;&amp;quot; /&amp;gt; 。display: inline; block; inline-block di">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-23T13:38:22.139Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/a3e6a3afly1fss1tv5vttj221c1b8gvr.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/a3e6a3afly1fss1vayy3tj221c18sqhi.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/a3e6a3afly1fss1w1jyxwj221c18sk52.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/a3e6a3afly1fss1ytu9nlj221c18sqem.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/a3e6a3afly1fss2261rynj221c18sqjk.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/a3e6a3afly1fss3z76tu9j20p00h0dhf.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/a3e6a3afly1fss3k2hx9zj221c18s76z.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/a3e6a3afly1fss31gnbg4j221c18saee.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/a3e6a3afly1fss35r8sd2j221c18std0.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/a3e6a3afly1fss3bnojzqj221c18s0vd.jpg">
+<meta property="og:updated_time" content="2018-12-25T11:44:32.636Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML基础笔记">
 <meta name="twitter:description" content="HTML 超文本标记语言，用于告诉浏览器如何构造要访问的网页，使用标签来描述内容和结构。标签 一个完整的标签应该有开始标签和闭合标签，如：&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt; 。 元素 = 开始标签 + 内容 + 结束标签 。 自闭和标签在标签末加/，如：&amp;lt;img src=&amp;quot;&amp;quot; /&amp;gt; 。display: inline; block; inline-block di">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/a3e6a3afly1fss1tv5vttj221c1b8gvr.jpg">
   
     <link rel="alternate" href="/atom.xml" title="宋博客" type="application/atom+xml">
   
@@ -117,15 +128,115 @@
 </ul>
 </li>
 <li><code>display: inline-block</code>就是将对象呈递为内联对象。<br><code>inline-block</code>元素的特点：</li>
-<li>就是将对象呈递为内联对象，但是对象的内容作为块对象呈递。旁边的内联对象会被呈递在同一行内，允许空格。应用此特性的元素呈现为内联对象，周围元素保持在同一行，但可以设置宽度和高度，行高等块元素的属性。<h2 id="使用-lt-iframe-gt-标签嵌入其他网页时，若添加sandbox属性，应设置为allow-scripts"><a href="#使用-lt-iframe-gt-标签嵌入其他网页时，若添加sandbox属性，应设置为allow-scripts" class="headerlink" title="使用&lt;iframe&gt;标签嵌入其他网页时，若添加sandbox属性，应设置为allow-scripts."></a>使用<code>&lt;iframe&gt;</code>标签嵌入其他网页时，若添加<code>sandbox</code>属性，应设置为<code>allow-scripts</code>.</h2><h2 id="lt-table-gt-标签"><a href="#lt-table-gt-标签" class="headerlink" title="&lt;table&gt;标签"></a><code>&lt;table&gt;</code>标签</h2></li>
-<li><code>rowspan</code>代表该列跨多少行；</li>
-<li><code>colspan</code>代表改行跨多少列。<h2 id="lt-form-gt-标签可以嵌入在table中方便其中-lt-input-gt-的对齐。"><a href="#lt-form-gt-标签可以嵌入在table中方便其中-lt-input-gt-的对齐。" class="headerlink" title="&lt;form&gt;标签可以嵌入在table中方便其中&lt;input&gt;的对齐。"></a><code>&lt;form&gt;</code>标签可以嵌入在table中方便其中<code>&lt;input&gt;</code>的对齐。</h2></li>
+<li>就是将对象呈递为内联对象，但是对象的内容作为块对象呈递。旁边的内联对象会被呈递在同一行内，允许空格。应用此特性的元素呈现为内联对象，周围元素保持在同一行，但可以设置宽度和高度，行高等块元素的属性。<h2 id="文本内容"><a href="#文本内容" class="headerlink" title="文本内容"></a>文本内容</h2></li>
+<li>P标签表示段落，在语义上通常表达完整的一段话，是块级元素。</li>
+<li>h1 ~ h6 是一级 到 六级标题，一级标题最大，六级标题最小，是块级元素。</li>
+<li>hr元素代表分割线，可以分隔段落和标题。<br>如下图所示是p、h1 ~ h6、hr 标签示例：<br><img src="https://ws1.sinaimg.cn/large/a3e6a3afly1fss1tv5vttj221c1b8gvr.jpg" alt=""></li>
+<li>有序列表用<code>ol</code>标签包围，意为order list，其中的每一项用<code>li</code>标签表示。</li>
+<li>无序列表用<code>ul</code>标签包围，意为unorder list，其中的每一项用<code>li</code>标签表示。</li>
+<li>列表列表用<code>dl</code>标签包围，意为definition list，其中用<code>dt</code>（definition title）表示定义的标题，用<code>dd</code>（definition description）表示定义的标题所对应的具体内容。<br>有序列表、无序列表、定义列表的示例如下图所示：<br><img src="https://ws1.sinaimg.cn/large/a3e6a3afly1fss1vayy3tj221c18sqhi.jpg" alt=""></li>
+<li>引用一共有如下三种写法<code>&lt;blockquote&gt;</code>、<code>&lt;cite&gt;</code>、<code>&lt;q&gt;</code>，<code>&lt;blockquote&gt;</code>标签会有段落的缩进，<code>&lt;cite&gt;</code>标签引用的内容会是内容倾斜，<code>&lt;q&gt;</code>标签引用的内容会在内容外面加上双引号。示例如下图所示<br><img src="https://ws1.sinaimg.cn/large/a3e6a3afly1fss1w1jyxwj221c18sk52.jpg" alt=""></li>
+<li>预格式化文本采用<code>&lt;pre&gt;</code>标签，可以保留在标签内部的文本样式。示例如下图所示：<br><img src="https://ws1.sinaimg.cn/large/a3e6a3afly1fss1ytu9nlj221c18sqem.jpg" alt=""></li>
+<li>在HTML中，分别使用<code>&lt;del&gt;</code>和<code>&lt;ins&gt;</code>两个标签表示插入和删除。示例如下图所示：<br><img src="https://ws1.sinaimg.cn/large/a3e6a3afly1fss2261rynj221c18sqjk.jpg" alt=""><h2 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a>多媒体</h2></li>
+<li><code>img</code>标签 - 图片<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;</span><br><span class="line">  我是一张图片</span><br><span class="line">  &lt;br&gt;</span><br><span class="line">  &lt;img width=&quot;500&quot; height=&quot;250&quot; </span><br><span class="line">       src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/240px-HTML5_logo_and_wordmark.svg.png&quot;&gt;</span><br><span class="line">&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/a3e6a3afly1fss3z76tu9j20p00h0dhf.jpg" alt=""></p>
+<ul>
+<li><p><code>img</code>标签是一个内联元素，将不会单独占据一行，而是以图像设置的大小来在行内显示</p>
+<ul>
+<li><code>video</code>标签 - 视频<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;video src=&quot;rabbit320.webm&quot; controls&gt;</span><br><span class="line">  &lt;p&gt;Your browser doesn&apos;t support HTML5 video. Here is a &lt;a href=&quot;rabbit320.webm&quot;&gt;link to the video&lt;/a&gt; instead.&lt;/p&gt; </span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>其中<code>src</code>属性指向想要嵌入到网页中的视频资源，<code>controls</code>属性使用户具有了对视频的控制权限，使用户可以控制视频的暂停、播放等功能。</p>
+</li>
+<li><code>video</code>标签内部还有一个段落，被称为后备段落，当浏览器不支持<code>Video</code>标签的时候，后备段落就会显示出来。在上述例子中，添加了一个链接，指向该视频文件，可以使用户点击访问。</li>
+<li><code>video</code>标签还有一些其他的属性，比如：<ul>
+<li><code>width</code>和<code>height</code>，控制视频的尺寸，但当我们对视频的尺寸进行调整是，视频会一直保持固定的纵横比，如果未被视频内容填充的部分，将会显示为默认的背景颜色。</li>
+<li><code>autoplay</code>，这个属性会使视频内容自动播放，即使页面的其他部分还没有加载完全。</li>
+<li><code>muted</code>，该属性设置该视频在播放时，默认是处于静音的状态。</li>
+<li><code>poster</code>，同<code>img</code>标签类似，指向一个图像的URL，该图像作为该视频的海报，在视频播放前显示。</li>
+<li><code>preload</code>，该属性通常被用来缓存较大的视频文件，该属性有以下几个值：</li>
+<li><code>none</code>：不缓冲</li>
+<li><code>auto</code>：页面加载后缓存视频文件</li>
+<li><code>metadata</code>：仅缓冲视频的元数据</li>
+<li><code>audio</code>标签 - 音频<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio controls&gt;</span><br><span class="line">  &lt;source src=&quot;viper.mp3&quot; type=&quot;audio/mp3&quot;&gt;</span><br><span class="line">  &lt;source src=&quot;viper.ogg&quot; type=&quot;audio/ogg&quot;&gt;</span><br><span class="line">  &lt;p&gt;Your browser doesn&apos;t support HTML5 audio. Here is a &lt;a href=&quot;viper.mp3&quot;&gt;link to the audio&lt;/a&gt; instead.&lt;/p&gt;</span><br><span class="line">&lt;/audio&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/a3e6a3afly1fss3k2hx9zj221c18s76z.jpg" alt=""></p>
+<ul>
+<li><code>audio</code>标签不支持<code>width</code>/<code>height</code>属性（因为只是显示音频播放内容，无视觉显示部件）。</li>
+<li><code>audio</code>标签也不支持<code>poster</code>属性，同样是由于没有视觉显示部件。<h3 id="使用-lt-iframe-gt-标签嵌入其他网页时，若添加sandbox属性，应设置为allow-scripts"><a href="#使用-lt-iframe-gt-标签嵌入其他网页时，若添加sandbox属性，应设置为allow-scripts" class="headerlink" title="使用&lt;iframe&gt;标签嵌入其他网页时，若添加sandbox属性，应设置为allow-scripts."></a>使用<code>&lt;iframe&gt;</code>标签嵌入其他网页时，若添加<code>sandbox</code>属性，应设置为<code>allow-scripts</code>.</h3><h3 id="lt-table-gt-标签"><a href="#lt-table-gt-标签" class="headerlink" title="&lt;table&gt;标签"></a><code>&lt;table&gt;</code>标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;table border=&quot;1&quot;&gt;</span><br><span class="line">  &lt;thead&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">      &lt;th&gt;浏览器&lt;/th&gt;</span><br><span class="line">      &lt;th&gt;渲染引擎&lt;/th&gt;</span><br><span class="line">      &lt;th&gt;JavaScript 引擎&lt;/th&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">  &lt;/thead&gt;</span><br><span class="line">  &lt;tbody&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">      &lt;th&gt;Chrome&lt;/th&gt;</span><br><span class="line">      &lt;td&gt;Blink&lt;/td&gt;</span><br><span class="line">      &lt;td&gt;V8&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">      &lt;th&gt;Opera&lt;/th&gt;</span><br><span class="line">      &lt;td&gt;Blink&lt;/td&gt;</span><br><span class="line">      &lt;td&gt;V8&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">  &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/a3e6a3afly1fss31gnbg4j221c18saee.jpg" alt=""></p>
+<ul>
+<li><code>table</code>标签详细描述：<ul>
+<li><code>table</code> - 定义表格</li>
+<li><code>thead</code> - 表格的页眉</li>
+<li><code>tbody</code> - 表格的主体</li>
+<li><code>tr</code> - 表格的一行</li>
+<li><code>th</code> - 表格的表头</li>
+<li><code>td</code> - 表格中的单元格</li>
+<li><code>border</code> - 表格是否有边框，数值代表边框的宽度</li>
+</ul>
+</li>
+<li><code>table</code>标签要有正确的嵌套方式，有<code>table</code>定义表格，子层嵌套<code>thead</code>和<code>tbody</code>，在页眉和主体内部分别嵌套表格的一行<code>tr</code>，最内层是表格的单元格<code>td</code>。</li>
+<li><code>caption</code> 标签表示table的标题</li>
+<li><code>rowspan</code>代表该列跨多少行</li>
+<li><code>colspan</code>代表改行跨多少列</li>
+<li><code>colgroup</code> 进行列的分组<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;table border=&quot;1&quot;&gt;</span><br><span class="line">  &lt;colgroup&gt;</span><br><span class="line">    &lt;col class=&quot;browser&quot;&gt;</span><br><span class="line">    &lt;col class=&quot;engine&quot; span=&quot;2&quot;&gt;</span><br><span class="line">  &lt;/colgroup&gt;</span><br><span class="line">  &lt;thead&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">      &lt;th&gt;浏览器&lt;/th&gt;</span><br><span class="line">      &lt;th&gt;渲染引擎&lt;/th&gt;</span><br><span class="line">      &lt;th&gt;JavaScript 引擎&lt;/th&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">  &lt;/thead&gt;</span><br><span class="line">  &lt;tbody&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">      &lt;th&gt;Chrome&lt;/th&gt;</span><br><span class="line">      &lt;td&gt;Blink&lt;/td&gt;</span><br><span class="line">      &lt;td&gt;V8&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">      &lt;th&gt;Opera&lt;/th&gt;</span><br><span class="line">      &lt;td&gt;Blink&lt;/td&gt;</span><br><span class="line">      &lt;td&gt;V8&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">  &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/a3e6a3afly1fss35r8sd2j221c18std0.jpg" alt=""></p>
+<h3 id="form-表单"><a href="#form-表单" class="headerlink" title="form 表单"></a>form 表单</h3><ul>
+<li>表单通常用于诸如银行卡申请、登录、注册等场景下，包含单行文本框、单选、多选等多种类型的输入方式，以使用户填写，从而为系统提供数据。<strong>表单是用户和web网站或应用程序之间交互的主要内容之一，允许用户将数据发送到web网站</strong>。</li>
+<li><code>&lt;form&gt;</code>标签可以嵌入在table中方便其中<code>&lt;input&gt;</code>的对齐。</li>
+<li>表单和普通的HTML文档有以下几点主要的不同：多数情况下，表单收集到的数据被发送到web服务器。这时，需要单独设置一个web服务器来接收和处理数据请求，但是HTML文档却不必要，仅在本地就可以正确运行。</li>
+<li>基本的表单如下示例所示：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;/echo&quot; method=&quot;POST&quot;&gt;</span><br><span class="line">  &lt;p&gt;用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;密码：&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;&lt;button type=&quot;submit&quot;&gt;登录&lt;/button&gt;&lt;/p&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/a3e6a3afly1fss3bnojzqj221c18s0vd.jpg" alt=""></p>
+<ul>
+<li>其中包含的<strong>小组件</strong>主要有以下几种：<ul>
+<li>单行文本框 - <code>&lt;input type=&#39;text&#39;&gt;</code></li>
+<li>密码输入 - <code>&lt;input type=&#39;password&#39;&gt;</code></li>
+<li>多行文本框 - <code>&lt;textarea&gt;</code></li>
+<li>单选按钮 - <code>&lt;radio&gt;</code></li>
+<li>多选按钮 - <code>&lt;checkbox&gt;</code></li>
+<li>下拉选择（单选） - <code>&lt;select&gt;</code></li>
+<li>下拉选择（多选） - <code>&lt;select multiple&gt;</code></li>
+<li>文件选择 - <code>&lt;input type=&#39;file&#39;&gt;</code></li>
+<li>时间和日期 - <code>&lt;input type=&quot;date&quot;&gt;/&lt;input type=&quot;datetime-local&quot;&gt;/&lt;input type=&quot;month&quot;&gt;/&lt;input type=&quot;week&quot;&gt;/&lt;input type=&quot;time&quot;&gt;</code></li>
+</ul>
+</li>
+<li>HTML 表单中常用的<strong>属性</strong><ul>
+<li><code>action</code> - 向服务器发送的请求地址</li>
+<li><code>method</code> - 要发送的HTTP请求类型</li>
+<li><code>name</code> - 表单的名称</li>
+<li><code>target</code> - 用于发送请求和接收响应的窗口名称</li>
+<li><code>value</code> - 某一个具体的表单项所对应的值</li>
+<li><code>placeholder</code> - 输入框的占位符，当输入框中为空时占位符会显示</li>
+<li><code>checked</code> - 针对多选框/单选框，默认的状态时选中状态</li>
+</ul>
+</li>
+<li>表单设计的几个原则：<ul>
+<li>尽量帮助用户不出差错</li>
+<li>尽早提示用户填写错误</li>
+<li>尽可能的扩大选择/点击区域</li>
+<li>当表单中控件较多是要分组</li>
+<li>在设计表单时要分清主要动作和次要动作</li>
+</ul>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/19/notes_of_html/" data-id="cjq0yxins0005ooow411hnf1p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/19/notes_of_html/" data-id="cjq3oqssa0009bsowkqvrm0a4" class="article-share-link">Share</a>
       
       
     </footer>
