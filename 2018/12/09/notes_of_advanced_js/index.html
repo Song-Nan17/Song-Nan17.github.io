@@ -15,7 +15,7 @@
 <meta property="og:description" content="Node.js Node.js概述 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 Node.js 的包管理器 npm，是全球最大的开源库生态系统。   Node.js特点 使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://pic1.zhimg.com/80/664ba37eeee9f4623c06c066867f1d38_hd.jpg">
-<meta property="og:updated_time" content="2018-12-25T14:23:07.091Z">
+<meta property="og:updated_time" content="2018-12-25T14:26:05.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript进阶笔记">
 <meta name="twitter:description" content="Node.js Node.js概述 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 Node.js 的包管理器 npm，是全球最大的开源库生态系统。   Node.js特点 使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去">
@@ -279,18 +279,18 @@
 <li>面向对象的编程实现(OOP)：使用面向对象的实现模型 。</li>
 </ul>
 </li>
-<li>面向对象和基于对象的区别<br>“面向对象”和“基于对象”都实现了“封装”的概念，但是面向对象实现了“继承和多态”，而“基于对象”没有实现这些<h3 id="1-生成实例对象的原始模式-字面量"><a href="#1-生成实例对象的原始模式-字面量" class="headerlink" title="1.生成实例对象的原始模式,字面量"></a>1.生成实例对象的原始模式,字面量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">　　var Cat = &#123;</span><br><span class="line">　　　　name : &apos;&apos;,</span><br><span class="line"></span><br><span class="line">　　　　color : &apos;&apos;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>面向对象和基于对象的区别<br>“面向对象”和“基于对象”都实现了“封装”的概念，但是面向对象实现了“继承和多态”，而“基于对象”没有实现这些</li>
 </ul>
+<h3 id="1-生成实例对象的原始模式-字面量"><a href="#1-生成实例对象的原始模式-字面量" class="headerlink" title="1.生成实例对象的原始模式,字面量"></a>1.生成实例对象的原始模式,字面量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">　　var Cat = &#123;</span><br><span class="line">　　　　name : &apos;&apos;,</span><br><span class="line"></span><br><span class="line">　　　　color : &apos;&apos;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
 <p>根据这个原型对象的规格（schema），生成两个实例对象:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">　　var cat1 = &#123;&#125;; // 创建一个空对象</span><br><span class="line"></span><br><span class="line">　　　　cat1.name = &quot;大毛&quot;; // 按照原型对象的属性赋值</span><br><span class="line"></span><br><span class="line">　　　　cat1.color = &quot;黄色&quot;;</span><br><span class="line"></span><br><span class="line">　　var cat2 = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">　　　　cat2.name = &quot;二毛&quot;;</span><br><span class="line"></span><br><span class="line">　　　　cat2.color = &quot;黑色&quot;;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>这样的写法有两个缺点<ul>
 <li>一是如果多生成几个实例，写起来就非常麻烦；</li>
-<li>二是实例与原型之间，没有任何办法，可以看出有什么联系。<h3 id="2-工厂模式"><a href="#2-工厂模式" class="headerlink" title="2.工厂模式"></a>2.工厂模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Cat(name,color) &#123;</span><br><span class="line"></span><br><span class="line">　　　　return &#123;</span><br><span class="line"></span><br><span class="line">　　　　　　name:name,</span><br><span class="line"></span><br><span class="line">　　　　　　color:color</span><br><span class="line"></span><br><span class="line">　　　　&#125;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>二是实例与原型之间，没有任何办法，可以看出有什么联系。</li>
 </ul>
 </li>
 </ul>
+<h3 id="2-工厂模式"><a href="#2-工厂模式" class="headerlink" title="2.工厂模式"></a>2.工厂模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Cat(name,color) &#123;</span><br><span class="line"></span><br><span class="line">　　　　return &#123;</span><br><span class="line"></span><br><span class="line">　　　　　　name:name,</span><br><span class="line"></span><br><span class="line">　　　　　　color:color</span><br><span class="line"></span><br><span class="line">　　　　&#125;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
 <p>然后生成实例对象，就等于是在调用函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　var cat1 = Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line"></span><br><span class="line">　　var cat2 = Cat(&quot;二毛&quot;,&quot;黑色&quot;);</span><br></pre></td></tr></table></figure></p>
 <p>这种方法的问题依然是，cat1和cat2之间没有内在的联系，不能反映出它们是同一个原型对象的实例。</p>
 <h3 id="3-构造函数"><a href="#3-构造函数" class="headerlink" title="3.构造函数"></a>3.构造函数</h3><p>“构造函数”，其实就是一个普通函数，但是内部使用了this变量。对构造函数使用new运算符，就能生成实例，并且this变量会绑定在实例对象上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　function Cat(name,color)&#123;</span><br><span class="line"></span><br><span class="line">　　　　this.name=name;</span><br><span class="line"></span><br><span class="line">　　　　this.color=color;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure></p>
@@ -313,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjq3ucdp8000ejsow866uf3a9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjq3ug9vj000ehkowrx3oonhy" class="article-share-link">Share</a>
       
       
     </footer>
