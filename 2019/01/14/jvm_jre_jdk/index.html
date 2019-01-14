@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JVM, JRE, JDK 的区别和联系 | 宋博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JVMJVM是JavaVirtual Machine（Java虚拟机）的缩写，它是整个java实现跨平台的最核心的部分，不是 Java 能够跨平台，而是它的 jvm 能够跨平台。 所有的java程序会首先被编译为.class的类文件，这种类文件可以在虚拟机上执行，也就是说.class并不直接与机器的操作系统相对应，而是经过虚拟机间接与操作系统交互，由虚拟机将程序解释给本地系统执行。 JVM屏蔽了与">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM, JRE, JDK 的区别和联系">
+<meta property="og:url" content="http://yoursite.com/2019/01/14/jvm_jre_jdk/index.html">
+<meta property="og:site_name" content="宋博客">
+<meta property="og:description" content="JVMJVM是JavaVirtual Machine（Java虚拟机）的缩写，它是整个java实现跨平台的最核心的部分，不是 Java 能够跨平台，而是它的 jvm 能够跨平台。 所有的java程序会首先被编译为.class的类文件，这种类文件可以在虚拟机上执行，也就是说.class并不直接与机器的操作系统相对应，而是经过虚拟机间接与操作系统交互，由虚拟机将程序解释给本地系统执行。 JVM屏蔽了与">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-14T14:51:21.043Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JVM, JRE, JDK 的区别和联系">
+<meta name="twitter:description" content="JVMJVM是JavaVirtual Machine（Java虚拟机）的缩写，它是整个java实现跨平台的最核心的部分，不是 Java 能够跨平台，而是它的 jvm 能够跨平台。 所有的java程序会首先被编译为.class的类文件，这种类文件可以在虚拟机上执行，也就是说.class并不直接与机器的操作系统相对应，而是经过虚拟机间接与操作系统交互，由虚拟机将程序解释给本地系统执行。 JVM屏蔽了与">
+  
+    <link rel="alternate" href="/atom.xml" title="宋博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">宋博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">我爱学习</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-jvm_jre_jdk" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/14/jvm_jre_jdk/" class="article-date">
+  <time datetime="2019-01-14T14:29:34.794Z" itemprop="datePublished">2019-01-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JVM, JRE, JDK 的区别和联系
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>JVM是JavaVirtual Machine（<strong>Java虚拟机</strong>）的缩写，它是整个java实现跨平台的最核心的部分，不是 Java 能够跨平台，而是它的 jvm 能够跨平台。</p>
+<p>所有的java程序会首先被编译为<code>.class</code>的类文件，这种类文件可以在虚拟机上执行，也就是说<code>.class</code>并不直接与机器的操作系统相对应，而是经过虚拟机间接与操作系统交互，由虚拟机将程序解释给本地系统执行。</p>
+<p>JVM屏蔽了与具体操作系统平台相关的信息，使得Java程序只需生成在Java虚拟机上运行的目标代码（字节码），就可以在多种平台上不加修改地运行。</p>
+<p>JVM也有自己的指令集，并且在运行时操作不同的内存区域。 JVM的主要工作是解释自己的指令集（即字节码）到CPU的指令集或对应的系统调用，保护用户免被恶意程序骚扰。 JVM对上层的Java源文件是不关心的，它关注的只是由源文件生成的类文件（<code>.class</code>文件）。</p>
+<h2 id="JRE"><a href="#JRE" class="headerlink" title="JRE"></a>JRE</h2><p>JRE是java runtime environment（<strong>java运行环境</strong>）的缩写。</p>
+<p>光有JVM还不能让<code>.class</code>文件执行，因为在解释<code>.class</code>的时候JVM需要调用解释所需要的类库<code>lib</code>。在JDK的安装目录里可以找到<code>jre</code>目录，里面有两个文件夹<code>bin</code>和<code>lib</code>,在这里可以认为<code>bin</code>里的就是<code>jvm</code>，<code>lib</code>中则是<code>jvm</code>工作所需要的类库，而<code>jvm</code>和<code>lib</code>和起来就称为<code>jre</code>。</p>
+<p>JRE是Java运行环境，并不是一个开发环境，所以没有包含任何开发工具（如编译器和调试器），是提供给用户来直接使用运行编译后的java程序的。</p>
+<h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h2><p>JDK是java development kit（<strong>java开发工具包</strong>）的缩写,是Sun Microsystems针对Java开发员的产品。</p>
+<p>在JDK安装目录下面有六个文件夹、一个<code>src</code>类库源码压缩包、和其他几个声明文件。其中，真正在运行java时起作用的是以下四个文件夹：<code>bin</code>、<code>include</code>、<code>lib</code>、<code>jre</code>。</p>
+<ul>
+<li><p><code>bin</code>:最主要的是编译器(javac.exe)</p>
+</li>
+<li><p><code>include</code>:java和JVM交互用的头文件</p>
+</li>
+<li><p><code>lib</code>：类库 （java开发需要的类库）    </p>
+</li>
+<li><p><code>jre</code>:java运行环境 </p>
+</li>
+</ul>
+<p>(eclipse、idea等其他IDE(集成开发环境)有自己的编译器而不是用JDK bin目录中自带的，所以在安装时只要求选jre路径)</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>由安装目录可以看出这样一个关系：<strong>JDK包含JRE，而JRE包含JVM</strong>。jdk是用来java程序开发的，而jre是只能运行<code>class</code>而没有编译的功能，jre是java能够跨平台运行的核心。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/14/jvm_jre_jdk/" data-id="cjqwg7j620001ugow3jqarff4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/13/summary_week5_2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">总结—第一阶段第五周</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/14/jvm_jre_jdk/">JVM, JRE, JDK 的区别和联系</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/13/summary_week5_2/">总结—第一阶段第五周</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/29/summary_week3_2/">总结—JS进阶第三周</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/23/summary_week2_2/">总结—JS进阶第二周</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/15/summary_week1_2/">总结—JavaScript进阶第一周</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Song Nan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

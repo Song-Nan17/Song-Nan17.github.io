@@ -66,6 +66,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-jvm_jre_jdk" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/14/jvm_jre_jdk/" class="article-date">
+  <time datetime="2019-01-14T14:29:34.794Z" itemprop="datePublished">2019-01-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/14/jvm_jre_jdk/">JVM, JRE, JDK 的区别和联系</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>JVM是JavaVirtual Machine（<strong>Java虚拟机</strong>）的缩写，它是整个java实现跨平台的最核心的部分，不是 Java 能够跨平台，而是它的 jvm 能够跨平台。</p>
+<p>所有的java程序会首先被编译为<code>.class</code>的类文件，这种类文件可以在虚拟机上执行，也就是说<code>.class</code>并不直接与机器的操作系统相对应，而是经过虚拟机间接与操作系统交互，由虚拟机将程序解释给本地系统执行。</p>
+<p>JVM屏蔽了与具体操作系统平台相关的信息，使得Java程序只需生成在Java虚拟机上运行的目标代码（字节码），就可以在多种平台上不加修改地运行。</p>
+<p>JVM也有自己的指令集，并且在运行时操作不同的内存区域。 JVM的主要工作是解释自己的指令集（即字节码）到CPU的指令集或对应的系统调用，保护用户免被恶意程序骚扰。 JVM对上层的Java源文件是不关心的，它关注的只是由源文件生成的类文件（<code>.class</code>文件）。</p>
+<h2 id="JRE"><a href="#JRE" class="headerlink" title="JRE"></a>JRE</h2><p>JRE是java runtime environment（<strong>java运行环境</strong>）的缩写。</p>
+<p>光有JVM还不能让<code>.class</code>文件执行，因为在解释<code>.class</code>的时候JVM需要调用解释所需要的类库<code>lib</code>。在JDK的安装目录里可以找到<code>jre</code>目录，里面有两个文件夹<code>bin</code>和<code>lib</code>,在这里可以认为<code>bin</code>里的就是<code>jvm</code>，<code>lib</code>中则是<code>jvm</code>工作所需要的类库，而<code>jvm</code>和<code>lib</code>和起来就称为<code>jre</code>。</p>
+<p>JRE是Java运行环境，并不是一个开发环境，所以没有包含任何开发工具（如编译器和调试器），是提供给用户来直接使用运行编译后的java程序的。</p>
+<h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h2><p>JDK是java development kit（<strong>java开发工具包</strong>）的缩写,是Sun Microsystems针对Java开发员的产品。</p>
+<p>在JDK安装目录下面有六个文件夹、一个<code>src</code>类库源码压缩包、和其他几个声明文件。其中，真正在运行java时起作用的是以下四个文件夹：<code>bin</code>、<code>include</code>、<code>lib</code>、<code>jre</code>。</p>
+<ul>
+<li><p><code>bin</code>:最主要的是编译器(javac.exe)</p>
+</li>
+<li><p><code>include</code>:java和JVM交互用的头文件</p>
+</li>
+<li><p><code>lib</code>：类库 （java开发需要的类库）    </p>
+</li>
+<li><p><code>jre</code>:java运行环境 </p>
+</li>
+</ul>
+<p>(eclipse、idea等其他IDE(集成开发环境)有自己的编译器而不是用JDK bin目录中自带的，所以在安装时只要求选jre路径)</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>由安装目录可以看出这样一个关系：<strong>JDK包含JRE，而JRE包含JVM</strong>。jdk是用来java程序开发的，而jre是只能运行<code>class</code>而没有编译的功能，jre是java能够跨平台运行的核心。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/14/jvm_jre_jdk/" data-id="cjqwg7j620001ugow3jqarff4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-summary_week5_2" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/13/summary_week5_2/" class="article-date">
@@ -95,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/13/summary_week5_2/" data-id="cjquykxic000a10owc8z4st3m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/13/summary_week5_2/" data-id="cjqwg7jdk0009ugow10lownho" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,7 +190,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/29/summary_week3_2/" data-id="cjquykxi1000810owwknjlnuy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/29/summary_week3_2/" data-id="cjqwg7jcn0007ugow696gft0r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -173,7 +230,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/23/summary_week2_2/" data-id="cjquykxho000610owp1xgheme" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/23/summary_week2_2/" data-id="cjqwg7jd00008ugow1g7a86xp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -217,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/summary_week1_2/" data-id="cjquykxhb000410ow34lflstn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/15/summary_week1_2/" data-id="cjqwg7jbq0005ugowjm1o14fq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -470,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjquykxm3000h10owkzr4vb1m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjqwg7jn4000eugow0vlgrz2l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -513,7 +570,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/08/summary_week4_1/" data-id="cjquykxi6000910ow8nk9b265" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/08/summary_week4_1/" data-id="cjqwg7jop000iugowgz3q0vjq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -552,7 +609,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/02/summary_week3_1/" data-id="cjquykxhu000710owggaxrgfw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/02/summary_week3_1/" data-id="cjqwg7jht000dugowhyjg296v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1031,7 +1088,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjquykxmg000j10ow0uwomuf7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjqwg7jqt000kugowa38ddx31" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1087,59 +1144,7 @@ h2.pos_top
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/29/relative/" data-id="cjquykxgx000210owpixripjl" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-visibility" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/29/visibility/" class="article-date">
-  <time datetime="2018-11-29T14:10:36.183Z" itemprop="datePublished">2018-11-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/29/visibility/">visibility.html</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-<style>
-h1.visible {visibility:visible}
-h1.hidden {visibility:hidden}
-</style>
-</head>
-
-<body>
-<h1 class="visible">This is a visible heading</h1>
-<h1 class="hidden">This is an invisible heading</h1>
-<p>Notice that the invisible heading still takes up space.</p>
-</body>
-
-</html>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/29/visibility/" data-id="cjquykxim000b10ownwsr9y0l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/29/relative/" data-id="cjqwg7j6q0002ugowygkkl917" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1153,7 +1158,7 @@ h1.hidden {visibility:hidden}
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -1185,6 +1190,10 @@ h1.hidden {visibility:hidden}
       <ul>
         
           <li>
+            <a href="/2019/01/14/jvm_jre_jdk/">JVM, JRE, JDK 的区别和联系</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/13/summary_week5_2/">总结—第一阶段第五周</a>
           </li>
         
@@ -1198,10 +1207,6 @@ h1.hidden {visibility:hidden}
         
           <li>
             <a href="/2018/12/15/summary_week1_2/">总结—JavaScript进阶第一周</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/09/notes_of_advanced_js/">JavaScript进阶笔记</a>
           </li>
         
       </ul>
