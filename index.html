@@ -66,6 +66,796 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-IntelliJ-IDEA-Tutorial" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/15/IntelliJ-IDEA-Tutorial/" class="article-date">
+  <time datetime="2019-01-15T13:14:28.609Z" itemprop="datePublished">2019-01-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/15/IntelliJ-IDEA-Tutorial/">初级IntelliJ IDEA使用总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于IntelliJ IDEA的使用方法，我主要是学习了<a href="https://blog.csdn.net/jiangyu1013/article/details/78780261" target="_blank" rel="noopener">java初学者教程</a><a href="https://github.com/judasn/IntelliJ-IDEA-Tutorial" target="_blank" rel="noopener">https://github.com/judasn/IntelliJ-IDEA-Tutorial</a>两篇教程。</p>
+<p>第二篇教程内容非常丰富，教程中有将IntelliJ IDEA和其他IDE对比，特别是和Eclipse.因为我之前并没有使用过Eclipse,也没有java项目开发经验，很多内容看起来头大…所以只学习了教程中的基础设置、快捷键,和IntelliJ IDEA的特别之处。</p>
+<h2 id="开始一个小项目"><a href="#开始一个小项目" class="headerlink" title="开始一个小项目"></a>开始一个小项目</h2><p>启动IDEA后点击<code>Create New Projec</code>新建一个java项目<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fz8dv0wyb5j20k00jzt9g.jpg" alt=""></p>
+<p>左列默认新建java项目，右侧<code>new</code>配置JDK主目录。点击<code>next</code>设置项目名称和项目地址。</p>
+<p>新建的项目目录如下：<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fz8e73moagj20pl0e73z6.jpg" alt=""></p>
+<p>新建了一个名为<code>HelloWorld</code>的项目。基本上所有的IntelliJ IDEA使用教程都会提到，在 IntelliJ IDEA 中 Project 是最顶级的级别，次级别是 Module。一个 Project 可以有多个 Module。而像上图则是只有一个Module的项目，所以Project 目录和 Module 目录是同一个，名为<code>HelloWorld</code>,而<code>src</code>实际上是Module下的目录。<code>.idea</code>和<code>HelloWorld.iml</code>是IDEA帮助我们建立的辅助文件夹和文件。<code>External Libraries</code>是引入的类库，目前只有JDK。<br>选中<code>src</code>目录，右键-&gt;<code>new</code>即可在<code>src</code>目录下新建不同类型的文件，如<code>java class</code>。</p>
+<h2 id="IntelliJ-IDEA-编译和运行"><a href="#IntelliJ-IDEA-编译和运行" class="headerlink" title="IntelliJ IDEA 编译和运行"></a>IntelliJ IDEA 编译和运行</h2><p>在 IntelliJ IDEA 里，编译方式一共有三种：</p>
+<ul>
+<li><code>Compile</code>：对选定的目标（Java 类文件），进行强制性编译，不管目标是否是被修改过。注：2018版操作为<code>Recompile</code>。</li>
+<li><code>Rebuild</code>：对选定的目标（Project），进行强制性编译，不管目标是否是被修改过，由于<code>Rebuild</code>的目标只有 Project，所以 <code>Rebuild</code> 每次花的时间会比较长。</li>
+<li><code>Make</code>：使用最多的编译操作。对选定的目标（Project 或 Module）进行编译，但只编译有修改过的文件，没有修改过的文件不会编译，这样平时开发大型项目才不会浪费时间在编译过程中。注：2018版操作为<code>Build</code>。</li>
+</ul>
+<p>在菜单<code>Build</code>栏下即找到到三种编译的操作。</p>
+<p>而在代码编辑区空白处右键或菜单栏<code>Run</code>都可以看到<code>Run</code>方法，运行代码。</p>
+<h2 id="字体修改"><a href="#字体修改" class="headerlink" title="字体修改"></a>字体修改</h2><p>为了尽可能避免中文显示乱码和使界面更美观，可以修改字体。注意，我们应选择包含中文的字体。</p>
+<ul>
+<li><p>主题字体修改<br><img src="https://github.com/judasn/IntelliJ-IDEA-Tutorial/raw/master/images/x-b-font-setting-1.jpg" alt=""></p>
+</li>
+<li><p>代码编辑字体修改<br><img src="https://github.com/judasn/IntelliJ-IDEA-Tutorial/raw/master/images/x-b-font-setting-2.jpg" alt=""></p>
+</li>
+<li><p>控制台输出字体修改<br><img src="https://github.com/judasn/IntelliJ-IDEA-Tutorial/raw/master/images/x-b-font-setting-3.jpg" alt=""></p>
+</li>
+</ul>
+<h2 id="IntelliJ-IDEA快捷键"><a href="#IntelliJ-IDEA快捷键" class="headerlink" title="IntelliJ IDEA快捷键"></a>IntelliJ IDEA快捷键</h2><p>首先最好是去掉一些输入法，如搜狗输入法的快捷键。</p>
+<p>IntelliJ IDEA快捷键：</p>
+<h3 id="Ctrl"><a href="#Ctrl" class="headerlink" title="Ctrl"></a>Ctrl</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> + <code>F</code></td>
+<td>在当前文件进行文本查找 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>R</code></td>
+<td>在当前文件进行文本替换 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Z</code></td>
+<td>撤销 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Y</code></td>
+<td>删除光标所在行 或 删除选中的行 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>X</code></td>
+<td>剪切光标所在行 或 剪切选择内容</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>C</code></td>
+<td>复制光标所在行 或 复制选择内容</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>D</code></td>
+<td>复制光标所在行 或 复制选择内容，并把复制内容插入光标位置下面 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>W</code></td>
+<td>递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>E</code></td>
+<td>显示最近打开的文件记录列表 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>N</code></td>
+<td>根据输入的 类名 查找类文件 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>G</code></td>
+<td>在当前文件跳转到指定行处</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>J</code></td>
+<td>插入自定义动态代码模板 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>P</code></td>
+<td>方法参数提示显示 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Q</code></td>
+<td>光标所在的变量 / 类名 / 方法名等上面（也可以在提示补充的时候按），显示文档内容</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>U</code></td>
+<td>前往当前光标所在的方法的父类的方法 / 接口定义 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>B</code></td>
+<td>进入光标所在的方法/变量的接口或是定义处，等效于 <code>Ctrl</code> + <code>左键单击</code> <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>K</code></td>
+<td>版本控制提交项目，需要此项目有加入到版本控制才可用</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>T</code></td>
+<td>版本控制更新项目，需要此项目有加入到版本控制才可用</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>H</code></td>
+<td>显示当前类的层次结构</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>O</code></td>
+<td>选择可重写的方法</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>I</code></td>
+<td>选择可继承的方法</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>+</code></td>
+<td>展开代码</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>-</code></td>
+<td>折叠代码</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>/</code></td>
+<td>注释光标所在行代码，会根据当前不同文件类型使用不同的注释符号 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>[</code></td>
+<td>移动光标到当前所在代码的花括号开始位置</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>]</code></td>
+<td>移动光标到当前所在代码的花括号结束位置</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>F1</code></td>
+<td>在光标所在的错误代码处显示错误信息 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>F3</code></td>
+<td>调转到所选中的词的下一个引用位置 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>F4</code></td>
+<td>关闭当前编辑文件</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>F8</code></td>
+<td>在 Debug 模式下，设置光标当前行为断点，如果当前已经是断点则去掉断点</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>F9</code></td>
+<td>执行 Make Project 操作</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>F11</code></td>
+<td>选中文件 / 文件夹，使用助记符设定 / 取消书签 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>F12</code></td>
+<td>弹出当前文件结构层，可以在弹出的层上直接输入，进行筛选</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Tab</code></td>
+<td>编辑窗口切换，如果在切换的过程又加按上delete，则是关闭对应选中的窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>End</code></td>
+<td>跳到文件尾</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Home</code></td>
+<td>跳到文件头</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Space</code></td>
+<td>基础代码补全，默认在 Windows 系统上被输入法占用，需要进行修改，建议修改为 <code>Ctrl</code> + <code>逗号</code> <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Delete</code></td>
+<td>删除光标后面的单词或是中文句 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>BackSpace</code></td>
+<td>删除光标前面的单词或是中文句 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>1,2,3...9</code></td>
+<td>定位到对应数值的书签位置 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>左键单击</code></td>
+<td>在打开的文件标题上，弹出该文件路径 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>光标定位</code></td>
+<td>按 Ctrl 不要松开，会显示光标所在的类信息摘要</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>左方向键</code></td>
+<td>光标跳转到当前单词 / 中文句的左侧开头位置 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>右方向键</code></td>
+<td>光标跳转到当前单词 / 中文句的右侧开头位置 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>前方向键</code></td>
+<td>等效于鼠标滚轮向前效果 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>后方向键</code></td>
+<td>等效于鼠标滚轮向后效果 <code>（必备）</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Alt"><a href="#Alt" class="headerlink" title="Alt"></a>Alt</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Alt</code> + <code>\`</code></td>
+<td>显示版本控制常用操作菜单弹出层 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Q</code></td>
+<td>弹出一个提示，显示当前类的声明 / 上下文信息</td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>F1</code></td>
+<td>显示当前文件选择目标弹出层，弹出层中有很多目标可以进行选择 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>F2</code></td>
+<td>对于前面页面，显示各类浏览器打开目标选择弹出层</td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>F3</code></td>
+<td>选中文本，逐个往下查找相同文本，并高亮显示</td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>F7</code></td>
+<td>查找光标所在的方法 / 变量 / 类被调用的地方</td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>F8</code></td>
+<td>在 <code>Debug</code> 的状态下，选中对象，弹出可输入计算表达式调试框，查看该输入内容的调试结果</td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Home</code></td>
+<td>定位 / 显示到当前文件的 <code>Navigation Bar</code></td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Enter</code></td>
+<td>IntelliJ IDEA 根据光标所在问题，提供快速修复选择，光标放在的位置不同提示的结果也不同 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Insert</code></td>
+<td>代码自动生成，如生成对象的 <code>set</code> / <code>get</code> 方法，构造函数，<code>toString()</code> 等 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>左方向键</code></td>
+<td>切换当前已打开的窗口中的子视图，比如<code>Debug</code>窗口中有Output、Debugger等子视图，用此快捷键就可以在子视图中切换 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>右方向键</code></td>
+<td>按切换当前已打开的窗口中的子视图，比如<code>Debug</code>窗口中有Output、Debugger等子视图，用此快捷键就可以在子视图中切换 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>前方向键</code></td>
+<td>当前光标跳转到当前文件的前一个方法名位置 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>后方向键</code></td>
+<td>当前光标跳转到当前文件的后一个方法名位置 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>1,2,3...9</code></td>
+<td>显示对应数值的选项卡，其中 <code>1</code> 是 Project 用得最多 <code>（必备）</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Shift"><a href="#Shift" class="headerlink" title="Shift"></a>Shift</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Shift</code> + <code>F1</code></td>
+<td>如果有外部文档可以连接外部文档</td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>F2</code></td>
+<td>跳转到上一个高亮错误 或 警告位置</td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>F3</code></td>
+<td>在查找模式下，查找匹配上一个</td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>F4</code></td>
+<td>对当前打开的文件，使用新Windows窗口打开，旧窗口保留</td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>F6</code></td>
+<td>对文件 / 文件夹 重命名</td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>F7</code></td>
+<td>在 <code>Debug</code> 模式下，智能步入。断点所在行上有多个方法调用，会弹出进入哪个方法</td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>F8</code></td>
+<td>在 <code>Debug</code> 模式下，跳出，表现出来的效果跟 <code>F9</code> 一样</td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>F9</code></td>
+<td>等效于点击工具栏的 <code>Debug</code> 按钮</td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>F10</code></td>
+<td>等效于点击工具栏的 <code>Run</code> 按钮</td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>F11</code></td>
+<td>弹出书签显示层 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>Tab</code></td>
+<td>取消缩进 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>ESC</code></td>
+<td>隐藏当前 或 最后一个激活的工具窗口</td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>End</code></td>
+<td>选中光标到当前行尾位置</td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>Home</code></td>
+<td>选中光标到当前行头位置</td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>Enter</code></td>
+<td>开始新一行。光标所在行下空出一行，光标定位到新行位置 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>左键单击</code></td>
+<td>在打开的文件名上按此快捷键，可以关闭当前打开文件 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Shift</code> + <code>滚轮前后滚动</code></td>
+<td>当前文件的横向滚动轴滚动 <code>（必备）</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Ctrl-Alt"><a href="#Ctrl-Alt" class="headerlink" title="Ctrl + Alt"></a>Ctrl + Alt</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>L</code></td>
+<td>格式化代码，可以对当前文件和整个包目录使用 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>O</code></td>
+<td>优化导入的类，可以对当前文件和整个包目录使用 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>I</code></td>
+<td>光标所在行 或 选中部分进行自动代码缩进，有点类似格式化</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>T</code></td>
+<td>对选中的代码弹出环绕选项弹出层 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>J</code></td>
+<td>弹出模板选择窗口，将选定的代码加入动态模板中</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>H</code></td>
+<td>调用层次</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>B</code></td>
+<td>在某个调用的方法名上使用会跳到具体的实现处，可以跳过接口</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>C</code></td>
+<td>重构-快速提取常量</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>F</code></td>
+<td>重构-快速提取成员变量</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>V</code></td>
+<td>重构-快速提取变量</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>Y</code></td>
+<td>同步、刷新</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>S</code></td>
+<td>打开 IntelliJ IDEA 系统设置 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>F7</code></td>
+<td>显示使用的地方。寻找被该类或是变量被调用的地方，用弹出框的方式找出来</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>F11</code></td>
+<td>切换全屏模式</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>Enter</code></td>
+<td>光标所在行上空出一行，光标定位到新行 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>Home</code></td>
+<td>弹出跟当前文件有关联的文件弹出层</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>Space</code></td>
+<td>类名自动完成</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>左方向键</code></td>
+<td>退回到上一个操作的地方 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>右方向键</code></td>
+<td>前进到上一个操作的地方 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>前方向键</code></td>
+<td>在查找模式下，跳到上个查找的文件</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>后方向键</code></td>
+<td>在查找模式下，跳到下个查找的文件</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>右括号（]）</code></td>
+<td>在打开多个项目的情况下，切换下一个项目窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>左括号（[）</code></td>
+<td>在打开多个项目的情况下，切换上一个项目窗口</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Ctrl-Shift"><a href="#Ctrl-Shift" class="headerlink" title="Ctrl + Shift"></a>Ctrl + Shift</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>F</code></td>
+<td>根据输入内容查找整个项目 或 指定目录内文件 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>R</code></td>
+<td>根据输入内容替换对应内容，范围为整个项目 或 指定目录内文件 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>J</code></td>
+<td>自动将下一行合并到当前行末尾 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>Z</code></td>
+<td>取消撤销 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>W</code></td>
+<td>递进式取消选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展取消选中范围 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>N</code></td>
+<td>通过文件名定位 / 打开文件 / 目录，打开目录需要在输入的内容后面多加一个正斜杠 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>U</code></td>
+<td>对选中的代码进行大 / 小写轮流转换 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>T</code></td>
+<td>对当前类生成单元测试类，如果已经存在的单元测试类则可以进行选择 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>C</code></td>
+<td>复制当前文件磁盘路径到剪贴板 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>V</code></td>
+<td>弹出缓存的最近拷贝的内容管理器弹出层</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>E</code></td>
+<td>显示最近修改的文件列表的弹出层</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>H</code></td>
+<td>显示方法层次结构</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>B</code></td>
+<td>跳转到类型声明处 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>I</code></td>
+<td>快速查看光标所在的方法 或 类的定义</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>A</code></td>
+<td>查找动作 / 设置</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>/</code></td>
+<td>代码块注释 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>[</code></td>
+<td>选中从光标所在位置到它的顶部中括号位置 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>]</code></td>
+<td>选中从光标所在位置到它的底部中括号位置 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>+</code></td>
+<td>展开所有代码 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>-</code></td>
+<td>折叠所有代码 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>F7</code></td>
+<td>高亮显示所有该选中文本，按Esc高亮消失 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>F8</code></td>
+<td>在 <code>Debug</code> 模式下，指定断点进入条件</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>F9</code></td>
+<td>编译选中的文件 / 包 / Module</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>F12</code></td>
+<td>编辑器最大化 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>Space</code></td>
+<td>智能代码提示</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>Enter</code></td>
+<td>自动结束代码，行末自动添加分号 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>Backspace</code></td>
+<td>退回到上次修改的地方 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>1,2,3...9</code></td>
+<td>快速添加指定数值的书签 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>左键单击</code></td>
+<td>把光标放在某个类变量上，按此快捷键可以直接定位到该类中 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>左方向键</code></td>
+<td>在代码文件上，光标跳转到当前单词 / 中文句的左侧开头位置，同时选中该单词 / 中文句 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>右方向键</code></td>
+<td>在代码文件上，光标跳转到当前单词 / 中文句的右侧开头位置，同时选中该单词 / 中文句 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>前方向键</code></td>
+<td>光标放在方法名上，将方法移动到上一个方法前面，调整方法排序 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>后方向键</code></td>
+<td>光标放在方法名上，将方法移动到下一个方法前面，调整方法排序 <code>（必备）</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Alt-Shift"><a href="#Alt-Shift" class="headerlink" title="Alt + Shift"></a>Alt + Shift</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Alt</code> + <code>Shift</code> + <code>N</code></td>
+<td>选择 / 添加 <code>task</code>  <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Shift</code> + <code>F</code></td>
+<td>显示添加到收藏夹弹出层 / 添加到收藏夹</td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Shift</code> + <code>C</code></td>
+<td>查看最近操作项目的变化情况列表</td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Shift</code> + <code>I</code></td>
+<td>查看项目当前文件</td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Shift</code> + <code>F7</code></td>
+<td>在 <code>Debug</code> 模式下，下一步，进入当前方法体内，如果方法体还有方法，则会进入该内嵌的方法中，依此循环进入</td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Shift</code> + <code>F9</code></td>
+<td>弹出 <code>Debug</code> 的可选择菜单</td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Shift</code> + <code>F10</code></td>
+<td>弹出 <code>Run</code> 的可选择菜单</td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Shift</code> + <code>左键双击</code></td>
+<td>选择被双击的单词 / 中文句，按住不放，可以同时选择其他单词 / 中文句 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Shift</code> + <code>前方向键</code></td>
+<td>移动光标所在行向上移动 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Alt</code> + <code>Shift</code> + <code>后方向键</code></td>
+<td>移动光标所在行向下移动 <code>（必备）</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Ctrl-Shift-Alt"><a href="#Ctrl-Shift-Alt" class="headerlink" title="Ctrl + Shift + Alt"></a>Ctrl + Shift + Alt</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>Alt</code> + <code>V</code></td>
+<td>无格式黏贴 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>Alt</code> + <code>N</code></td>
+<td>前往指定的变量 / 方法</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>Alt</code> + <code>S</code></td>
+<td>打开当前项目设置 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>Alt</code> + <code>C</code></td>
+<td>复制参考信息</td>
+</tr>
+</tbody>
+</table>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>F2</code></td>
+<td>跳转到下一个高亮错误 或 警告位置 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>F3</code></td>
+<td>在查找模式下，定位到下一个匹配处</td>
+</tr>
+<tr>
+<td><code>F4</code></td>
+<td>编辑源 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>F7</code></td>
+<td>在 Debug 模式下，进入下一步，如果当前行断点是一个方法，则进入当前方法体内，如果该方法体还有方法，则不会进入该内嵌的方法中</td>
+</tr>
+<tr>
+<td><code>F8</code></td>
+<td>在 Debug 模式下，进入下一步，如果当前行断点是一个方法，则不进入当前方法体内</td>
+</tr>
+<tr>
+<td><code>F9</code></td>
+<td>在 Debug 模式下，恢复程序运行，但是如果该断点下面代码还有断点则停在下一个断点上</td>
+</tr>
+<tr>
+<td><code>F11</code></td>
+<td>添加书签 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>F12</code></td>
+<td>回到前一个工具窗口 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>Tab</code></td>
+<td>缩进 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>ESC</code></td>
+<td>从工具窗口进入代码文件窗口 <code>（必备）</code></td>
+</tr>
+<tr>
+<td><code>连按两次Shift</code></td>
+<td>弹出 <code>Search Everywhere</code> 弹出层</td>
+</tr>
+</tbody>
+</table>
+<h3 id="快捷键修改"><a href="#快捷键修改" class="headerlink" title="快捷键修改"></a>快捷键修改</h3><p><code>setting</code>-&gt;<code>keymap</code></p>
+<p><img src="https://github.com/judasn/IntelliJ-IDEA-Tutorial/raw/master/images/xxvii-a-keymap-setting-1.jpg" alt=""></p>
+<ul>
+<li>可以通过上图<code>1</code>所示的，通过输入快捷键描述内容；还可以上图标注 <code>2</code> 所示的，通过<strong>按</strong>指定快捷键的快捷键。</li>
+<li>上图标注 <code>3</code> 所示，初安装的 IntelliJ IDEA 使用的是 Default 的快捷键模板，IntelliJ IDEA 默认的快捷键模板都是不可修改的。如果直接修改，当前这个位置 IntelliJ IDEA 会自动变成 Default Copy，教程中建议养成习惯，修改之前先点击 Copy，拷贝一套快捷键模板，然后输入自己的命名。</li>
+</ul>
+<p><img src="https://github.com/judasn/IntelliJ-IDEA-Tutorial/raw/master/images/xxvii-a-keymap-setting-2.jpg" alt=""></p>
+<ul>
+<li>要修改某个快捷键，选中快捷键介绍内容，右键，就会弹出如上图标注 <code>1</code> 所示操作选择。</li>
+<li>命令 <code>Add Keyboard Shortcut</code> 用来添加新纯键盘快捷键组合。</li>
+<li>命令 <code>Add Mouse Shortcut</code> 用来添加新 键盘 + 鼠标 快捷键组合，比如设置 <code>Ctrl</code> + <code>左键单击</code> 这类快捷组合。其中在弹出的添加面板中 <code>Click Pad</code> 是用来监听当前鼠标是左键单击还是右键单击。 </li>
+<li>命令 <code>Remove</code> 快捷键 移出当前操作命令已设置的快捷键组合。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/15/IntelliJ-IDEA-Tutorial/" data-id="cjqyveyb0000i6gowv4cmds81" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-jvm_jre_jdk" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/14/jvm_jre_jdk/" class="article-date">
@@ -113,7 +903,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/14/jvm_jre_jdk/" data-id="cjqwg7j620001ugow3jqarff4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/14/jvm_jre_jdk/" data-id="cjqyvexzn00006gowz1koc0s5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +942,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/13/summary_week5_2/" data-id="cjqwg7jdk0009ugow10lownho" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/13/summary_week5_2/" data-id="cjqyvey6500096gowyjgq76m7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -190,7 +980,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/29/summary_week3_2/" data-id="cjqwg7jcn0007ugow696gft0r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/29/summary_week3_2/" data-id="cjqyvey5n00066gowai9tzt51" class="article-share-link">Share</a>
       
       
     </footer>
@@ -230,7 +1020,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/23/summary_week2_2/" data-id="cjqwg7jd00008ugow1g7a86xp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/23/summary_week2_2/" data-id="cjqyvey5z00086gowilj51kn9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +1064,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/summary_week1_2/" data-id="cjqwg7jbq0005ugowjm1o14fq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/15/summary_week1_2/" data-id="cjqyvey3v00036gowsrovn1ac" class="article-share-link">Share</a>
       
       
     </footer>
@@ -527,7 +1317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjqwg7jn4000eugow0vlgrz2l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjqyveyap000h6gowjn4fl3wz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -570,7 +1360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/08/summary_week4_1/" data-id="cjqwg7jop000iugowgz3q0vjq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/08/summary_week4_1/" data-id="cjqyvey73000d6gowuspvhgnn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -609,7 +1399,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/02/summary_week3_1/" data-id="cjqwg7jht000dugowhyjg296v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/02/summary_week3_1/" data-id="cjqyvey6x000c6gows70e4c8w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1088,63 +1878,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjqwg7jqt000kugowa38ddx31" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-relative" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/29/relative/" class="article-date">
-  <time datetime="2018-11-29T14:18:18.004Z" itemprop="datePublished">2018-11-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/29/relative/">relative.html</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-<meta charset="utf-8"> 
-<title>relative</title> 
-<style>
-h2.pos_top
-{
-	position:relative;
-	top:-50px;
-}
-</style>
-</head>
-
-<body>
-<h2>这是一个没有定位的标题</h2>
-<h2 class="pos_top">这个标题是根据其正常位置向上移动</h2>
-<p><b>注意:</b> 即使相对定位元素的内容是移动,预留空间的元素仍保存在正常流动。</p>
-</body>
-
-</html>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/29/relative/" data-id="cjqwg7j6q0002ugowygkkl917" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjqyveycg000l6gowahbwogcf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1190,6 +1924,10 @@ h2.pos_top
       <ul>
         
           <li>
+            <a href="/2019/01/15/IntelliJ-IDEA-Tutorial/">初级IntelliJ IDEA使用总结</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/14/jvm_jre_jdk/">JVM, JRE, JDK 的区别和联系</a>
           </li>
         
@@ -1203,10 +1941,6 @@ h2.pos_top
         
           <li>
             <a href="/2018/12/23/summary_week2_2/">总结—JS进阶第二周</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/15/summary_week1_2/">总结—JavaScript进阶第一周</a>
           </li>
         
       </ul>
