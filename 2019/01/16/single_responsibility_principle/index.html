@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>单一职责原则 | 宋博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="单一职责原则（SRP：Single responsibility principle）又称单一功能原则，面向对象五个基本原则（SOLID）之一。它规定一个类应该只有一个发生变化的原因。 所谓职责是指类变化的原因。如果一个类有多于一个的动机被改变，那么这个类就具有多于一个的职责。而单一职责原则就是指一个类或者模块应该有且只有一个改变的原因。 单一职责原则的重要性在于，如果一个类拥有多于一个的职责，则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单一职责原则">
+<meta property="og:url" content="http://yoursite.com/2019/01/16/single_responsibility_principle/index.html">
+<meta property="og:site_name" content="宋博客">
+<meta property="og:description" content="单一职责原则（SRP：Single responsibility principle）又称单一功能原则，面向对象五个基本原则（SOLID）之一。它规定一个类应该只有一个发生变化的原因。 所谓职责是指类变化的原因。如果一个类有多于一个的动机被改变，那么这个类就具有多于一个的职责。而单一职责原则就是指一个类或者模块应该有且只有一个改变的原因。 单一职责原则的重要性在于，如果一个类拥有多于一个的职责，则">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://images0.cnblogs.com/i/175043/201406/101818121707390.png">
+<meta property="og:image" content="https://images0.cnblogs.com/i/175043/201406/101820070453862.png">
+<meta property="og:updated_time" content="2019-01-16T09:42:02.672Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="单一职责原则">
+<meta name="twitter:description" content="单一职责原则（SRP：Single responsibility principle）又称单一功能原则，面向对象五个基本原则（SOLID）之一。它规定一个类应该只有一个发生变化的原因。 所谓职责是指类变化的原因。如果一个类有多于一个的动机被改变，那么这个类就具有多于一个的职责。而单一职责原则就是指一个类或者模块应该有且只有一个改变的原因。 单一职责原则的重要性在于，如果一个类拥有多于一个的职责，则">
+<meta name="twitter:image" content="https://images0.cnblogs.com/i/175043/201406/101818121707390.png">
+  
+    <link rel="alternate" href="/atom.xml" title="宋博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">宋博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">我爱学习</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-single_responsibility_principle" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/16/single_responsibility_principle/" class="article-date">
+  <time datetime="2019-01-16T09:18:16.106Z" itemprop="datePublished">2019-01-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      单一职责原则
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>单一职责原则</strong>（SRP：Single responsibility principle）又称单一功能原则，面向对象五个基本原则（SOLID）之一。它规定<strong>一个类应该只有一个发生变化的原因</strong>。</p>
+<p>所谓<strong>职责</strong>是指类变化的原因。如果一个类有多于一个的动机被改变，那么这个类就具有多于一个的职责。而单一职责原则就是指一个类或者模块应该有且只有一个改变的原因。</p>
+<p>单一职责原则的重要性在于，如果一个类拥有多于一个的职责，则这些职责就耦合到在了一起，那么就会有多于一个原因来导致这个类的变化。对于某一职责的更改可能会损害类满足其他耦合职责的能力。这样<strong>职责的耦合会导致设计的脆弱</strong>，以至于当职责发生更改时产生无法预期的破坏。</p>
+<p>举一个网上的例子，<br><img src="https://images0.cnblogs.com/i/175043/201406/101818121707390.png" alt=""></p>
+<p>上图图中的设计，类图中显示 <code>Rectangle</code> 类包含两个方法，一个方法（<code>Draw</code>）负责在显示屏幕上绘制矩形，另一个方法（<code>Area</code>）负责计算矩形图形面积。</p>
+<p>有两个不同的应用程序均使用了 <code>Rectangle</code> 类。一个应用为计算几何程序(<code>ComputationalGeometryApplication</code>)，它使用了 <code>Rectangle</code> 中的数学几何模型，但不会在显示屏幕上绘制矩形。另一个应用是一个图形界面程序（<code>GUI</code>），它可能会做一些计算几何方面的工作，但主要功能是在屏幕上绘制矩形。</p>
+<p>这个设计侵犯了 SRP 原则。<code>Rectangle</code> 类包含了两个职责。第一个职责是提供矩形几何计算的数学模型，第二个职责是在 <code>GUI</code> 上渲染矩形。</p>
+<p>这会导致诸多难以解决的问题：</p>
+<p>首先，我们必须在计算几何应用中包含对 <code>GUI</code> 库的引用。这导致应用程序无谓的<strong>消耗</strong>了链接时间、编译时间、内存空间和存储空间等。</p>
+<p>再者，如果因为某些原因对 <code>GraphicalApplication</code> 的一个更改导致 <code>Rectangle</code> 类也相应做了更改，这将强制我们对 <code>ComputationalGeometryApplication</code> 进行重新编译、重新测试和重新部署等。如果我们忘了做这些事情，那么应用程序可能以<strong>无法预期</strong>的方式而<strong>崩溃</strong>。</p>
+<p>所以，应当把这两个职责完全隔离到不同的类当中去。<br><img src="https://images0.cnblogs.com/i/175043/201406/101820070453862.png" alt=""><br>将 <code>Rectangle</code> 中关于几何计算的职责移到了 <code>GeometricRectangle</code> 类中，而 <code>Rectangle</code> 类中仅保留矩形渲染职责。这样，如果我们再对 <code>Rectangle</code> 中渲染职责进行更改时将不会再影响到 <code>ComputationalGeometryApplication</code> 了。</p>
+<p>所以，为了代码的可读性和可维护性，以及为了解决资源，我们应当遵守单一职责原则。在之前js的学习中，有时候有的方法很简单，代码只有一行，我会把两个功能写进一个方法，这样就很不好，一个方法只做一件事，不论这件事有多简单，这应该成为一种习惯。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/16/single_responsibility_principle/" data-id="cjqz03bln00047cowpqf3su3g" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/16/notes_of_java_foundation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java基础语法笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/16/single_responsibility_principle/">单一职责原则</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/16/notes_of_java_foundation/">Java基础语法笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/15/IntelliJ-IDEA-Tutorial/">初级IntelliJ IDEA使用总结</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/14/jvm_jre_jdk/">JVM, JRE, JDK 的区别和联系</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/13/summary_week5_2/">总结—第一阶段第五周</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Song Nan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

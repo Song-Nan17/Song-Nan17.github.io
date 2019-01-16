@@ -66,6 +66,148 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-single_responsibility_principle" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/16/single_responsibility_principle/" class="article-date">
+  <time datetime="2019-01-16T09:18:16.106Z" itemprop="datePublished">2019-01-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/16/single_responsibility_principle/">单一职责原则</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>单一职责原则</strong>（SRP：Single responsibility principle）又称单一功能原则，面向对象五个基本原则（SOLID）之一。它规定<strong>一个类应该只有一个发生变化的原因</strong>。</p>
+<p>所谓<strong>职责</strong>是指类变化的原因。如果一个类有多于一个的动机被改变，那么这个类就具有多于一个的职责。而单一职责原则就是指一个类或者模块应该有且只有一个改变的原因。</p>
+<p>单一职责原则的重要性在于，如果一个类拥有多于一个的职责，则这些职责就耦合到在了一起，那么就会有多于一个原因来导致这个类的变化。对于某一职责的更改可能会损害类满足其他耦合职责的能力。这样<strong>职责的耦合会导致设计的脆弱</strong>，以至于当职责发生更改时产生无法预期的破坏。</p>
+<p>举一个网上的例子，<br><img src="https://images0.cnblogs.com/i/175043/201406/101818121707390.png" alt=""></p>
+<p>上图图中的设计，类图中显示 <code>Rectangle</code> 类包含两个方法，一个方法（<code>Draw</code>）负责在显示屏幕上绘制矩形，另一个方法（<code>Area</code>）负责计算矩形图形面积。</p>
+<p>有两个不同的应用程序均使用了 <code>Rectangle</code> 类。一个应用为计算几何程序(<code>ComputationalGeometryApplication</code>)，它使用了 <code>Rectangle</code> 中的数学几何模型，但不会在显示屏幕上绘制矩形。另一个应用是一个图形界面程序（<code>GUI</code>），它可能会做一些计算几何方面的工作，但主要功能是在屏幕上绘制矩形。</p>
+<p>这个设计侵犯了 SRP 原则。<code>Rectangle</code> 类包含了两个职责。第一个职责是提供矩形几何计算的数学模型，第二个职责是在 <code>GUI</code> 上渲染矩形。</p>
+<p>这会导致诸多难以解决的问题：</p>
+<p>首先，我们必须在计算几何应用中包含对 <code>GUI</code> 库的引用。这导致应用程序无谓的<strong>消耗</strong>了链接时间、编译时间、内存空间和存储空间等。</p>
+<p>再者，如果因为某些原因对 <code>GraphicalApplication</code> 的一个更改导致 <code>Rectangle</code> 类也相应做了更改，这将强制我们对 <code>ComputationalGeometryApplication</code> 进行重新编译、重新测试和重新部署等。如果我们忘了做这些事情，那么应用程序可能以<strong>无法预期</strong>的方式而<strong>崩溃</strong>。</p>
+<p>所以，应当把这两个职责完全隔离到不同的类当中去。<br><img src="https://images0.cnblogs.com/i/175043/201406/101820070453862.png" alt=""><br>将 <code>Rectangle</code> 中关于几何计算的职责移到了 <code>GeometricRectangle</code> 类中，而 <code>Rectangle</code> 类中仅保留矩形渲染职责。这样，如果我们再对 <code>Rectangle</code> 中渲染职责进行更改时将不会再影响到 <code>ComputationalGeometryApplication</code> 了。</p>
+<p>所以，为了代码的可读性和可维护性，以及为了解决资源，我们应当遵守单一职责原则。在之前js的学习中，有时候有的方法很简单，代码只有一行，我会把两个功能写进一个方法，这样就很不好，一个方法只做一件事，不论这件事有多简单，这应该成为一种习惯。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/16/single_responsibility_principle/" data-id="cjqz03bln00047cowpqf3su3g" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-notes_of_java_foundation" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/16/notes_of_java_foundation/" class="article-date">
+  <time datetime="2019-01-16T08:03:10.190Z" itemprop="datePublished">2019-01-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/16/notes_of_java_foundation/">Java基础语法笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Java的主要特性"><a href="#Java的主要特性" class="headerlink" title="Java的主要特性"></a>Java的主要特性</h2><ol>
+<li><strong>简单</strong>： Java语言是从C++ 发展起来的， 与此同时，Java取消了C++中复杂且难以掌握的东西，比如指针的，让Java的学习变得相对容易。</li>
+<li><strong>面向对象</strong>： Java是一门面向对象设计的高级语言，面向对象设计是这门语言的灵魂。</li>
+<li><strong>跨平台</strong>： Java语言编写的应用程序，不受平台限制，可以由一种平台迁移到另一种平台。</li>
+<li><strong>解释性</strong>： Java是一门需要被编译解释的语言，使用java语言编写的源码被转化为字节码，字节码只有被Java虚拟机解释成机器码才能被计算机执行。</li>
+<li><strong>健壮性</strong>： java提供了许多机制防止运行时出现严重错误，如编译时类型检查、异常处理。</li>
+<li><strong>多线程</strong>： Java是一门高性能的语言，其中重要的原因是多线程的引入，能够极大的提升CPU的利用率</li>
+</ol>
+<p><a href="https://song-nan17.github.io/2019/01/14/jvm_jre_jdk/" target="_blank" rel="noopener">JVM, JRE,JDK的区别和联系</a></p>
+<h2 id="变量，常量及方法"><a href="#变量，常量及方法" class="headerlink" title="变量，常量及方法"></a>变量，常量及方法</h2><h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>程序之中用来定义名称的都叫标识符，<strong>类名</strong>，<strong>变量名</strong>，<strong>方法名</strong>都被称为标识符。</p>
+<h3 id="Java标识符命名规范："><a href="#Java标识符命名规范：" class="headerlink" title="Java标识符命名规范："></a>Java标识符命名规范：</h3><ul>
+<li>所有的标识符都应该以<strong>字母</strong>(A-Z/a-z),<strong>美元符</strong>($)或者<strong>下划线</strong>(_)开始；</li>
+<li>字符之后可以是字母(A-Z/a-z),美元符($),下划线(_)或数字的任何字符组合；</li>
+<li>关键字不能用作标识符；</li>
+<li>标识符是<strong>大小写敏感</strong>的。<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3>Java语言中的关键字：<br>|int|    short|    try|    char|    final|    interface|    static|    void|    float|    native|<br>|:-:|:—-:|:—:|:—-:|:—-:|:———:|:——:|:—:|:—-:|:——:|<br>|abstract|    continue|    for|    new|    switch|    assert|    default|    goto|    super|    while|<br>|package|    synchronized|    boolean|    do|    if|    private|    this|    break|    class|    finally|<br>|double|    implements|    protected|    throw|    byte|    else|    import|    public|    long|    stricfp|<br>|throws|    case|    enum|    instanceof|    return|    transient|    catch|    extends|    volatile|    const|</li>
+</ul>
+<p><strong>另外</strong>：</p>
+<ul>
+<li><code>const</code>和<code>go</code>关键字虽然已经不在使用，但是他们还是被保留下来了。</li>
+<li><code>true</code>，<code>false</code>，<code>null</code> 虽然被很多人误认为是关键字，但是实际上他们只是字面而已。<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3>Java语言定义了以下三种变量：</li>
+<li><strong>局部变量</strong>：没有特殊的关键字将变量标记为局部变量，这完全取决于声明变量的位置——它<strong>位于方法的两个大括号之间</strong>。因此，局部变量只对声明它们的方法可见，对于类的其他部分来说它们是不可见的。</li>
+<li><strong>类变量</strong>(静态域): 类变量是使用<code>static</code>关键字修饰的域。这告诉编译器无论这个类有多少个实例，这个变量<strong>只有一个副本</strong>。</li>
+<li><strong>成员变量</strong>(非静态域)：从技术层面来说，对象将它们各自的状态存在“非静态域”中，也就是没有使用static关键字修饰的域。非静态域也被称为实例变量，因为对于类的每个实例（换句话说，就是每个对象）来说，它们的值都是独立的。<h4 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h4></li>
+<li>变量属于标识符，因此必须符合标识符的命名规范。</li>
+<li>变量的命名必须是有意义的，做到名如其意。</li>
+<li>变量名最好用英文名词，禁止使用拼音。</li>
+<li>变量名需要用小驼峰命名法<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3></li>
+<li>通常用<code>final</code>关键字来声明</li>
+<li>常量使用注意事项：<ul>
+<li>常量在定义的时候，就需要对常量进行初始化。</li>
+<li>常量一旦初始化之后，就不能再次对其赋值。</li>
+<li><code>final</code>关键字不仅可以用来修饰基本数据类型的常量，还可以用来修饰对象的引用或者方法。</li>
+<li><code>final</code>关键字与<code>static</code>关键字同时使用。<h4 id="常量命名规则"><a href="#常量命名规则" class="headerlink" title="常量命名规则"></a>常量命名规则</h4></li>
+</ul>
+</li>
+<li>常量属于标识符，因此也必须要符合标识符的命名规范。</li>
+<li>常量的命名必须要有具体的含义，做到名如其意。</li>
+<li>常量名最好用英文名词， 禁止使用中文拼音。</li>
+<li><p>常量名需要全部大写，相邻单词之间用下划线(_)隔开。如 final int PI = 3.1415927;等</p>
+<h3 id="方法（函数）"><a href="#方法（函数）" class="headerlink" title="方法（函数）"></a>方法（函数）</h3><p>方法者，就是具有独立业务逻辑的代码集合</p>
+<h4 id="方法定义"><a href="#方法定义" class="headerlink" title="方法定义"></a>方法定义</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 方法名(参数类型 参数名) &#123;</span><br><span class="line">    方法体</span><br><span class="line">    return 返回值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修饰符：可选，告诉编译器如何调用该方法。定义了该方法的访问类型。</p>
+</li>
+<li>返回值类型： 就是<code>return</code>之后的返回值的类型，有些方法可能没有返回值，用关键字<code>void</code>来表示。</li>
+<li>方法名：就是方法的名字，必须符合一定的命名规范。</li>
+<li>参数：由参数类型和参数名称组成。参数名是一个变量，用于接收调用方法时传入的数据。</li>
+<li>方法体：被封装的独立代码块，是方法的核心部分，处理重要的业务逻辑。</li>
+</ul>
+<p>举例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public int getMaxValue(int val1, int val2) &#123;</span><br><span class="line">    int result = val1 &gt;= val2 ? val1 : val2;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>：方法体遵循单一职责原则，即每个方法就仅仅做一件事情，这样可以增加可读性和可维护性。</p>
+<h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><p>与js中相同，调用方法名并传入相应的参数即可。例如上面方法调用为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int maxValue = getMaxValue(2, 3);</span><br></pre></td></tr></table></figure></p>
+<h4 id="方法的命名规则："><a href="#方法的命名规则：" class="headerlink" title="方法的命名规则："></a>方法的命名规则：</h4><ul>
+<li>方法名属于标识符，因此也必须要符合标识符的命名规范。</li>
+<li>方法的命名必须要有具体的含义，做到名如其意。</li>
+<li>方法名最好用英文动词，表示一个动作，禁止使用中文拼音。</li>
+<li>方法名需要用小驼峰命名法，首字母小写，后面的单词需首字母大写，来用区分相邻单词。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/16/notes_of_java_foundation/" data-id="cjqz03bk800017cowqimldh7w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-IntelliJ-IDEA-Tutorial" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/15/IntelliJ-IDEA-Tutorial/" class="article-date">
@@ -857,7 +999,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/15/IntelliJ-IDEA-Tutorial/" data-id="cjqyvwlsv000jn4owjuu744xx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/15/IntelliJ-IDEA-Tutorial/" data-id="cjqz03bro000j7cowwt6r6u7x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -914,7 +1056,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/14/jvm_jre_jdk/" data-id="cjqyvwlmq0001n4ow4tkea9yo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/14/jvm_jre_jdk/" data-id="cjqz03blt00057cowo08zt6r8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -953,7 +1095,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/13/summary_week5_2/" data-id="cjqyvwlp0000bn4owrdwtlko0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/13/summary_week5_2/" data-id="cjqz03bnl000c7cow1pb1sqaq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -991,7 +1133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/29/summary_week3_2/" data-id="cjqyvwloj0009n4owgagbs3p6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/29/summary_week3_2/" data-id="cjqz03bm500067cowuw5fcp6p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1031,7 +1173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/23/summary_week2_2/" data-id="cjqyvwlo40007n4owuov0up8e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/23/summary_week2_2/" data-id="cjqz03bms00097cow250gaxfh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1075,7 +1217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/summary_week1_2/" data-id="cjqyvwlno0005n4owpz0eccma" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/15/summary_week1_2/" data-id="cjqz03bmc00077cowmgdiexcl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1328,7 +1470,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjqyvwlsq000in4owxl17q3be" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjqz03bru000k7cow3xoefrww" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1371,525 +1513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/08/summary_week4_1/" data-id="cjqyvwlop000an4ow9hwiub36" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-summary_week3_1" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/02/summary_week3_1/" class="article-date">
-  <time datetime="2018-12-02T14:13:20.082Z" itemprop="datePublished">2018-12-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/02/summary_week3_1/">总结—第一阶段第三周</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这周的学习内容主要为JavaScript基础，学习的重点为JS的字符串、数组、对象及其相应的方法，和函数。我的学习进度稍快于任务营的安排，这点挺好。这周学习的主要不足在于，对于数组、字符串、函数等等这些过去在C语言和MATLAB中学习过的内容，再再JS中学习时，我总是习惯于使用过去的方法，于是有几个任务卡都是做了两遍。<strong>还是要多用多记多熟悉。</strong></p>
-<p>后面学习的内容应该会学来越难，要继续保持现在的学习劲头啊！susuna!</p>
-<p>周五线下学习我做了笔记分享，然鹅毫无互动T_T，下次再分享还是做个ppt吧，把笔记的重点部分提炼出来，这样应该会好做些。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/02/summary_week3_1/" data-id="cjqyvwlo90008n4owybvb1ljc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-notes_of_js_2" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/01/notes_of_js_2/" class="article-date">
-  <time datetime="2018-12-01T14:41:35.889Z" itemprop="datePublished">2018-12-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/01/notes_of_js_2/">JS基础2笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="条件分支语句"><a href="#条件分支语句" class="headerlink" title="条件分支语句"></a>条件分支语句</h2><p>条件分支语句就是基于不同的<strong>条件</strong>去执行不同的<strong>动作</strong>。</p>
-<p><strong>条件分支语句每次只执行多种情况中的一种情况。</strong></p>
-<ul>
-<li><p><code>if</code>语句</p>
-<ul>
-<li>语法格式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (condition)&#123;</span><br><span class="line">// 当 condition==true 时执行的语句块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><code>if-else</code>语句</p>
-<ul>
-<li><p>语法格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (condition)&#123;</span><br><span class="line">// 当 condition==true 时执行的语句块1</span><br><span class="line">&#125; else &#123;</span><br><span class="line">// 当 condition==false 时执行的语句块2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当条件成立时，执行语句块1；当条件不成立时，执行语句块2.</p>
-</li>
-</ul>
-</li>
-<li><p>设置多个条件：把<code>if-else</code>语句组合起来。<code>else-if</code>语句:</p>
-<ul>
-<li>语法格式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if (condition1)&#123;</span><br><span class="line">// 当 condition1==true 时执行的语句块1</span><br><span class="line">&#125; else if (condition2)&#123;</span><br><span class="line">// 当 condition2==true 时执行的语句块2</span><br><span class="line">&#125; else &#123;</span><br><span class="line">// 当 condition1==false &amp;&amp; condition2==false 时执行的语句块3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><code>switch</code>语句</p>
-<ul>
-<li><p>语法格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">switch(n)&#123; </span><br><span class="line">  case n1: </span><br><span class="line">    执行代码块 1</span><br><span class="line">    break; </span><br><span class="line">  case n2: </span><br><span class="line">    执行代码块 2 </span><br><span class="line">    break; </span><br><span class="line">  default: </span><br><span class="line">    与 case n1 和 case n2 不同时执行的代码块3 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>这里的<code>n</code>是一个变量，若<code>n</code>与<code>n1</code>相等，则执行代码块1，若<code>n</code>与<code>n2</code>相等，则执行代码块2，若都不相等，则执行代码块3。</li>
-<li><code>break</code>语句在这里的作用是跳出这个<code>switch</code>语句块。如果不使用<code>break</code>,成立的<code>case</code>后的代码都会接着执行，用了<code>break</code>,就可以跳出这个<code>switch</code>语句块。<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2>循环结构的三个要素：<strong>循环变量</strong>、<strong>循环体</strong>和<strong>循环终止条件</strong>。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>for</code>语句</p>
-<ul>
-<li><p>基本语法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (循环变量初始化;循环终止条件;增量)&#123;</span><br><span class="line">循环体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从循环变量初始化值开始判断循环条件，若循环终止条件为<code>false</code>,跳出循环；若循环终止条件为<code>true</code>,则执行循环体内代码，然后对循环变量执行增量代码，再判断循环条件。以此循环，直到循环终止条件为<code>false</code>,跳出此循环。</p>
-</li>
-<li><p>举例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(var i = 1; i&lt;=10; i++)&#123;</span><br><span class="line">    console.log(&apos;学员&apos; + i + &apos;号。&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><code>while</code>语句</p>
-<ul>
-<li><code>while</code>语句属于前测试循环语句，也就是说，在循环体内的代码被执行之前，就会判断循坏终止条件，为<code>true</code>,则执行循环体代码，若为<code>false</code>则跳出循环。因此，循环体内的代码有可能永远不会被执行。</li>
-<li><p>语句语法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while(循环终止条件)&#123;</span><br><span class="line">循环体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>举例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var i = 1; </span><br><span class="line">while(i&lt;=10)&#123;</span><br><span class="line">console.log(&apos;学员&apos; + i + &apos;号。&apos;);</span><br><span class="line">i = i + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><code>do-while</code>语句</p>
-<ul>
-<li><code>do-while</code>循环语句是一种后测试循环语句，即只有在循环体中的代码执行之后，才会判断循环终止条件。换句话说，在对条件表达式求值之前，循环体内的代码至少被执行一次。</li>
-<li><p>语句语法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">do&#123;</span><br><span class="line">循环体</span><br><span class="line">&#125;while(循环终止条件)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>举例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var i = 1;</span><br><span class="line">do&#123;</span><br><span class="line">console.log(&apos;学员&apos; + i + &apos;号。&apos;);</span><br><span class="line">i = i + 1;</span><br><span class="line">&#125; while(i&lt;=10)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>总结</p>
-<ul>
-<li>for循环更适合于循环次数已知的循环；</li>
-<li>while循环更适合于循环次数未知的循环；</li>
-<li>do-while循环至少执行一次。<h2 id="函数介绍"><a href="#函数介绍" class="headerlink" title="函数介绍"></a>函数介绍</h2></li>
-</ul>
-</li>
-<li>函数的基本语法如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function functionName(arg0, arg1, arg2 ... argn)&#123;</span><br><span class="line">    statements;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="事件和回调"><a href="#事件和回调" class="headerlink" title="事件和回调"></a>事件和回调</h2><ul>
-<li>JavaScript语言将任务的执行模式可以分成两种：<strong>同步</strong>（Synchronous）和<strong>异步</strong>（Asychronous）。<ul>
-<li>同步模式：一个任务完成之后，后边跟着一个任务接着执行；程序的执行顺序和排列顺序是一致的。</li>
-<li>异步模式：则完全不同，每一个任务都有一个或者多个回调函数（callback），前一个任务结束的时候，不是执行下一个任务，而是执行回调函数，后一个任务则是不等前一个任务结束就执行。基本的异步模式有：<ul>
-<li><a href="https://www.cnblogs.com/moltboy/archive/2013/04/24/3040213.html" target="_blank" rel="noopener">回调函数</a>（callback）：当函数的实现过程非常漫长时，使用回调函数进行异步处理，代码无需等待，可以继续其他任务。</li>
-<li>事件是与浏览器或文档交互的瞬间，如点击按钮，填写表格等，它是JS与HTML之间交互的桥梁。<br><a href="https://segmentfault.com/a/1190000006934031" target="_blank" rel="noopener">事件监听</a>（Event） ,<a href="https://www.cnblogs.com/liugang-vip/p/5616484.html" target="_blank" rel="noopener">事件委托</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><ul>
-<li><a href="http://www.w3school.com.cn/htmldom/index.asp" target="_blank" rel="noopener">DOM教程</a></li>
-<li><code>DOM</code>（文档对象模型）是针对 <code>HTML</code> 和 <code>XML</code> 文档的一个 <code>API</code>(应用程序接口)，通过 DOM 可以去改变文档。</li>
-<li>当浏览器载入HTML时，会生成相应的 DOM 树:<br><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LEnFv3jMWsHS31RfsLD%2F-LEnFymU6ro7LIcUvFQV%2F-LEnG-4J9dKFWiSXiSED%2Fhtml-dom.png?generation=1528794719454822&amp;alt=media" alt=""></li>
-<li><p>即:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;我是title&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;a href=&quot;#&quot;&gt;我是文本链接&lt;/a&gt;</span><br><span class="line">    &lt;p id=&quot;myId&quot;&gt;我是p标签&lt;/p&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>DOM</code>常用属性：</p>
-<ul>
-<li><code>innerHTML</code>- 节点（元素）的文本值</li>
-<li><code>parentNode</code> - 节点（元素）的父节点</li>
-<li><code>childNodes</code> - 节点（元素）的子节点</li>
-<li><code>attributes</code> - 节点（元素）的属性节点</li>
-</ul>
-</li>
-<li><code>DOM</code>常用方法：</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>getElementById()</code></td>
-<td>返回带有指定 <code>ID</code> 的元素。</td>
-</tr>
-<tr>
-<td><code>getElementsByTagName()</code></td>
-<td>返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组,<strong>下标号从0 开始</strong>）。</td>
-</tr>
-<tr>
-<td><code>getElementsByClassName()</code></td>
-<td>返回包含带有指定类名的所有元素的节点列表。</td>
-</tr>
-<tr>
-<td><code>appendChild()</code></td>
-<td>把新的子节点添加到指定节点。</td>
-</tr>
-<tr>
-<td><code>removeChild()</code></td>
-<td>删除子节点。</td>
-</tr>
-<tr>
-<td><code>replaceChild()</code></td>
-<td>替换子节点。</td>
-</tr>
-<tr>
-<td><code>insertBefore()</code></td>
-<td>在指定的子节点前面插入新的子节点。</td>
-</tr>
-<tr>
-<td><code>createAttribute()</code></td>
-<td>创建属性节点。</td>
-</tr>
-<tr>
-<td><code>createElement()</code></td>
-<td>创建元素节点。</td>
-</tr>
-<tr>
-<td><code>createTextNode()</code></td>
-<td>创建文本节点。</td>
-</tr>
-<tr>
-<td><code>getAttribute()</code></td>
-<td>返回指定的属性值。</td>
-</tr>
-<tr>
-<td><code>setAttribute()</code></td>
-<td>把指定属性设置或修改为指定的值。</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p><code>Document</code> 类型</p>
-<ul>
-<li>对于一个 <code>HTML</code> 来说，文档节点 <code>Document</code> （是看不到的）就是它的根节点，这个根节点对应的对象就是 <code>document</code> ，我们可以通过根节点来访问它的子节点(Element 、Text)</li>
-<li><p><code>document</code> 对象的常用属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.documentElement  // 可以直接拿到 html 节点的引用</span><br><span class="line">document.title //  可以直接获取 title 节点的文本 “我是title”</span><br><span class="line">document.URL // 获取 URL</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>document</code> 对象的常用方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById // docment.getElementById(&apos;myId&apos;) 可以获取到属性 id 为 ‘myId’ 的节点，在上面的代码中获取的也就是 p 节点</span><br><span class="line">document.getElementsByTagName //docment.getElementByTagName(&apos;p&apos;) 可以获取到节点为 p 的所有节点集</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><code>Element</code> 类型</p>
-<ul>
-<li>通常我们在使用 <code>document</code> 对象来获取节点时，返回的节点类型就是 <code>Element</code> 类型，所以我们想要对获取的节点进行操作，我们只需要使用 <code>Element</code> 包含的属性和方法即可。</li>
-<li><p>常见属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var myNode = document.getElementById(&apos;myId&apos;);</span><br><span class="line">myNode.id // 获取该节点的 id ，即 ‘myId‘</span><br><span class="line">myNode.tagName // 获取该节点的节点名，即 &apos;P&apos;，大部分浏览器返回的标签名都是大写</span><br><span class="line">myNode.className //获取该节点的 class</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>常用方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//假如我们有一个 input，我们想要获取 input 的 type 属性，并对 type 属性进行操作</span><br><span class="line">&lt;input type=&apos;text&apos; id=&apos;input&apos;/&gt;</span><br><span class="line">​</span><br><span class="line">var myNode = document.getElementById(&apos;input&apos;)</span><br><span class="line">myNode.getAttribute(&apos;type&apos;) // 获取属性值，即 ‘text’</span><br><span class="line">myNode.setAttribute(&apos;type&apos;,&apos;password&apos;) // 将 type 属性值改为 password 类型</span><br><span class="line">myNode.removeAttribute(&apos;type&apos;) // 移除 type 属性</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ul>
-<li>JavaScript对象就是一组<strong>属性</strong>和<strong>方法（函数）</strong>的集合。</li>
-<li><p>创建对象</p>
-<ul>
-<li><p>字面量表示法：<br>  一个对象也需要用一个变量来存储，然后通过点(.)来访问该对象的属性和方法。</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var objectName = &#123;</span><br><span class="line">member1Name : member1Value,</span><br><span class="line">member2Name : member2Value,</span><br><span class="line">member3Name : member3Value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对象成员的值可以是任意的。比如现在创建一个<code>person</code>对象:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">name : [&apos;Bob&apos;, &apos;Smith&apos;],</span><br><span class="line">age : 32,</span><br><span class="line">gender : &apos;male&apos;,</span><br><span class="line">interests : [&apos;music&apos;, &apos;skiing&apos;],</span><br><span class="line">bio : function() &#123;</span><br><span class="line">    alert(this.name[0] + &apos; &apos; + this.name[1] + &apos; is &apos; + this.age + &apos; years old. He likes &apos; + this.interests[0] + &apos; and &apos; + this.interests[1] + &apos;.&apos;);</span><br><span class="line">&#125;,</span><br><span class="line">greeting: function() &#123;</span><br><span class="line">    alert(&apos;Hi! I\&apos;m &apos; + this.name[0] + &apos;.&apos;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>在<code>person</code>对象里有字符串(string)，数字(number)，两个数组(array)，两个函数(function)。前4个成员是资料项目，被称为<strong>对象的属性</strong>(property)，后两个成员是函数，允许对象对资料做一些操作，被称为<strong>对象的方法</strong>(method)。</p>
-<p>这样一个<code>person</code>对象被称之为<code>对象的字面量</code>(literal)——手动的写出对象的内容来创建一个对象。</p>
-</li>
-</ul>
-</li>
-<li><p>使用<code>new</code>关键字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var o = new Object(); // 创建一个空对象，效果等同&#123;&#125;.</span><br><span class="line"></span><br><span class="line">var d = new Date(); // 创建一个表示当前时间的对象</span><br><span class="line"></span><br><span class="line">var r = new RegExp(&quot;js&quot;); // 创建一个正则表达式对象</span><br><span class="line"></span><br><span class="line">varperson = new Object();</span><br><span class="line"></span><br><span class="line">person.name = &quot;狼狼的蓝胖子&quot;;</span><br><span class="line"></span><br><span class="line">person.age = 25;</span><br></pre></td></tr></table></figure>
-<p>或：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age) &#123;</span><br><span class="line"></span><br><span class="line">    this.name = name;</span><br><span class="line"></span><br><span class="line">    this.age = age;</span><br><span class="line"></span><br><span class="line">this.show=function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person = new Person(&quot;Jack&quot;,15);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>访问对象成员（属性或方法）</p>
-<ul>
-<li><p>点表示法<br>可以用点表示法(dot notation)来访问对象的属性和方法。</p>
-<p>对象的<strong>名字</strong>表现为一个命名空间(namespace)，它必须<strong>写在第一位</strong>——当你想访问对象内部的属性或方法时，然后是一个点(<strong>.</strong>)，紧接着是你<strong>想要访问的项目</strong>，标识可以是简单属性的名字(name)，或者是数组属性的一个子元素，又或者是对象的方法调用。如下所示访问<code>person</code>对象：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">person.name[0] // &apos;Bob&apos;</span><br><span class="line">person.age // 32</span><br><span class="line">person.interests[1] // &apos;skiing&apos;</span><br><span class="line">person.bio() // Bob Smith is 32 years old. He likes music and skiing.</span><br><span class="line">person.greeting() // Hi! I&apos;m Bob.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>子命名空间<br>可以用一个对象来做另一个对象成员的值，如将name:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name : &#123;</span><br><span class="line">first : &apos;Bob&apos;,</span><br><span class="line">last : &apos;Smith&apos;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>这就是创建了一个子命名空间。再要访问到Bobs属性时，只需要链式的再使用一次点表示法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person.name.first // &apos;Bob&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>括号表示法<br>还可以使用括号法访问对象属性。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">person[&apos;age&apos;] // 32</span><br><span class="line">person[&apos;name&apos;][&apos;first&apos;] // &apos;Bob&apos;</span><br></pre></td></tr></table></figure>
-<p>看起来很像访问一个数组元素。对象做了字符串到值的映射，而数组做的是数字到值的映射。所以对象有时被称之为关联数组。</p>
-</li>
-</ul>
-</li>
-<li><p>设置对象成员</p>
-<ul>
-<li><p>更改已存在的属性（或方法）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">person.age = 45</span><br><span class="line">person[&apos;name&apos;][&apos;last&apos;] = &apos;Cratchit&apos;</span><br><span class="line">person.age // 45</span><br><span class="line">person[&apos;name&apos;][&apos;last&apos;] // &apos;Cratchit&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建新的属性（或方法（</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">person[&apos;eyes&apos;] = &apos;hazel&apos;</span><br><span class="line">person.farewell = function() &#123; alert(&quot;Bye everybody!&quot;) &#125;</span><br><span class="line">person[&apos;eyes&apos;] // &apos;hazel&apos;</span><br><span class="line">person.farewell() // Bye everybody!</span><br></pre></td></tr></table></figure>
-<p>括号表示法一个有用的地方是它不仅可以动态的去设置对象成员的值，还可以动态的去设置成员的名字。</p>
-</li>
-<li><p>删除属性（或方法）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete person.eyes;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断有无属性<code>in</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;name&apos; in person; // true</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><code>this</code><br>在<code>person</code>对象的<code>greeting</code>方法中使用了<code>this</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">greeting: function() &#123;</span><br><span class="line">    alert(&apos;Hi! I\&apos;m &apos; + this.name[0] + &apos;.&apos;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>关键字<code>this</code>指向了当前代码运行时的对象( 原文：the current object the code is being written inside )——这里即指<code>person</code>对象，<strong>保证了当代码的上下文(context)改变时变量的值的正确性</strong>（比如：不同的<code>person</code>对象拥有不同的<code>name</code>这个属性，很明显<code>greeting</code>这个方法需要使用的是它们自己的<code>name</code>）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var person1 = &#123;</span><br><span class="line">  name : &apos;Chris&apos;,</span><br><span class="line">  greeting: function() &#123;</span><br><span class="line">    alert(&apos;Hi! I\&apos;m &apos; + this.name + &apos;.&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person2 = &#123;</span><br><span class="line">  name : &apos;Brian&apos;,</span><br><span class="line">  greeting: function() &#123;</span><br><span class="line">    alert(&apos;Hi! I\&apos;m &apos; + this.name + &apos;.&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">person1.greeting() // Hi! I&apos;m Chris.</span><br><span class="line">person2.greeting() // Hi! I&apos;m Brain.</span><br></pre></td></tr></table></figure></p>
-<p>JavaScript对象基础​（<a href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Basics" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Basics</a>）<br>​JavaScript对象基础讲解​（<a href="http://www.codexiu.cn/javascript/blog/40328/" target="_blank" rel="noopener">http://www.codexiu.cn/javascript/blog/40328/</a>）<br>JavaScript 对象基础​（<a href="http://wanwu.tech/2017/06/03/object-basics/" target="_blank" rel="noopener">http://wanwu.tech/2017/06/03/object-basics/</a>）</p>
-<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><ul>
-<li>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。</li>
-<li>JSON是一种嵌套层级结构，具有自我描述性，可以通过JavaScript进行解析，也通常会通过Ajax进行传输。</li>
-<li>JSON建构于两种结构：<ul>
-<li>“名称/值”对的集合（对象<code>{string:value, string:value}</code>）</li>
-<li>值的有序列表（数组<code>[value, value]</code>）<ul>
-<li>JSON对象和数组的属性名称<strong>必须</strong>是双引号括起来的字符串</li>
-<li>值<code>value</code>可以是：<ul>
-<li>数值（整数或浮点数）</li>
-<li>字符串（在双引号中）</li>
-<li>逻辑值（true 或 false）</li>
-<li>数组（在中括号中）</li>
-<li>对象（在大括号中）</li>
-<li>null</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>JSON 语法是 JavaScript 语法的子集。</p>
-<ul>
-<li>数据是以键值对的形式存储的</li>
-<li>不同数据项之间以逗号分隔</li>
-<li>通过大括号来保存JSON对象</li>
-<li>在JSON对象内容，数据的值也可以是数组，通过中括号来保存数组<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var employees = [</span><br><span class="line">&#123; &quot;firstName&quot;:&quot;Bill&quot; , &quot;lastName&quot;:&quot;Gates&quot; &#125;,</span><br><span class="line">&#123; &quot;firstName&quot;:&quot;George&quot; , &quot;lastName&quot;:&quot;Bush&quot; &#125;,</span><br><span class="line">&#123; &quot;firstName&quot;:&quot;Thomas&quot; , &quot;lastName&quot;: &quot;Carter&quot; &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">// 访问</span><br><span class="line">employees[1].lastName; // Bush</span><br><span class="line"></span><br><span class="line">// 更改</span><br><span class="line">employees[0].lastName = &apos;Michael&apos;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>序列化与反序列化</p>
-<ul>
-<li><p>2个程序（或服务器、语言等）需要交互通信的时候，他们倾向于使用string字符串因为string在很多语言里解析的方式都差不多。复杂的数据结构经常需要用到，并且通过各种各样的中括号{}，小括号()，叫括号&lt;&gt;和空格来组成，这个字符串仅仅是按照要求规范好的字符。</p>
-<p>为此，我们为了描述这些复杂的数据结构作为一个string字符串，制定了标准的规则和语法。JSON只是其中一种语法，它可以在string上下文里描述对象，数组，字符串，数字，布尔型和null，然后通过程序间传输，并且反序列化成所需要的格式。</p>
-</li>
-</ul>
-</li>
-<li><p>JSON适用于<code>string</code>上下文中。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 这是JSON字符串</span><br><span class="line">var foo = &apos;&#123; &quot;prop&quot;: &quot;val&quot; &#125;&apos;;</span><br><span class="line"> </span><br><span class="line">// 这是对象字面量</span><br><span class="line">var bar = &#123; &quot;prop&quot;: &quot;val&quot; &#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>JSON方法：</p>
-<ul>
-<li><p><code>JSON.parse()</code> 方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象。提供可选的reviver函数用以在返回之前对所得到的对象执行变换(操作)。若传入的字符串不符合 <code>JSON</code> 规范，则会抛出 <code>SyntaxError</code> 异常。</p>
-<ul>
-<li><p>示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">JSON.parse(&quot;100&quot;) // 100</span><br><span class="line">JSON.parse(&quot;[]&quot;) // []</span><br><span class="line">JSON.parse(&quot;&#123;&#125;&quot;) // &#123;&#125;</span><br><span class="line">JSON.parse(&quot;true&quot;) // true</span><br><span class="line"></span><br><span class="line">var person = JSON.parse(&apos;&#123;&quot;name&quot;:&quot;tws&quot;&#125;&apos;)</span><br><span class="line">person.name // tws</span><br></pre></td></tr></table></figure>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="noopener">JSON.parse()详述</a></p>
-</li>
-</ul>
-</li>
-<li><p><code>JSON.stringify()</code> 方法是将一个JavaScript值(对象或者数组)转换为一个 JSON字符串</p>
-<ul>
-<li><p>示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">JSON.stringify(100) // &quot;100&quot;</span><br><span class="line">JSON.stringify(&apos;tws&apos;) // &quot;&quot;tws&quot;&quot;</span><br><span class="line">JSON.stringify([]) // &quot;[]&quot;</span><br><span class="line">JSON.stringify(&#123;&#125;) // &quot;&#123;&#125;&quot;</span><br><span class="line">JSON.stringify(true) // &quot;true&quot;</span><br><span class="line"></span><br><span class="line">JSON.stringify([&quot;true&quot;, true])</span><br><span class="line">// &quot;[&quot;true&quot;,true]&quot;</span><br><span class="line"></span><br><span class="line">JSON.stringify(&#123; name: &quot;tws&quot; &#125;)</span><br><span class="line">// &apos;&#123;&quot;name&quot;:&quot;tws&quot;&#125;&apos;</span><br></pre></td></tr></table></figure>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="noopener">JSON.stringify()详述</a></p>
-<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Asynchronous JavaScript And XML是一种新的开发技术和设计模式，它可以创建更好、更快且交互性更强的 web 应用程序。Ajax 使用 JavaScript 在 web 浏览器与 web 服务器之间来发送和接收数据。通过与 web 服务器交换数据，而不是每当用户作出改变时重载整个 web 页面，Ajax 技术可以使网页更迅速地响应。</li>
-<li>Ajax 使用 XML 和 HTTP 请求<ul>
-<li>传统的 web 应用程序会把数据提交到 web 服务器（使用 HTML 表单）。在 web 服务器把数据处理完毕之后，会向用户返回一张完整的新网页。</li>
-<li>由于每当用户提交输入，服务器就会返回新网页，传统的 web 应用程序往往运行缓慢，且越来越不友好。</li>
-<li>通过 Ajax，web 应用程序<strong>无需重载网页，就可以发送并取回数据</strong>。完成这项工作，需要通过向服务器发送 HTTP 请求，并通过当服务器返回数据时使用 JavaScript 仅仅修改网页的某部分。</li>
-<li>一般使用 JSON 作为接收服务器数据的格式。</li>
-</ul>
-</li>
-<li>XHR: XMLHttpRequest, 是一种用于在 Web 浏览器和 Web 服务器间传输数据消息的 JavaScript API。</li>
-<li>XHR 交互由两部分组成：请求和响应。</li>
-<li>Ajax请求的主要回调函数：<ul>
-<li><code>beforeSend</code>：在发送请求之前调用，并且传入一个XMLHttpRequest作为参数</li>
-<li><code>dataFilter</code>：在请求成功之后调用。传入返回的数据以‘dataType’参数的值。并且必须返回新的数据传递给<code>success</code>的回调函数。</li>
-<li><code>success</code>：在请求成功之后调用，传入返回的数据，以及包含成功代码的字符串</li>
-<li><code>erroe</code>：在请求出错时调用，传入XMLHttpRequest对象，描述错误类型的字符串以及一个异常对象</li>
-<li><code>complete</code>：当请求完成之后调用这个函数，无论成功失败，传入XMLHttpRequest，以及一个包含成功或者错误代码的字符串</li>
-</ul>
-</li>
-<li>Ajax的优点<ul>
-<li>页面无刷新，局部请求，用户体验良好</li>
-<li>使用异步方式与服务器通信，具有更加迅速的响应能力<br>以前一些服务器的工作可以转移到客户端，利用客户端闲置的能力来处理，减轻服务器和带宽的负担，节约空间和宽带租用成本。并且减轻服务器的负担，ajax的原则是“按需取数据”，可以最大程度的减少冗余请求，和响应对服务器造成的负担。</li>
-</ul>
-</li>
-<li>Ajax的缺点<ul>
-<li>Ajax不支持浏览器back按钮</li>
-<li>安全问题, Ajax暴露了与服务器交互的细节</li>
-<li>对搜索引擎的支持比较弱，不利于SEO</li>
-<li>不容易调试</li>
-</ul>
-</li>
-<li><p>创建<code>AJAX</code>的步骤</p>
-<ol>
-<li><p>创建<code>XMLHttpRequest</code>对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var xhr = new XMLHttpRequest();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>准备请求.初始化该XMLHttpRequest对象，接受三个参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(method,url,async);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li>第一个参数表示请求类型的字符串，其值可以是<code>GET</code>或者<code>POST</code>。</li>
-<li>第二个参数是要作为请求发送目标的<code>URL</code>。</li>
-<li>第三个参数是<code>true</code>或<code>false</code>，表示请求是以异步还是同步的模式发出。（默认为<code>true</code>，一般不建议为<code>false</code>）。</li>
-</ul>
-<ol start="3">
-<li>发送请求<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.send();</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li><p>一般情况下，使用Ajax提交的参数多是些简单的字符串，可以直接使用GET方法将要提交的参数写到open方法的url参数中，此时send方法的参数为null或为空。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(&quot;GET&quot;,demo.php?name=tsrot&amp;age=24,true);</span><br><span class="line">xhr.send(null);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader()来添加 HTTP 头。然后在send()方法中规定希望发送的数据：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(&quot;POST&quot;,demo.php,true);</span><br><span class="line">xhr.setRequestHeder(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded;charset=UTF-8&quot;);</span><br><span class="line">xhr.sen</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol start="4">
-<li>处理响应<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange = function()&#123;</span><br><span class="line">    if(xhr.readyState == 4 &amp;&amp; xhr.status == 200)&#123;</span><br><span class="line">        console.log(xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li><code>onreadystatechange</code> ：当处理过程发生变化的时候执行下面的函数</li>
-<li><code>readyState</code> ：ajax处理过程<ul>
-<li><code>0</code>：请求未初始化（还没有调用 open()）。</li>
-<li><code>1</code>：请求已经建立，但是还没有发送（还没有调用 send()）。</li>
-<li><code>2</code>：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。</li>
-<li><code>3</code>：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。</li>
-<li><code>4</code>：响应已完成；您可以获取并使用服务器的响应了。</li>
-</ul>
-</li>
-<li><code>status</code>属性：<ul>
-<li><code>200</code>:”OK”</li>
-<li><code>404</code>: 未找到页面</li>
-</ul>
-</li>
-<li><code>responseText</code>：获得字符串形式的响应数据</li>
-<li><code>responseXML</code>：获得 XML形式的响应数据</li>
-<li>对象转换为JSON格式使用<code>JSON.stringify()</code></li>
-<li>json转换为对象格式用<code>JSON.parse()</code></li>
-<li>返回值一般为json字符串，可以用<code>JSON.parse(xhr.responseText)</code>转化为对象</li>
-</ul>
-</li>
-<li><p>如下创建了一个名为ajax的XHR对象：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var ajax = &#123;</span><br><span class="line">    request: function (url, method, callback, data) &#123;</span><br><span class="line">    var xhr = null;</span><br><span class="line">    xhr = new XMLHttpRequest();</span><br><span class="line">    xhr.open(method, url, true);</span><br><span class="line">    if (method == &quot;post&quot;) &#123;</span><br><span class="line">        xhr.send(data);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        xhr.send(null);</span><br><span class="line">    &#125;</span><br><span class="line">    xhr.onreadystatechange = function() &#123;</span><br><span class="line">        if (xhr.readyState == 4 &amp;&amp; xhr.status == 200)&#123;</span><br><span class="line">        callback(xhr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>其示例用法如下： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function myCallback(xhr)&#123; </span><br><span class="line">alert(xhr.responseText); </span><br><span class="line">&#125;</span><br><span class="line">ajax.request(“somefile.txt”,”get”,myCallback);</span><br><span class="line">ajax.request(“script.php”,”post”,myCallback,”first=John&amp;last=Smith”);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h2><ul>
-<li><code>localStorage</code>主要是用来作为本地存储来使用的,解决了cookie存储空间不足的问题(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小，这个在不同的浏览器中localStorage会有所不同。</li>
-<li><code>localStorage</code>只支持<code>String</code>类型的存储。</li>
-<li><p><code>localstorage</code>的方法：</p>
-<ul>
-<li><p><code>localStorage.setItem(keyName, keyValue)</code>; 添加新的数据到Localstorage中存储</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(&apos;name&apos;, &apos;tws&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>localStorage.getItem(keyName)</code>; 返回指定keyName的Localstorage中存储的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.getItem(&apos;name&apos;); // &quot;tws&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>localStorage.removeItem(keyName)</code>; 从Localstorage中移除指定keyName的数据项</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.removeItem(&apos;name&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>localStorage.key(index)</code>; 返回指定顺序的Localstorage中存储的键。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.key(1); // &quot;name&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>localStorage.clear()</code>; 清除所有的本地Localstorage存储</p>
-</li>
-<li><p>也可以使用之前对象里的增加/修改属性方法来添改Localstorage数据</p>
-<ul>
-<li><p>点表示法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//写入a字段</span><br><span class="line">localstorage[&quot;a&quot;]=1;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>括号表示法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//写入b字段</span><br><span class="line">localstorage.b=1;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>localStorage</code>的优势</p>
-<ul>
-<li><code>localStorage</code>拓展了cookie的4K限制，为前端数据存储提供了新的思路</li>
-<li><code>localStorage</code>会可以将第一次请求的数据直接存储到本地，这个相当于一个5M大小的针对于前端页面的数据库，相比于cookie可以节约带宽</li>
-</ul>
-</li>
-<li><code>localstorage</code>的不足<ul>
-<li>不同浏览器的存储大小不统一，并且在IE8以上的IE版本才支持<code>localStorage</code>这个属性</li>
-<li><code>localStorage</code>的值类型限定为<code>String</code>类型，许多使用场景下会有限制</li>
-<li><code>localStorage</code>在浏览器的隐私模式下面是不可读取的</li>
-<li><code>localStorage</code>本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjqyvwltf000ln4ow4gx7oq52" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/08/summary_week4_1/" data-id="cjqz03bo9000f7cowbn7bardt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1935,6 +1559,14 @@
       <ul>
         
           <li>
+            <a href="/2019/01/16/single_responsibility_principle/">单一职责原则</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/16/notes_of_java_foundation/">Java基础语法笔记</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/15/IntelliJ-IDEA-Tutorial/">初级IntelliJ IDEA使用总结</a>
           </li>
         
@@ -1944,14 +1576,6 @@
         
           <li>
             <a href="/2019/01/13/summary_week5_2/">总结—第一阶段第五周</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/29/summary_week3_2/">总结—JS进阶第三周</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/23/summary_week2_2/">总结—JS进阶第二周</a>
           </li>
         
       </ul>
