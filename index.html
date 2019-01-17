@@ -104,7 +104,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/16/single_responsibility_principle/" data-id="cjqzbmflr0004zgow4izi2o9w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/16/single_responsibility_principle/" data-id="cjr040q2z0003hsoweosm9go4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -260,11 +260,98 @@
 <li>方法名最好用英文动词，表示一个动作，禁止使用中文拼音。</li>
 <li>方法名需要用小驼峰命名法，首字母小写，后面的单词需首字母大写，来用区分相邻单词。</li>
 </ul>
+<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><p>Java语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。</p>
+<h3 id="byte："><a href="#byte：" class="headerlink" title="byte："></a>byte：</h3><ul>
+<li><code>byte</code> 数据类型是<code>8</code>位、有符号的，以二进制补码表示的整数；</li>
+<li>最小值是 <code>-128</code>（<code>-2^7</code>）；</li>
+<li>最大值是 <code>127</code>（<code>2^7-1</code>）；</li>
+<li>默认值是 <code>0</code>；</li>
+<li><code>byte</code> 类型用在大型数组中节约空间，主要代替整数，因为 <code>byte</code> 变量占用的空间只有 int 类型的四分之一；</li>
+<li>例子：<code>byte a = 100，byte b = -50</code>。<h3 id="short："><a href="#short：" class="headerlink" title="short："></a>short：</h3></li>
+<li><code>short</code> 数据类型是 <code>16</code> 位、有符号的以二进制补码表示的整数</li>
+<li>最小值是 <code>-32768</code>（<code>-2^15</code>）；</li>
+<li>最大值是 <code>32767</code>（<code>2^15 - 1</code>）；</li>
+<li><code>Short</code> 数据类型也可以像 <code>byte</code> 那样节省空间。一个<code>short</code>变量是<code>int</code>型变量所占空间的二分之一；</li>
+<li>默认值是<code>0</code>；</li>
+<li>例子：<code>short s = 1000，short r = -20000</code>。<h3 id="int："><a href="#int：" class="headerlink" title="int："></a>int：</h3></li>
+<li><code>int</code> 数据类型是<code>32</code>位、有符号的以二进制补码表示的整数；</li>
+<li>最小值是 <code>-2,147,483,648</code>（<code>-2^31</code>）；</li>
+<li>最大值是 <code>2,147,483,647</code>（<code>2^31 - 1</code>）；</li>
+<li>一般地整型变量默认为 <code>int</code> 类型；</li>
+<li>默认值是 <code>0</code> ；</li>
+<li>例子：<code>int a = 100000, int b = -200000</code>。<h3 id="long："><a href="#long：" class="headerlink" title="long："></a>long：</h3></li>
+<li><code>long</code> 数据类型是 <code>64</code> 位、有符号的以二进制补码表示的整数；</li>
+<li>最小值是 <code>-9,223,372,036,854,775,808</code>（<code>-2^63</code>）；</li>
+<li>最大值是 <code>9,223,372,036,854,775,807</code>（<code>2^63 -1</code>）；</li>
+<li>这种类型主要使用在需要比较大整数的系统上；</li>
+<li>默认值是 <code>0L</code>；</li>
+<li>整数字面量默认都为 <code>int</code> 类型，所以在定义的 <code>long</code> 型数据后面加 <code>L</code>或 <code>l</code>。</li>
+<li>例子： <code>long a = 100000L，Long b = -200000L</code>。</li>
+<li>“L”理论上不分大小写，但是若写成”l”容易与数字”1”混淆，不容易分辩。所以最好大写。<h3 id="float："><a href="#float：" class="headerlink" title="float："></a>float：</h3></li>
+<li><code>float</code> 数据类型是单精度、<code>32</code>位、符合IEEE 754标准的浮点数；</li>
+<li><code>float</code> 在储存大型浮点数组的时候可节省内存空间；</li>
+<li>默认值是 <code>0.0f</code>；</li>
+<li>浮点数字面量默认都为 <code>double</code> 类型，所以在定义的 <code>float</code> 型数据后面加<code>F</code> 或 <code>f</code>；</li>
+<li><code>double</code> 类型可不写后缀，但在小数计算中一定要写 <code>D</code> 或 <code>X.X</code> </li>
+<li>浮点数不能用来表示精确的值，如货币；</li>
+<li>例子：<code>float f1 = 234.5f</code>。<h3 id="double："><a href="#double：" class="headerlink" title="double："></a>double：</h3></li>
+<li><code>double</code> 数据类型是双精度、<code>64</code> 位、符合IEEE 754标准的浮点数；</li>
+<li>浮点数的默认类型为<code>double</code>类型；</li>
+<li><code>double</code>类型同样不能表示精确的值，如货币；</li>
+<li>默认值是 <code>0.0d</code>；</li>
+<li>例子：<code>double d1 = 123.4</code>。<h3 id="boolean："><a href="#boolean：" class="headerlink" title="boolean："></a>boolean：</h3></li>
+<li><code>boolean</code>数据类型表示一位的信息；</li>
+<li>只有两个取值：<code>true</code> 和 <code>false</code>；</li>
+<li>这种类型只作为一种标志来记录 <code>true</code>/<code>false</code> 情况；</li>
+<li>默认值是 <code>false</code>；</li>
+<li>例子：<code>boolean one = true</code>。<h3 id="char："><a href="#char：" class="headerlink" title="char："></a>char：</h3></li>
+<li><code>char</code>类型是一个单一的 <code>16</code> 位 <code>Unicode</code> 字符；</li>
+<li>最小值是 <code>\u0000</code>（即为<code>0</code>）；</li>
+<li>最大值是 <code>\uffff</code>（即为<code>65,535</code>）；</li>
+<li><code>char</code> 数据类型可以储存任何字符；</li>
+<li>例子：<code>char letter = &#39;A&#39;;</code>。</li>
+</ul>
+<p>实际上，JAVA中还存在另外一种基本类型void，它也有对应的包装类 java.lang.Void，不过我们无法直接对它们进行操作。</p>
+<h3 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h3><p>整型、实型（常量）、字符型数据可以混合运算。运算中，不同类型的数据先转化为同一类型，然后进行运算。</p>
+<p>转换从低级到高级。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">低  ------------------------------------&gt;  高</span><br><span class="line"></span><br><span class="line">byte,short,char—&gt; int —&gt; long—&gt; float —&gt; double</span><br></pre></td></tr></table></figure></p>
+<p>数据类型转换必须满足如下规则：</p>
+<ol>
+<li><p>不能对boolean类型进行类型转换。</p>
+</li>
+<li><p>不能把对象类型转换成不相关类的对象。</p>
+</li>
+<li><p>在把容量大的类型转换为容量小的类型时必须使用强制类型转换。</p>
+</li>
+<li><p>转换过程中可能导致溢出或损失精度，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int i =128;   </span><br><span class="line">byte b = (byte)i;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>因为 byte 类型是 8 位，最大值为127，所以当 int 强制转换为 byte 类型时，值 128 时候就会导致溢出。</p>
+<ol start="5">
+<li>浮点数到整数的转换是通过舍弃小数得到，而不是四舍五入，例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(int)23.7 == 23;        </span><br><span class="line">(int)-45.89f == -45</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>必须满足<strong>转换前的数据类型的位数要低于转换后的数据类型</strong>，例如: <code>short</code>数据类型的位数为16位，就可以自动转换位数为32的<code>int</code>类型，同样<code>float</code>数据类型的位数为<code>32</code>，可以自动转换为64位的<code>double</code>类型。</p>
+<h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><ol>
+<li><p>条件是转换的数据类型必须是兼容的。</p>
+</li>
+<li><p>格式：<code>(type)value type</code>是要强制类型转换后的数据类型</p>
+</li>
+</ol>
+<p>实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class QiangZhiZhuanHuan&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        int i1 = 123;</span><br><span class="line">        byte b = (byte)i1;//强制类型转换为byte</span><br><span class="line">        System.out.println(&quot;int强制类型转换为byte后的值等于&quot;+b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int强制类型转换为byte后的值等于123</span><br></pre></td></tr></table></figure></p>
+<h3 id="隐含强制类型转换"><a href="#隐含强制类型转换" class="headerlink" title="隐含强制类型转换"></a>隐含强制类型转换</h3><ol>
+<li><p>整数的默认类型是 <code>int</code>。</p>
+</li>
+<li><p>浮点型不存在这种情况，因为在定义 <code>float</code> 类型时必须在数字后面跟上 <code>F</code> 或者 <code>f</code>。</p>
+</li>
+</ol>
+<h2 id="java运算符"><a href="#java运算符" class="headerlink" title="java运算符"></a>java运算符</h2><p><a href="http://www.runoob.com/java/java-operators.html" target="_blank" rel="noopener">java运算符</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/16/notes_of_java_foundation/" data-id="cjqzbmflb0002zgowbsvpqjwu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/16/notes_of_java_foundation/" data-id="cjr040q9s000ghsowskj626rc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1065,7 +1152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/15/IntelliJ-IDEA-Tutorial/" data-id="cjqzbmft4000izgowtn5akkv0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/15/IntelliJ-IDEA-Tutorial/" data-id="cjr040qbr000jhsow54risb4g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1122,7 +1209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/14/jvm_jre_jdk/" data-id="cjqzbmfk50001zgowlk1yxa35" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/14/jvm_jre_jdk/" data-id="cjr040q3i0005hsowhlq41m39" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1161,7 +1248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/13/summary_week5_2/" data-id="cjqzbmfof000czgow0p5k4g00" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/13/summary_week5_2/" data-id="cjr040q6d000dhsowaau673qx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1199,7 +1286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/29/summary_week3_2/" data-id="cjqzbmfn90009zgowhhfhgdg4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/29/summary_week3_2/" data-id="cjr040q440007hsowuser59zp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1239,7 +1326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/23/summary_week2_2/" data-id="cjqzbmfme0007zgoww1oyyq9a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/23/summary_week2_2/" data-id="cjr040q3x0006hsows049h3zd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1283,7 +1370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/summary_week1_2/" data-id="cjqzbmfm50006zgowpjwlfqfu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/15/summary_week1_2/" data-id="cjr040q4x0008hsowhmmv68j5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1536,7 +1623,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjqzbmftc000jzgow6wfea9we" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjr040qcg000lhsowueei60hw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1579,7 +1666,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/08/summary_week4_1/" data-id="cjqzbmfqy000hzgowpgxo9lcn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/08/summary_week4_1/" data-id="cjr040q590009hsowt6a6cgiw" class="article-share-link">Share</a>
       
       
     </footer>
