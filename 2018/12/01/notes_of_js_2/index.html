@@ -15,7 +15,7 @@
 <meta property="og:description" content="条件分支语句条件分支语句就是基于不同的条件去执行不同的动作。 条件分支语句每次只执行多种情况中的一种情况。  if语句  语法格式123if (condition)&amp;#123;// 当 condition==true 时执行的语句块&amp;#125;    if-else语句  语法格式 12345if (condition)&amp;#123;// 当 condition==true 时执行的语句块1&amp;#12">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LEnFv3jMWsHS31RfsLD%2F-LEnFymU6ro7LIcUvFQV%2F-LEnG-4J9dKFWiSXiSED%2Fhtml-dom.png?generation=1528794719454822&alt=media">
-<meta property="og:updated_time" content="2018-12-08T13:06:39.864Z">
+<meta property="og:updated_time" content="2019-01-18T16:00:42.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS基础2笔记">
 <meta name="twitter:description" content="条件分支语句条件分支语句就是基于不同的条件去执行不同的动作。 条件分支语句每次只执行多种情况中的一种情况。  if语句  语法格式123if (condition)&amp;#123;// 当 condition==true 时执行的语句块&amp;#125;    if-else语句  语法格式 12345if (condition)&amp;#123;// 当 condition==true 时执行的语句块1&amp;#12">
@@ -171,13 +171,17 @@
 </li>
 </ul>
 <h2 id="事件和回调"><a href="#事件和回调" class="headerlink" title="事件和回调"></a>事件和回调</h2><ul>
-<li>JavaScript语言将任务的执行模式可以分成两种：<strong>同步</strong>（Synchronous）和<strong>异步</strong>（Asychronous）。<ul>
+<li>JavaScript语言将任务的执行模式可以分成两种：<strong>同步</strong>（Synchronous）和<strong>异步</strong>（Asychronous）。</li>
 <li>同步模式：一个任务完成之后，后边跟着一个任务接着执行；程序的执行顺序和排列顺序是一致的。</li>
 <li>异步模式：则完全不同，每一个任务都有一个或者多个回调函数（callback），前一个任务结束的时候，不是执行下一个任务，而是执行回调函数，后一个任务则是不等前一个任务结束就执行。基本的异步模式有：<ul>
-<li><a href="https://www.cnblogs.com/moltboy/archive/2013/04/24/3040213.html" target="_blank" rel="noopener">回调函数</a>（callback）：当函数的实现过程非常漫长时，使用回调函数进行异步处理，代码无需等待，可以继续其他任务。</li>
-<li>事件是与浏览器或文档交互的瞬间，如点击按钮，填写表格等，它是JS与HTML之间交互的桥梁。<br><a href="https://segmentfault.com/a/1190000006934031" target="_blank" rel="noopener">事件监听</a>（Event） ,<a href="https://www.cnblogs.com/liugang-vip/p/5616484.html" target="_blank" rel="noopener">事件委托</a></li>
+<li><a href="https://www.cnblogs.com/moltboy/archive/2013/04/24/3040213.html" target="_blank" rel="noopener">回调函数</a>（callback）：当函数的实现过程非常漫长时，使用回调函数进行异步处理，代码无需等待，可以继续其他任务。<ul>
+<li>回调函数具体的定义为：函数A作为参数(函数引用)传递到另一个函数B中，并且这个函数B执行函数A。我们就说函数A叫做回调函数。如果没有名称(函数表达式)，就叫做匿名回调函数。</li>
+<li>回调函数不一定用于异步，一般同步(阻塞)的场景下也经常用到回调，比如要求执行某些操作后执行回调函数。</li>
+<li>回调函数，一般在同步情境下是最后执行的，而在异步情境下有可能不执行，因为事件没有被触发或者条件不满足。</li>
+<li>回调函数简单，容易理解和部署。但是不利于代码的阅读，和维护，各部分之间高度耦合，流程会很混乱，而且每一个任务只能指定一个回调函数。</li>
 </ul>
 </li>
+<li>事件是与浏览器或文档交互的瞬间，如点击按钮，填写表格等，它是JS与HTML之间交互的桥梁。<br><a href="https://segmentfault.com/a/1190000006934031" target="_blank" rel="noopener">事件监听</a>（Event） ,<a href="https://www.cnblogs.com/liugang-vip/p/5616484.html" target="_blank" rel="noopener">事件委托</a></li>
 </ul>
 </li>
 </ul>
@@ -539,7 +543,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjr040qdn000nhsowej8iyxvo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjr2rzorl000nzcowqs92twij" class="article-share-link">Share</a>
       
       
     </footer>

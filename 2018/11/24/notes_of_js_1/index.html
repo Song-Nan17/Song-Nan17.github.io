@@ -7,17 +7,17 @@
   
   <title>JS基础1笔记 | 宋博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作用域 作用域是你的代码在运行时，各个变量、函数和对象的可访问性。为什么需要作用域？ 最小访问原则 通过显示变量的可见性，为代码提供了一个安全层级。JavaScript作用域   全局作用域 局部作用域全局作用域 JavaScript 文档中（document）只有一个全局作用域。定义在函数之外的变量会被保存在全局作用域中。 全局作用域里的变量能够在其他作用域中被访问和修改。 一个应用中全局作用域">
+  <meta name="description" content="作用域 作用域是你的代码在运行时，各个变量、函数和对象的可访问性。为什么需要作用域？ 最小访问原则  通过显示变量的可见性，为代码提供了一个安全层级。JavaScript作用域   全局作用域 局部作用域全局作用域 JavaScript 文档中（document）只有一个全局作用域。定义在函数之外的变量会被保存在全局作用域中。 全局作用域里的变量能够在其他作用域中被访问和修改。 一个应用中全局作用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS基础1笔记">
 <meta property="og:url" content="http://yoursite.com/2018/11/24/notes_of_js_1/index.html">
 <meta property="og:site_name" content="宋博客">
-<meta property="og:description" content="作用域 作用域是你的代码在运行时，各个变量、函数和对象的可访问性。为什么需要作用域？ 最小访问原则 通过显示变量的可见性，为代码提供了一个安全层级。JavaScript作用域   全局作用域 局部作用域全局作用域 JavaScript 文档中（document）只有一个全局作用域。定义在函数之外的变量会被保存在全局作用域中。 全局作用域里的变量能够在其他作用域中被访问和修改。 一个应用中全局作用域">
+<meta property="og:description" content="作用域 作用域是你的代码在运行时，各个变量、函数和对象的可访问性。为什么需要作用域？ 最小访问原则  通过显示变量的可见性，为代码提供了一个安全层级。JavaScript作用域   全局作用域 局部作用域全局作用域 JavaScript 文档中（document）只有一个全局作用域。定义在函数之外的变量会被保存在全局作用域中。 全局作用域里的变量能够在其他作用域中被访问和修改。 一个应用中全局作用">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-02T14:08:37.479Z">
+<meta property="og:updated_time" content="2019-01-18T13:47:09.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS基础1笔记">
-<meta name="twitter:description" content="作用域 作用域是你的代码在运行时，各个变量、函数和对象的可访问性。为什么需要作用域？ 最小访问原则 通过显示变量的可见性，为代码提供了一个安全层级。JavaScript作用域   全局作用域 局部作用域全局作用域 JavaScript 文档中（document）只有一个全局作用域。定义在函数之外的变量会被保存在全局作用域中。 全局作用域里的变量能够在其他作用域中被访问和修改。 一个应用中全局作用域">
+<meta name="twitter:description" content="作用域 作用域是你的代码在运行时，各个变量、函数和对象的可访问性。为什么需要作用域？ 最小访问原则  通过显示变量的可见性，为代码提供了一个安全层级。JavaScript作用域   全局作用域 局部作用域全局作用域 JavaScript 文档中（document）只有一个全局作用域。定义在函数之外的变量会被保存在全局作用域中。 全局作用域里的变量能够在其他作用域中被访问和修改。 一个应用中全局作用">
   
     <link rel="alternate" href="/atom.xml" title="宋博客" type="application/atom+xml">
   
@@ -92,16 +92,23 @@
       
         <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><ul>
 <li>作用域是你的代码在运行时，各个变量、函数和对象的可访问性。<h3 id="为什么需要作用域？"><a href="#为什么需要作用域？" class="headerlink" title="为什么需要作用域？"></a>为什么需要作用域？</h3><ul>
-<li><strong>最小访问原则</strong> 通过显示变量的可见性，为代码提供了一个安全层级。<h3 id="JavaScript作用域"><a href="#JavaScript作用域" class="headerlink" title="JavaScript作用域"></a>JavaScript作用域</h3></li>
+<li><strong>最小访问原则</strong> </li>
+<li>通过显示变量的可见性，为代码提供了一个安全层级。<h3 id="JavaScript作用域"><a href="#JavaScript作用域" class="headerlink" title="JavaScript作用域"></a>JavaScript作用域</h3></li>
 </ul>
 </li>
 <li>全局作用域</li>
 <li>局部作用域<h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4></li>
 <li>JavaScript 文档中（document）只有一个全局作用域。定义在函数之外的变量会被保存在全局作用域中。</li>
 <li>全局作用域里的变量能够在其他作用域中被访问和修改。</li>
-<li>一个应用中全局作用域的生存周期与该应用相同。<h4 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h4></li>
+<li>一个应用中全局作用域的生存周期与该应用相同。</li>
+<li>未使用<code>var</code>、<code>let</code>、<code>const</code>关键字声明的变量都是全局变量: <code>x = 100</code></li>
+<li>全局变量都是window对象的属性<code>window.x = 100</code></li>
+</ul>
+<h4 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h4><ul>
 <li>定义在函数中的变量就在局部作用域中。并且函数在每次调用时都有一个不同的作用域。<strong>这意味着同名变量可以用在不同的函数中</strong></li>
-<li>局部作用域只在该函数调用执行期间存在。<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3>ECMAScript 6(简称ES6)中新增了块级作用域。</li>
+<li>局部作用域只在该函数调用执行期间存在。</li>
+<li>函数作用域 <code>var</code></li>
+<li>块级作用域 <code>let</code>, <code>const</code><h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3>ECMAScript 6(简称ES6)中新增了块级作用域。</li>
 <li>块作用域由 <code>{ }</code> 包括，<code>if</code>语句和<code>for</code>, <code>while</code>语句里面的<code>{ }</code>也属于块作用域。在块级声明中定义的变量从属于该块所在的作用域。</li>
 <li>和<code>var</code>关键字不同，<code>let</code>和<code>const</code>关键字支持在块级声明中创建使用局部作用域。</li>
 <li><code>var</code>、<code>let</code>、<code>const</code>的区别<ul>
@@ -115,11 +122,7 @@
 <h3 id="作用域原则"><a href="#作用域原则" class="headerlink" title="作用域原则"></a>作用域原则</h3><ul>
 <li>作用域链：JavaScript需要查询一个变量x时，首先会查找作用于的第一个对象，如果第一份对象没有定义x变量，JavaScript会继续查找第二个对象有没有定义x，以此类推。</li>
 <li>函数体内部，局部变量的优先级比同名的全局变量高。</li>
-<li>函数中声明的变量在整个函数中都有定义。<ul>
-<li>未使用<code>var</code>, <code>let</code>, <code>const</code>关键字声明的变量都是全局变量。</li>
-</ul>
-</li>
-<li>全局变量都是<code>windous</code>对象的属性。<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2></li>
+<li>函数中声明的变量在整个函数中都有定义。<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2></li>
 <li>在JavaScript中，所有的文本数据军备储存为字符串。JavaScrippt中没有储存单个字符串的数据类型，尽管只储存一个字符，也是长度为1的字符串。</li>
 <li>字符串可以由双引号<code>&quot;</code>或单引号<code>&#39;</code>表示。</li>
 <li>想将长字符串写成多行时，可以使用<code>+</code>将多个字符串连接，也可以在每行末尾使用反斜杠字符<code>\</code>,<strong>确保反斜杠后面没有空格或任何除换行符之外的字符或缩进</strong>，否则反斜杠将不会工作。如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let longString = &quot;This is a very long string which needs &quot; +</span><br><span class="line">                 &quot;to wrap across multiple lines because &quot; +</span><br><span class="line">                 &quot;otherwise my code is unreadable.&quot;;</span><br></pre></td></tr></table></figure>
@@ -526,7 +529,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/24/notes_of_js_1/" data-id="cjr040qcx000mhsow1o2maawf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/24/notes_of_js_1/" data-id="cjr2rzoqo000kzcow2fnyp06s" class="article-share-link">Share</a>
       
       
     </footer>
