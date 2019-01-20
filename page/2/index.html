@@ -66,6 +66,259 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-notes_of_advanced_js" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/09/notes_of_advanced_js/" class="article-date">
+  <time datetime="2018-12-09T10:37:53.798Z" itemprop="datePublished">2018-12-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/09/notes_of_advanced_js/">JavaScript进阶笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><ul>
+<li><code>Node.js</code>概述<ul>
+<li><code>Node.js</code> 是一个基于 Chrome V8 引擎的 <code>JavaScript</code> 运行环境。</li>
+<li><code>Node.js</code> 使用了一个事件驱动、非阻塞式 <code>I/O</code> 的模型，使其轻量又高效。</li>
+<li><code>Node.js</code> 的包管理器 <code>npm</code>，是全球最大的开源库生态系统。</li>
+</ul>
+</li>
+<li><code>Node.js</code>特点<ul>
+<li>使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去掉了中间环节，执行的不是字节码，用的也不是解释器，而是直接编译成了本地机器码。</li>
+<li><code>JavaScript</code>语言</li>
+<li>事件驱动，非阻塞式<code>I/O</code></li>
+<li>使用 <code>npm</code> 来管理包</li>
+</ul>
+</li>
+<li>使用<code>node</code>运行<code>js</code>文件：<ul>
+<li>交互模式（连按两次<code>Ctrl+C</code>退出交互模式）</li>
+<li>命令行模式</li>
+</ul>
+</li>
+</ul>
+<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><ul>
+<li>NPM是什么？<br>NPM（node package manager)，通常称为node包管理器，主要功能就是管理node包，包括：安装、卸载、更新、查看、搜索、发布等。NPM是基于couchdb一个数据库，详细记录了每个包的信息（作者、版本、依赖、授权信息等）。它是世界上最大的软件注册表，每星期大约有 30 亿次的下载量，包含超过 600000 个 包（package） （即，代码模块）。来自各大洲的开源软件开发者使用 npm 互相分享和借鉴。包的结构使您能够轻松跟踪依赖项和版本。</li>
+<li>NPM的作用<ul>
+<li>允许用户从NPM服务器下载别人编写的第三方包到本地使用。</li>
+<li>允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。</li>
+<li>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。</li>
+</ul>
+</li>
+<li>NPM常用命令<ul>
+<li><code>npm -v</code>：查看npm版本号</li>
+<li><code>npm init</code>: 初始化项目</li>
+<li><code>npm install module</code>:本地安装需要的模块module</li>
+<li><code>npm install module -g</code>:全局安装需要的模块module</li>
+<li>在<code>package.json</code>文件的<code>dependencies</code>块下或通过<code>npm ls</code>命令查看当前项目下依赖的包</li>
+<li><code>npm uninstall module</code>：卸载模块</li>
+<li><code>npm update module</code>：更新模块</li>
+<li><code>npm search module</code>:搜索模块</li>
+<li><code>npm help &lt;command&gt;</code>:查看某条命令的详细帮助</li>
+</ul>
+</li>
+</ul>
+<h2 id="ECMAScript-6"><a href="#ECMAScript-6" class="headerlink" title="ECMAScript 6"></a>ECMAScript 6</h2><ul>
+<li>ECMAScript 6 简介：<ul>
+<li>ECMAScript(ES6) 是JavaScript语言的下一代标准，已经在2015年6月正式发布了；在 JavaScript 的基础上做了重大的更新，提供了更优雅的语法和特性。</li>
+</ul>
+</li>
+<li>ECMAScript 和 JavaScript 的关系<ul>
+<li>ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现。名字不同的原因：<ol>
+<li>商标，1996年11月，JavaScript的创造者Netscape公司，决定将JavaScript提交给国际标准化组织ECMA，希望这种语言能够成为国际标准。根据授权协议，只有Netscape公司(Javascript 的创造者)可以合法地使用JavaScript这个名字，且 JavaScript 本身也已经被 Netscape 公司注册为商标</li>
+<li>想体现这门语言的制定者是 ECMA，不是 Netscape，这样有利于保证这门语言的开放性和中立性。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>块级作用域</li>
+</ul>
+<h4 id="没有块级作用域，会带来很多不合理的场景。如："><a href="#没有块级作用域，会带来很多不合理的场景。如：" class="headerlink" title="没有块级作用域，会带来很多不合理的场景。如："></a>没有块级作用域，会带来很多不合理的场景。如：</h4><ul>
+<li>第一种场景，内层变量可能会覆盖外层变量。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var tmp = new Date();</span><br><span class="line"></span><br><span class="line">function f() &#123;</span><br><span class="line">  console.log(tmp);</span><br><span class="line">  if (false) &#123;</span><br><span class="line">    var tmp = &apos;hello world&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); // undefined</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>函数<code>f</code>执行后，输出结果为<code>undefined</code>，原因在于<code>if</code>内的<code>tmp</code>用<code>var</code>声明，在全局范围内有效，导致内层的tmp变量覆盖了外层的tmp变量，变量提升，输出语句写在<code>tmp</code>声明语句之前，输出<code>undefined</code>。</p>
+<ul>
+<li>第二种场景，用来计数的循环变量泄露为全局变量。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var s = &apos;hello&apos;;</span><br><span class="line"></span><br><span class="line">for (var i = 0; i &lt; s.length; i++) &#123;</span><br><span class="line">  console.log(s[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(i); // 5</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上面代码中，变量<code>i</code>只用来控制循环，但是循环结束后，它并没有消失，泄露成了全局变量。</p>
+<p>为了避免这些不合理的场景，ES6通过<code>let</code>和<code>const</code>增加了块级作用域。<code>let</code> 和 <code>const</code> 只在于当前的块作用域中有效，而 <code>var</code> 声明的变量是在函数作用域内有效。<code>const</code> 和 <code>let</code> 的区别则在于， <code>const</code> 声明变量的同时必须立即给一个初始值，且无法在对该值进行修改。如果该初始值是一个对象，那么该对象的值是可以被修改的。</p>
+<h4 id="有块级作用域后："><a href="#有块级作用域后：" class="headerlink" title="有块级作用域后："></a>有块级作用域后：</h4><ul>
+<li><p>ES6 允许块级作用域的任意嵌套。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#123;&#123;&#123;let insane = &apos;Hello World&apos;&#125;&#125;&#125;&#125;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>外层作用域无法读取内层作用域的变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#123;&#123;</span><br><span class="line">  &#123;let insane = &apos;Hello World&apos;&#125;</span><br><span class="line">  console.log(insane); // 报错</span><br><span class="line">&#125;&#125;&#125;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>内层作用域可以定义外层作用域的同名变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#123;&#123;</span><br><span class="line">  let insane = &apos;Hello World&apos;;</span><br><span class="line">  &#123;let insane = &apos;Hello World&apos;&#125;</span><br><span class="line">&#125;&#125;&#125;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>let</code>不允许在相同作用域内，重复声明同一个变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 报错</span><br><span class="line">function func() &#123;</span><br><span class="line">  let a = 10;</span><br><span class="line">  var a = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 报错</span><br><span class="line">function func() &#123;</span><br><span class="line">  let a = 10;</span><br><span class="line">  let a = 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在块级作用域内，使用<code>let</code>命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if (true) &#123;</span><br><span class="line">  // TDZ开始</span><br><span class="line">  tmp = &apos;abc&apos;; // ReferenceError</span><br><span class="line">  console.log(tmp); // ReferenceError</span><br><span class="line"></span><br><span class="line">  let tmp; // TDZ结束</span><br><span class="line">  console.log(tmp); // undefined</span><br><span class="line"></span><br><span class="line">  tmp = 123;</span><br><span class="line">  console.log(tmp); // 123</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>块级作用域与函数声明</p>
+</li>
+</ul>
+<p>ES6 规定，块级作用域之中，函数声明语句的行为类似于<code>let</code>，在块级作用域之外不可引用。但是为了减轻对老代码的影响，，ES6 在附录 B里面规定，浏览器的实现可以不遵守上面的规定，有自己的行为方式。</p>
+<ul>
+<li>允许在块级作用域内声明函数。</li>
+<li>函数声明类似于var，即会提升到全局作用域或函数作用域的头部。</li>
+<li>同时，函数声明还会提升到所在的块级作用域的头部。</li>
+</ul>
+<p>根据这三条规则，在浏览器的 ES6 环境中，块级作用域内声明的函数，行为类似于<code>var</code>声明的变量。考虑到环境导致的行为差异太大，应该避免在块级作用域内声明函数。如果确实需要，也应该写成函数表达式，而不是函数声明语句。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 函数声明语句</span><br><span class="line">&#123;</span><br><span class="line">  let a = &apos;secret&apos;;</span><br><span class="line">  function f() &#123;</span><br><span class="line">    return a;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 函数表达式</span><br><span class="line">&#123;</span><br><span class="line">  let a = &apos;secret&apos;;</span><br><span class="line">  let f = function () &#123;</span><br><span class="line">    return a;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另外，还有一个需要注意的地方。ES6 的块级作用域允许声明函数的规则，只在使用大括号的情况下成立，如果没有使用大括号，就会报错。</p>
+<ul>
+<li>变量的解构赋值</li>
+</ul>
+<p>ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。</p>
+<ul>
+<li><p>数组的解构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">let [foo, [[bar], baz]] = [1, [[2], 3]];</span><br><span class="line">foo // 1</span><br><span class="line">bar // 2</span><br><span class="line">baz // 3</span><br><span class="line"></span><br><span class="line">let [ , , third] = [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;];</span><br><span class="line">third // &quot;baz&quot;</span><br><span class="line"></span><br><span class="line">let [x, , y] = [1, 2, 3];</span><br><span class="line">x // 1</span><br><span class="line">y // 3</span><br><span class="line"></span><br><span class="line">let [head, ...tail] = [1, 2, 3, 4];</span><br><span class="line">head // 1</span><br><span class="line">tail // [2, 3, 4]</span><br><span class="line"></span><br><span class="line">let [x, y, ...z] = [&apos;a&apos;];</span><br><span class="line">x // &quot;a&quot;</span><br><span class="line">y // undefined</span><br><span class="line">z // []</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>如果解构不成功，变量的值就等于undefined。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let [foo] = [];</span><br><span class="line">let [bar, foo] = [1];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不完全解构：等号左边的模式，只匹配一部分的等号右边的数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let [x, y] = [1, 2, 3];</span><br><span class="line">x // 1</span><br><span class="line">y // 2</span><br><span class="line"></span><br><span class="line">let [a, [b], d] = [1, [2, 3], 4];</span><br><span class="line">a // 1</span><br><span class="line">b // 2</span><br><span class="line">d // 4</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果等号的右边不是数组（或者严格地说，不是可遍历的结构，参见《Iterator》一章），那么将会报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 报错</span><br><span class="line">let [foo] = 1;</span><br><span class="line">let [foo] = false;</span><br><span class="line">let [foo] = NaN;</span><br><span class="line">let [foo] = undefined;</span><br><span class="line">let [foo] = null;</span><br><span class="line">let [foo] = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>对象的解构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let &#123; foo, bar &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">foo // &quot;aaa&quot;</span><br><span class="line">bar // &quot;bbb&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let &#123; bar, foo &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">foo // &quot;aaa&quot;</span><br><span class="line">bar // &quot;bbb&quot;</span><br><span class="line"></span><br><span class="line">let &#123; baz &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">baz // undefined</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象的解构赋值的内部机制，是先找到同名属性，然后再赋给对应的变量。真正被赋值的是后者，而不是前者。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let &#123; foo: baz &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">baz // &quot;aaa&quot;</span><br><span class="line">foo // error: foo is not defined</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>字符串的解构赋值<br>字符串也可以解构赋值。这是因为此时，字符串被转换成了一个类似数组的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const [a, b, c, d, e] = &apos;hello&apos;;</span><br><span class="line">a // &quot;h&quot;</span><br><span class="line">b // &quot;e&quot;</span><br><span class="line">c // &quot;l&quot;</span><br><span class="line">d // &quot;l&quot;</span><br><span class="line">e // &quot;o&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>字符串拓展</p>
+<ul>
+<li>模版字符串</li>
+</ul>
+<p>模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串（所有的空格和缩进都会被保留在输出之中），或者在字符串中嵌入变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 普通字符串</span><br><span class="line">`In JavaScript &apos;\n&apos; is a line-feed.`</span><br><span class="line"></span><br><span class="line">// 多行字符串</span><br><span class="line">`In JavaScript this is</span><br><span class="line">not legal.`</span><br><span class="line"></span><br><span class="line">console.log(`string text line 1</span><br><span class="line">string text line 2`);</span><br><span class="line"></span><br><span class="line">// 字符串中嵌入变量</span><br><span class="line">let name = &quot;Bob&quot;, time = &quot;today&quot;;</span><br><span class="line">`Hello $&#123;name&#125;, how are you $&#123;time&#125;?`</span><br></pre></td></tr></table></figure>
+<p>上面代码中的模板字符串，都是用反引号表示。如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let greeting = `\`Yo\` World!`;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数的扩展</p>
+<ul>
+<li><p>ES6 允许为函数的参数设置默认值，即直接写在参数定义的后面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function log(x, y = &apos;World&apos;) &#123;</span><br><span class="line">  console.log(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">log(&apos;Hello&apos;) // Hello World</span><br><span class="line">log(&apos;Hello&apos;, &apos;China&apos;) // Hello China</span><br><span class="line">log(&apos;Hello&apos;, &apos;&apos;) // Hello</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ES6 引入 <code>rest</code> 参数（形式为…变量名），用于获取函数的多余参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function example(...values)&#123;</span><br><span class="line">    console.log(values)// console: [1,2,3,4]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">example(1,2,3,4) </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var a = [1,2,3]</span><br><span class="line"></span><br><span class="line">var b = [...a,4,5,6] //b = [1,2,3,4,5,6]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>箭头函数</p>
+<ul>
+<li><p>ES6 允许使用“箭头”（=&gt;）定义函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var f = v =&gt; v;</span><br><span class="line"></span><br><span class="line">// 等同于</span><br><span class="line">var f = function (v) &#123;</span><br><span class="line">  return v;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var f = () =&gt; 5;</span><br><span class="line">// 等同于</span><br><span class="line">var f = function () &#123; return 5 &#125;;</span><br><span class="line"></span><br><span class="line">var sum = (num1, num2) =&gt; num1 + num2;</span><br><span class="line">// 等同于</span><br><span class="line">var sum = function(num1, num2) &#123;</span><br><span class="line">  return num1 + num2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果箭头函数的函数体只包含一行代码，则可以不需要写大括号以及 return 语句返回（如果有返回值）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var sum = (num1,num2) =&gt; num1+num2</span><br><span class="line">等同于</span><br><span class="line">var sum = (num1,num2) =&gt; &#123;return num1+num2&#125;</span><br><span class="line">等同于</span><br><span class="line">var sum = function(num1,num2)&#123;return num1+num2&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><ul>
+<li>面向对象编程：<br>把一组数据结构和处理它们的方法组成<strong>对象</strong>(Object), 把相同行为的对象归纳为<strong>类</strong>(Class), 通过类的<strong>封装</strong>(encapsulation)隐藏内部细节，通过<strong>继承</strong>(inheritance)实现类的<strong>特化</strong>(specializetion)/<strong>泛化</strong>(generalization), 通过<strong>多态</strong>(polymorphism)实现基于对象类型的<strong>动态分派</strong>。其实就是我们按照正常的思维去写程序，我们会将现实世界中的东西视为一个个对象，然后他们的行为就是一个个方法。<br><img src="https://pic1.zhimg.com/80/664ba37eeee9f4623c06c066867f1d38_hd.jpg" alt=""></li>
+<li>面向对象这个<strong>对象</strong>，指的是客体。所谓客体是指客观存在的对象实体和主观抽象的概念。 </li>
+<li>面向对象的好处？<ol>
+<li>接近人的思维，符合人类对现实世界的认知；</li>
+<li>封装特性可以使开发者不必在意内部的具体实现，更方便互相协作；</li>
+<li>继承特性可以减少代码冗余，实现代码复用；</li>
+<li>多态特性令子类相比父类有不同的行为，这是非常接近现实的。</li>
+</ol>
+</li>
+<li>面向对象是为了解决系统的<strong>可维护性</strong>，<strong>可扩展性</strong>，<strong>可重用性</strong>。<ul>
+<li>面向对象的三大特征： <ul>
+<li>封装：找到变化并且把它封装起来。封装的作用，就解决了程序的可扩展性。 </li>
+<li>继承：子类继承父类，可以继承父类的方法及属性，实现了多态以及代码的重用，因此也解决了系统的重用性和扩展性，但是继承破坏了封装，因为他是对子类开放的，修改父类会导致所有子类的改变，因此继承一定程度上又破坏了系统的可扩展性，所以继承需要慎用。</li>
+<li>多态：接口的多种不同的实现方式即为多态。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>面对对象编程三大步骤：<ul>
+<li>面向对象的分析(OOA)：分析需求，先不要思考怎么用程序实现它，先分析需求中稳定不变的客体都是些什么，这些客体之间的关系是什么。</li>
+<li>面向对象的设计(OOD)：把第一步分析出来的需求，通过进一步扩充模型，变成可实现的、符合成本的、模块化的、低耦合高内聚的模型。</li>
+<li>面向对象的编程实现(OOP)：使用面向对象的实现模型 。</li>
+</ul>
+</li>
+<li>面向对象和基于对象的区别<br>“面向对象”和“基于对象”都实现了“封装”的概念，但是面向对象实现了“继承和多态”，而“基于对象”没有实现这些</li>
+</ul>
+<h3 id="1-生成实例对象的原始模式-字面量"><a href="#1-生成实例对象的原始模式-字面量" class="headerlink" title="1.生成实例对象的原始模式,字面量"></a>1.生成实例对象的原始模式,字面量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">　　var Cat = &#123;</span><br><span class="line">　　　　name : &apos;&apos;,</span><br><span class="line"></span><br><span class="line">　　　　color : &apos;&apos;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+<p>根据这个原型对象的规格（schema），生成两个实例对象:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">　　var cat1 = &#123;&#125;; // 创建一个空对象</span><br><span class="line"></span><br><span class="line">　　　　cat1.name = &quot;大毛&quot;; // 按照原型对象的属性赋值</span><br><span class="line"></span><br><span class="line">　　　　cat1.color = &quot;黄色&quot;;</span><br><span class="line"></span><br><span class="line">　　var cat2 = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">　　　　cat2.name = &quot;二毛&quot;;</span><br><span class="line"></span><br><span class="line">　　　　cat2.color = &quot;黑色&quot;;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>这样的写法有两个缺点<ul>
+<li>一是如果多生成几个实例，写起来就非常麻烦；</li>
+<li>二是实例与原型之间，没有任何办法，可以看出有什么联系。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-工厂模式"><a href="#2-工厂模式" class="headerlink" title="2.工厂模式"></a>2.工厂模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Cat(name,color) &#123;</span><br><span class="line"></span><br><span class="line">　　　　return &#123;</span><br><span class="line"></span><br><span class="line">　　　　　　name:name,</span><br><span class="line"></span><br><span class="line">　　　　　　color:color</span><br><span class="line"></span><br><span class="line">　　　　&#125;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+<p>然后生成实例对象，就等于是在调用函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　var cat1 = Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line"></span><br><span class="line">　　var cat2 = Cat(&quot;二毛&quot;,&quot;黑色&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>这种方法的问题依然是，cat1和cat2之间没有内在的联系，不能反映出它们是同一个原型对象的实例。</p>
+<h3 id="3-构造函数"><a href="#3-构造函数" class="headerlink" title="3.构造函数"></a>3.构造函数</h3><p>“构造函数”，其实就是一个普通函数，但是内部使用了this变量。对构造函数使用new运算符，就能生成实例，并且this变量会绑定在实例对象上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　function Cat(name,color)&#123;</span><br><span class="line"></span><br><span class="line">　　　　this.name=name;</span><br><span class="line"></span><br><span class="line">　　　　this.color=color;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure></p>
+<p>生成实例对象了:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line"></span><br><span class="line">　　var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);</span><br><span class="line"></span><br><span class="line">　　alert(cat1.name); // 大毛</span><br><span class="line"></span><br><span class="line">　　alert(cat1.color); // 黄色</span><br></pre></td></tr></table></figure></p>
+<p><code>instanceof</code>运算符，验证原型对象与实例对象之间的关系<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　alert(cat1 instanceof Cat); //true</span><br><span class="line"></span><br><span class="line">　　alert(cat2 instanceof Cat); //true</span><br></pre></td></tr></table></figure></p>
+<p>构造函数方法存在浪费内存的问题,生成示例时，对象内的方法和属性都是指向不同的内存地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(cat1.eat == cat2.eat); //false</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-prototype模式"><a href="#4-prototype模式" class="headerlink" title="4.prototype模式"></a>4.prototype模式</h3><p>Javascript规定，每一个构造函数都有一个<code>prototype</code>属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承。</p>
+<p>这意味着，我们可以把那些不变的属性和方法，直接定义在<code>prototype</code>对象上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">　　function Cat(name,color)&#123;</span><br><span class="line"></span><br><span class="line">　　　　this.name = name;</span><br><span class="line"></span><br><span class="line">　　　　this.color = color;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">　　Cat.prototype.type = &quot;猫科动物&quot;;</span><br><span class="line"></span><br><span class="line">　　Cat.prototype.eat = function()&#123;alert(&quot;吃老鼠&quot;)&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>生成实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line"></span><br><span class="line">　　var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);</span><br><span class="line"></span><br><span class="line">　　alert(cat1.type); // 猫科动物</span><br><span class="line"></span><br><span class="line">　　cat1.eat(); // 吃老鼠</span><br><span class="line"></span><br><span class="line">　　alert(cat1.eat == cat2.eat); //true</span><br></pre></td></tr></table></figure></p>
+<p>prototype模式的缺点在于给实例添加或删除属性和方法时，原型的属性和方法也会添加或删除。所以，可以结合构造函数和prototype模式。</p>
+<h3 id="5-class"><a href="#5-class" class="headerlink" title="5.class"></a>5.class</h3><p>ES6 引入了 Class（类）这个概念，作为对象的模板。通过<code>class</code>关键字，可以定义类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">  constructor(x, y) &#123;</span><br><span class="line">    this.x = x;</span><br><span class="line">    this.y = y;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toString() &#123;</span><br><span class="line">    return &apos;(&apos; + this.x + &apos;, &apos; + this.y + &apos;)&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>类的数据类型就是函数，类本身就指向构造函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typeof Point // &quot;function&quot;</span><br><span class="line">Point === Point.prototype.constructor // true</span><br></pre></td></tr></table></figure></p>
+<p>使用实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Bar &#123;</span><br><span class="line">  doStuff() &#123;</span><br><span class="line">    console.log(&apos;stuff&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var b = new Bar();</span><br><span class="line">b.doStuff() // &quot;stuff&quot;</span><br></pre></td></tr></table></figure></p>
+<p>类的所有方法都定义在类的<code>prototype</code>属性上面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toString() &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toValue() &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 等同于</span><br><span class="line"></span><br><span class="line">Point.prototype = &#123;</span><br><span class="line">  constructor() &#123;&#125;,</span><br><span class="line">  toString() &#123;&#125;,</span><br><span class="line">  toValue() &#123;&#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><code>Object.assign</code>方法可以很方便地一次向类添加多个方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">  constructor()&#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Object.assign(Point.prototype, &#123;</span><br><span class="line">  toString()&#123;&#125;,</span><br><span class="line">  toValue()&#123;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>Class 可以通过<code>extends</code>关键字实现继承，这比 ES5 的通过修改原型链实现继承，要清晰和方便很多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class ColorPoint extends Point &#123;</span><br><span class="line">  constructor(x, y, color) &#123;</span><br><span class="line">    super(x, y); // 调用父类的constructor(x, y)</span><br><span class="line">    this.color = color;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toString() &#123;</span><br><span class="line">    return this.color + &apos; &apos; + super.toString(); // 调用父类的toString()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，<code>constructor</code>方法和<code>toString</code>方法之中，都出现了<code>super</code>关键字，它在这里表示父类的构造函数，用来新建父类的<code>this</code>对象。</p>
+<p>子类必须在<code>constructor</code>方法中调用<code>super</code>方法，否则新建实例时会报错。这是因为子类自己的<code>this</code>对象，必须先通过父类的构造函数完成塑造，得到与父类同样的实例属性和方法，然后再对其进行加工，加上子类自己的实例属性和方法。如果不调用<code>super</code>方法，子类就得不到<code>this</code>对象。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjr5923ve000kx8owt3612rhq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-summary_week4_1" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/08/summary_week4_1/" class="article-date">
@@ -99,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/08/summary_week4_1/" data-id="cjr3nv66s000cosow61wise6v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/08/summary_week4_1/" data-id="cjr5923tf000dx8ow1trfm7uq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/02/summary_week3_1/" data-id="cjr3nv663000aosow65vgg00s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/02/summary_week3_1/" data-id="cjr5923xw000nx8owmcahnytt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -621,7 +874,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjr3nv6av000oosowpjsk3ix7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/notes_of_js_2/" data-id="cjr5923yo000px8ow39qproc4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -677,7 +930,7 @@ h2.pos_top
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/29/relative/" data-id="cjr3nv64l0003osowhwsnv3vn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/29/relative/" data-id="cjr5923q00003x8owyf0boffz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -729,7 +982,7 @@ h1.hidden {visibility:hidden}
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/29/visibility/" data-id="cjr3nv67a000eosow59iustcd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/29/visibility/" data-id="cjr5923t5000cx8owuyd1esit" class="article-share-link">Share</a>
       
       
     </footer>
@@ -818,7 +1071,7 @@ div.ex4 {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/29/overflow/" data-id="cjr3nv64e0002osowtz6e1cfk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/29/overflow/" data-id="cjr5923pu0002x8owuy4ou9g7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1453,7 +1706,7 @@ div.ex4 {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/27/shortcut_keys/" data-id="cjr3nv68c000iosowr5qd2o6c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/27/shortcut_keys/" data-id="cjr5923uc000hx8owl4fv5ilk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1924,7 +2177,7 @@ div.ex4 {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/24/notes_of_js_1/" data-id="cjr3nv6al000nosowubdwzpb6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/24/notes_of_js_1/" data-id="cjr5923vj000lx8owgmmzix95" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1973,381 +2226,7 @@ div.ex4 {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/summary_week2_1/" data-id="cjr3nv65p0008osow7fzxrz15" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-notes_of_css" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/23/notes_of_css/" class="article-date">
-  <time datetime="2018-11-23T13:37:46.647Z" itemprop="datePublished">2018-11-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/23/notes_of_css/">CSS基础笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>CSS 层叠样式表，是一种样式表语言，用于渲染HTML元素标签的样式。<h2 id="CSS基础"><a href="#CSS基础" class="headerlink" title="CSS基础"></a>CSS基础</h2></li>
-<li><p>应用CSS</p>
-<ul>
-<li><p>外链：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/path/to/style.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>嵌入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">  li &#123; margin: 0; list-style: none; &#125;</span><br><span class="line">  p &#123; margin: 1em 0; &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>内联：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style=&quot;margin:1em 0&quot;&gt;Example Content&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>颜色</p>
-<ul>
-<li>关键字，如：red → 红色，blue → 蓝色等</li>
-<li><code>Hex</code>，用三位16进制的数字来表示，分别代表rgb三色的值大小，从 0 到 ff，以此代表0-255，如：#4286f4</li>
-<li><code>RGB</code> &amp; <code>RGBA</code>，rgb分别代表红色、绿色、蓝色，值分别为0-255，其中a代表透明度，如：rgb(66, 134, 244), rgba(66, 134, 244,0.5), </li>
-<li><code>HSL</code> &amp; <code>HSLA</code>，代表色相、饱和度和亮度，色相是色彩的基本属性,就是平常所说的颜色名称，如红色、黄色等，以0-360度衡量，饱和度(S)是指色彩的纯度,越高色彩越纯,低则逐渐变灰，亮度越高颜色越亮，饱和度和亮度使用0%-100%的范围，其中a代表透明度，值为0-1，如：hsl(120, 100%, 50%)</li>
-</ul>
-</li>
-<li>单位<ul>
-<li><code>px</code>：像素，对应显示器的一个像素点（绝对单位）</li>
-<li><code>em</code>：相对于该元素的一个 font-size</li>
-<li><code>rem</code>：相对于 html 元素的 font-size</li>
-<li><code>vh</code>：浏览器窗口高度的 1%</li>
-<li><code>vw</code>：浏览器窗口宽度的 1%</li>
-<li><code>vmin</code>：vh 和 vw 中的较小者</li>
-<li><code>vmax</code>：vh 和 vw 中的较大者</li>
-</ul>
-</li>
-</ul>
-<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><ul>
-<li>简单选择器：通配选择器<code>*</code>、标签选择器<code>label</code>、ID选择器<code>#id</code>、类选择器<code>.class</code></li>
-<li>复杂选择器：<ul>
-<li>属性选择器<ul>
-<li><code>[attribute]</code>选择具有<code>attribute</code>属性的元素</li>
-<li><code>[attribute=value]</code>选择属性值为”value”的元素</li>
-<li>选择属性值以”value”开头的元素<ul>
-<li><code>[attribute^=&quot;value&quot;]</code></li>
-<li><code>[attribute|=value]</code>选择所有<code>attribute</code>属性具有多个连字号分隔（hyphen-separated）的值、其中一个值以”value”开头的E元素，主要用于lang属性，比如”en”、”en-us”、”en-gb”等等</li>
-</ul>
-</li>
-<li>选择属性值包含”value”的元素<ul>
-<li><code>[attribute~=value]</code>选择所有<code>attribute</code>属性具有多个空格分隔的值、其中一个值等于”value”的E元素</li>
-<li><code>[attribute*=&quot;value&quot;]</code></li>
-</ul>
-</li>
-<li>选择属性值以”value”结尾的元素<ul>
-<li><code>[attribute$=&quot;value&quot;]</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>多元素组合选择器<ul>
-<li><code>E,F</code>    多元素选择器，同时选择所有E元素或F元素，E和F之间用逗号分隔</li>
-<li><code>E F</code>    后代元素选择器，选择所有属于E元素后代的F元素，E和F之间用空格分隔</li>
-<li><code>E &gt; F</code>    子元素选择器，选择所有E元素的子元素F</li>
-<li><code>E + F</code>    毗邻元素选择器，选择所有紧随E元素之后的同级元素F</li>
-</ul>
-</li>
-<li>伪类选择器<ul>
-<li><code>E:first-child</code>    选择父元素的第一个子元素。如：<code>p:first-child</code>选择所有是第一个元素的p，<code>div p:first-child</code>选择所有div中的第一个p；</li>
-<li><code>E:link</code>    选择所有未被点击的链接</li>
-<li><code>E:visited</code>    选择所有已被点击的链接</li>
-<li><code>E:active</code>    选择鼠标已经其上按下、还没有释放的E元素</li>
-<li><code>E:hover</code>    选择鼠标悬停其上的E元素</li>
-<li><code>E:focus</code>    选择获得当前焦点的E元素</li>
-<li><code>E:lang(c)</code>    选择lang属性等于c的E元素</li>
-</ul>
-</li>
-<li>伪元素<ul>
-<li><code>E:first-line</code>    匹配E元素的第一行</li>
-<li><code>E:first-letter</code>    匹配E元素的第一个字母</li>
-<li><code>E:before</code>    在E元素之前插入生成的内容</li>
-<li><code>E:after</code>    在E元素之后插入生成的内容</li>
-</ul>
-</li>
-<li>同级元素通用选择器<ul>
-<li><code>A + B</code>选择所有<strong>直接</strong>跟在A元素后面的B元素；</li>
-<li><code>A ~ B</code>选择跟在A元素后面的所有B元素；</li>
-</ul>
-</li>
-<li>与用户界面有关的伪类<ul>
-<li><code>E:enabled</code>    匹配表单中激活的元素</li>
-<li><code>E:disabled</code>    匹配表单中禁用的元素</li>
-<li><code>E:checked</code>    匹配表单中被选中的radio（单选框）或checkbox（复选框）元素</li>
-<li><code>E::selection</code>    匹配用户当前选中的元素</li>
-</ul>
-</li>
-<li>结构性伪类<ul>
-<li><code>:only-child</code>选择所有是父级元素唯一子元素的元素，如：<code>span:only-child</code>选择所有是唯一元素的span，<code>ul li:only-child</code>选择所有是ul中唯一元素的li；</li>
-<li><code>:last-child</code>选择所有元素的最后一个子级元素，如：<code>span:last-child</code>选择所有是最后一个元素的span，<code>div p:last-child</code>选择所有是div中最后一个元素的p；</li>
-<li><code>:nth-child(x)</code>选择有元素的第x个子级元素，第一个编号为1。如：<code>:nth-child(8)</code>选择所有第八个元素，<code>div p:nth-child(2)</code>选择所有是div中第8个元素的p；</li>
-<li><code>:nth-last-child(x)</code>选择所有元素的倒数第x个子级元素，第一个编号为1。如：<code>:nth-last-child(2)</code>选择所有的倒数第2个元素；</li>
-<li><code>:first-of-type</code>选择所有元素中的第一个某种元素，如：<code>span:first-of-type</code>选择所有的第一个span元素；</li>
-<li><code>:nth-of-type(x)</code>选择所有是type(x)的元素，第一个编号为1。如：<code>div:nth-of-type(2)</code>选择所有的第二个div元素，- - - <code>.example:nth-of-type(odd)</code>选择所有的奇数个且类为example的元素；</li>
-<li><code>:nth-of-type(An+B)</code>从第B个开始选择所有第A个元素（包括第B个），如：<code>span:nth-of-type(6n+2)</code>从第2个开始数选择所有的第6个元素（选择包括一开始的第2个）;</li>
-<li><code>:only-of-type</code>选择在父级元素中是唯一一个该种类子级元素的子级元素，如：<code>p span:only-of-type</code>选择所有是p中唯一一个span的span；</li>
-<li><code>:last-of-type</code>选择在父级元素中是该种类子元素的最后一个的子级元素，如：<code>div:last-of-type</code>选择所有的最后一个div;</li>
-<li><code>:empty</code>选择所有没有子级元素的元素；</li>
-<li><code>E:root</code>    匹配文档的根元素，对于HTML文档，就是HTML元</li>
-</ul>
-</li>
-<li>反选伪类<ul>
-<li><code>:not(X)</code>选择所有非X的元素，如：<code>div:not(:first-child)</code>选择所有不是最后一个元素的div;</li>
-</ul>
-</li>
-<li>target 伪类<ul>
-<li><code>E:target</code>    匹配文档中特定”id”点击后的效果<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9v7ks69j20bx0gyq3c.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxpb4zw7xwj20ft09tmx2.jpg" alt=""><h2 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h2><h3 id="font-family"><a href="#font-family" class="headerlink" title="font-family"></a>font-family</h3></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>字体匹配算法简介<ul>
-<li>浏览器先获取一个系统字体列表</li>
-<li>对于元素中每一个字符，使用 <code>font-family</code> 属性及其它属性进行匹配，如果能匹配就暂定该字体</li>
-<li>如果步骤2没有匹配上，选择下一个可选的 <code>font-family</code> 执行步骤2</li>
-<li>如果匹配到一个字体，但是字体中没有该字符，继续对下一个可选的 <code>font-family</code> 执行步骤2</li>
-<li>如果还没有匹配到字体，使用浏览器默认字体</li>
-</ul>
-</li>
-<li>CSS中五种通用的字体系列：<ul>
-<li><code>Serif</code> 衬线体：Georgia、宋体</li>
-<li><code>Sans-Serif</code> 无衬线体：Arial、Helvetica、黑体、微软雅黑</li>
-<li><code>Cursive</code> 手写体：Caflisch Script、楷体</li>
-<li><code>Fantasy</code> 梦幻字体：Comic Sans MS, Papyrus, Zapfino</li>
-<li><code>Monospace</code> 等宽字体：Consolas、Courier、中文字体<br>效果如下：<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxmzl0qyvej20ic08mjrw.jpg" alt=""></li>
-</ul>
-</li>
-<li><p>设置多个字体</p>
-<ul>
-<li><p>设置多个字体例子如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p &#123;font-family: Times, TimesNR, &apos;New Century Schoolbook&apos;, Georgia, &apos;New York&apos;, serif;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>需注意：</p>
-<ul>
-<li>把这些字体按照优先顺序排列，然后用逗号进行连接。</li>
-<li>提供一个通用字体系列，如serif,这样就提供了一条后路，在用户代理无法提供与规则匹配的特定字体时，就可以选择一个候选字体。</li>
-<li>当字体名中有一个或多个空格（比如 New York），或者如果字体名包括 # 或 $ 之类的符号，才需要在 font-family 声明中加引号。单引号或双引号都可以接受。</li>
-<li>如果列出的所有字体都不可用，就会简单地选择一种可用的 serif 字体。<h3 id="font-size"><a href="#font-size" class="headerlink" title="font-size"></a>font-size</h3></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>px，em，rem<ul>
-<li><code>px</code>: 像素，相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</li>
-<li><code>em</code>: 相对长度单位。相对于当前对象内文本的字体尺寸。em的值并不是固定的，em会继承父级元素的字体大小。任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。</li>
-<li><code>rem</code>: CSS3新增的一个相对单位（root em，根em）。使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。无论是在哪个内容里，同样的rem大小，显示的字体大小都一样。<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9tv050fj20b705tdh8.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxp9utr9sbj208l0braa8.jpg" alt=""><h3 id="font-style"><a href="#font-style" class="headerlink" title="font-style"></a>font-style</h3></li>
-</ul>
-</li>
-<li>定义文字是以<strong>倾斜体</strong>还是正常方式显示的。</li>
-<li>取值：<code>normal</code> | <code>italic</code> | <code>oblique</code></li>
-<li>初识值为<code>normal</code>，可继承<h3 id="font-weight："><a href="#font-weight：" class="headerlink" title="font-weight："></a>font-weight：</h3></li>
-<li>定义文字的<strong>粗细</strong>程度</li>
-<li>取值：<code>normal</code> | <code>bold</code> | <code>bolder</code> | <code>lighter</code> | 100 | 200 | … | 900</li>
-<li>初始值为 <code>normal</code>，可继承<h3 id="line-height："><a href="#line-height：" class="headerlink" title="line-height："></a>line-height：</h3></li>
-<li>定义元素所属的<strong>行所占的高度</strong></li>
-<li>初始值为<code>normal</code>（具体值由浏览器决定），可继承</li>
-<li>取值：&lt;长度&gt; | &lt;数字&gt; | &lt;百分比&gt;</li>
-<li>段落文字一般取值为1.4 ~ 1.8<h3 id="font缩写"><a href="#font缩写" class="headerlink" title="font缩写"></a>font缩写</h3></li>
-<li>font的众多属性可以集中在一条属性中写，是按照以下顺序来写的：  <code>font-style</code>, <code>font-variant</code>, <code>font-weight</code>, <code>font-stretch</code>, <code>font-size</code>, <code>line-height</code>, and <code>font-family</code>.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;</span><br><span class="line">  /* 斜体 粗细 大小/行高 字体族 */</span><br><span class="line">  font: bold 14px/1.7 Helvetica, sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="font-variant"><a href="#font-variant" class="headerlink" title="font-variant"></a>font-variant</h3><ul>
-<li>将小写字母转为小型大写字母。<ul>
-<li><code>normal</code>    默认值。浏览器会显示一个标准的字体。</li>
-<li><code>small-caps</code>    浏览器会显示小型大写字母的字体。</li>
-<li><code>inherit</code>    规定应该从父元素继承 font-variant 属性的值。</li>
-</ul>
-</li>
-<li>小型大写字母不是一般的大写字母，也不是小写字母，这种字母采用不同大小的大写字母。<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fz8t7n7wz3j20tq07ut8r.jpg" alt=""><h3 id="text-align"><a href="#text-align" class="headerlink" title="text-align"></a>text-align</h3></li>
-<li>定义<strong>文本</strong>在容器内的<strong>对齐方式</strong></li>
-<li>取值：<code>left</code> | <code>right</code> | <code>center</code> | <code>justify</code></li>
-<li>初始值由HTML的dir属性决定，可继承<h3 id="letter-spacing"><a href="#letter-spacing" class="headerlink" title="letter-spacing"></a>letter-spacing</h3></li>
-<li>定义指定字符之间的间距</li>
-<li>取值：<code>normal</code> | <code>&lt;length&gt;</code></li>
-<li>初始值为<code>normal</code>，可继承<h3 id="word-spacing"><a href="#word-spacing" class="headerlink" title="word-spacing"></a>word-spacing</h3></li>
-<li>定义指定单词之间的间距</li>
-<li>取值：<code>normal</code> | <code>&lt;length&gt;</code></li>
-<li>初始值为<code>normal</code>，可以继承<h3 id="text-indent"><a href="#text-indent" class="headerlink" title="text-indent"></a>text-indent</h3></li>
-<li>定义指定<strong>文本缩进</strong></li>
-<li>取值：<code>normal</code> | <code>&lt;length&gt;</code> | <code>&lt;percentage&gt;</code></li>
-<li>初始值为0，可继承<h3 id="text-transform"><a href="#text-transform" class="headerlink" title="text-transform"></a>text-transform</h3></li>
-<li>设置要转换的字体。</li>
-<li><code>none</code>: 防止任何转型。</li>
-<li><code>uppercase</code>: 将所有文本转为大写。</li>
-<li><code>lowercase</code>: 将所有文本转为小写。</li>
-<li><code>capitalize</code>: 转换所有单词让其首字母大写。</li>
-<li><code>full-width</code>: 将所有字形转换成固定宽度的正方形，类似于等宽字体，允许对齐。拉丁字符以及亚洲语言字形（如中文，日文，韩文）<h3 id="text-decoration"><a href="#text-decoration" class="headerlink" title="text-decoration"></a>text-decoration</h3></li>
-<li>定义了<strong>文本的一些装饰效果</strong>，比如下划线、删除线等</li>
-<li>初始值为none，可继承</li>
-<li>其它值：<code>underline</code>（下划线） | <code>line-through</code>（删除线） | <code>overline</code>（上划线）<h3 id="white-space"><a href="#white-space" class="headerlink" title="white-space"></a>white-space</h3></li>
-<li>定义指定空白字符如何处理</li>
-<li>取值：normal | nowrap | pre<h3 id="word-break"><a href="#word-break" class="headerlink" title="word-break"></a>word-break</h3></li>
-<li>定义指定是否允许在单词中间换行</li>
-<li><p>取值：normal | break-all | keep-all</p>
-<h2 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h2><p>CSS通过特异度解决块样式的冲突。</p>
-</li>
-<li><p>简单选择器的特异度级别：</p>
-<ul>
-<li>level 0 ：*</li>
-<li>level 1 ：标签选择器、伪元素</li>
-<li>level 2 ：类、伪类</li>
-<li>level 3 ：id</li>
-<li>level 4 ：内联</li>
-</ul>
-</li>
-<li>引入方式的样式优先级：内联 &gt; 嵌入 &gt; 外链</li>
-<li>同一级别选择器，后写的覆盖先写的。</li>
-<li>有”!important”样式的，优先级最高。</li>
-</ul>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
-<li>子元素会继承父元素的样式。</li>
-<li>子元素的样式优先级高于父级元素。</li>
-</ul>
-<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxn0q0dh1yj20ua0go3zz.jpg" alt=""></p>
-<ul>
-<li>从里到外由<code>content</code>, <code>padding</code>(透明), <code>border</code>, <code>margin</code>(透明)组成。<ul>
-<li>Margin（外边距）- 清除边框外的区域，外边距是透明的</li>
-<li>Border（边框）- 围绕在内边距和内容外的边框</li>
-<li>Padding（内边距）- 清除内容周围的区域，内边距是透明的</li>
-<li>Content（内容）- 盒子的内容，可用来显示文本和各类型多媒体文件</li>
-</ul>
-</li>
-<li><code>width</code>和<code>height</code>指<code>content box</code>的宽和高。</li>
-<li><code>box-sizing</code>：<ul>
-<li>定义改变盒模型的计算方式</li>
-<li>取值：<code>border-box</code> | <code>content-box</code><ul>
-<li><code>border-box</code>：这种情况下的内容宽度或高度包含了元素的border、padding、内容的宽度或高度（此处的内容宽度或高度＝盒子的宽度或高度—边框—内距）</li>
-<li><code>content-box</code>：元素的宽度和高度（<code>width</code>/<code>height</code>）等于元素边框宽度（<code>border</code>）加上元素内边距（<code>padding</code>）加上元素内容宽度或高度（<code>content width</code>/ <code>height</code>），也就是元素 <code>width</code>/<code>height</code> = <code>border</code> + <code>padding</code> + <code>content</code> <code>width</code> / <code>height</code></li>
-</ul>
-</li>
-<li>初始值：<code>content-box</code></li>
-</ul>
-</li>
-<li><code>padding</code><br>指内边距。<ul>
-<li>缩写：<code>padding: top值, right值, bottom值, left值;（上-右-下-左）</code></li>
-<li>缩写：<code>padding: top&amp;bottom值, right&amp;left值;（上下-右左）</code></li>
-</ul>
-</li>
-<li><code>border</code><ul>
-<li>边框的三个要素：<ul>
-<li><code>border-width</code>：<code>&lt;length&gt;</code> | <code>thin</code> | <code>medium</code> | <code>thick</code> </li>
-<li><code>border-style</code>: <code>none</code> | <code>solid</code> | <code>dashed</code> | <code>dotted</code> | <code>double</code></li>
-<li><code>border-color</code>: <code>&lt;color&gt;</code></li>
-</ul>
-</li>
-<li>四个方向：<code>border-top</code>, <code>border-right</code>, <code>border-bottom</code>, <code>border-left</code> </li>
-</ul>
-</li>
-<li><code>margin：</code><br>指外边距。<ul>
-<li>缩写：<code>margin: top值, right值, bottom值, left值;（上-右-下-左）</code></li>
-<li>缩写：<code>margin: top&amp;bottom值, right&amp;left值;（上下-右左）</code></li>
-</ul>
-</li>
-<li><p>margin折叠</p>
-<ul>
-<li>两个或多个<strong>普通文档流</strong>盒子<strong>垂直方向</strong>上的外边距会发生折叠。margin折叠是为实现文本段落间距而提供的特性，多数情况下，折叠垂直外边距可以在视觉上显得更美观。</li>
-<li>需要是相邻的非浮动元素</li>
-<li>折叠发生在垂直外边距上</li>
-<li>折叠后取其中最大的margin作为最终值</li>
-<li><code>overflow:hidden;</code>，会取消margin折叠</li>
-</ul>
-</li>
-<li><p>overflow<br>规定当内容溢出元素框时发生的事情</p>
-<ul>
-<li>取值：<ul>
-<li><code>visible</code>默认值，内容不会被修剪，会呈现在元素框之外。</li>
-<li><code>hidden</code>内容会被修剪，并且其余内容是不可见的。</li>
-<li><code>scroll</code>内容会被修剪，但浏览器会显示滚动条以便查看其余的内容。</li>
-<li><code>auto</code>如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。</li>
-<li><code>inherit</code>从父元素继承<code>overflow</code>属性的值。<br><a href="https://song-nan17.github.io/2018/11/29/overflow/" target="_blank" rel="noopener">overflow</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>visibility<br>规定元素是否可见<ul>
-<li>取值：<ul>
-<li><code>visible</code>默认值，元素是可见的。</li>
-<li><code>hidden</code>元素不可见</li>
-<li><code>collapse</code>在表格元素中使用时，此值可删除一列或一行，但不会影响表格的布局。被行或列占据的空间会留给其他内容使用。如果此值被用在其他的元素上，会呈现为<code>hidden</code>。</li>
-<li><code>inherit</code>从父元素继承<code>visibility</code>属性的值。<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxpahcwrsnj20ge09faa6.jpg" alt=""><br><a href="https://song-nan17.github.io/2018/11/29/visibility/" target="_blank" rel="noopener">visibility</a><h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>定位模式</p>
-<ul>
-<li>常规流<br>norm flow，将窗体自上而下的分为一行一行，块级元素从上至下，行内元素在每行中从左到右地挨次排放。<ul>
-<li>除根元素、浮动元素和绝对定位元素外，其它元素都在常规流之内(in-flow)</li>
-<li>而根元素、 浮动和绝对定位的元素会脱离常规流(out of flow)</li>
-<li>常规流中的盒子，属于块级格式化上下文(BFC)或行级格式化上下文(IFC)<ul>
-<li>块级格式化上下文（Block Formatting Context）<ul>
-<li>盒子在容器（包含块）内从上到下一个接一个地放置</li>
-<li>两个兄弟盒之间的竖直距离由 margin 属性决定</li>
-<li>同一个 BFC 内垂直 margin 会合并</li>
-<li>盒子的左外边缘挨着容器（包含块）的左边</li>
-</ul>
-</li>
-<li>行级格式化上下文（Inline Formatting Context）<ul>
-<li>盒子一个接一个水平放置盒之间的水平</li>
-<li>margin，border和padding 都有效</li>
-<li>同一行的盒子所在的矩形区域叫行盒(Line box)</li>
-<li>当一个行盒放不下上下文内所有盒子时，会被分到多个垂直堆叠的行盒里</li>
-<li>行盒内的水平分布由’text-align’属性决定</li>
-<li>如果一个行级块无法分割(单词、inline-block)，该元素会被作为一个整体决定分布在哪一个行盒</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>浮动float<ul>
-<li>浮动元素从常规流中脱离，被漂浮在容器(包含块)左边或右边</li>
-<li>浮动盒会一直漂到其外边缘挨到容器边缘或另外的浮动盒</li>
-<li>浮动元素不会影响其后面的流内块级盒</li>
-<li>但是浮动元素后面的行级盒子会变短以避开浮动元素</li>
-<li>取值：<code>left</code> | <code>right</code> | <code>none</code> | <code>inherit</code> </li>
-</ul>
-</li>
-<li>定位position<br>指定了元素的定位类型。<ul>
-<li><code>static</code>默认值，即没有定位，元素出现在普通流中。</li>
-<li><code>fixed</code>元素的位置相对于浏览器窗口是固定位置。即使窗口是滚动的它也不会移动（广告）。</li>
-<li><code>relative</code>相对定位元素的定位是相对其正常位置。移动相对定位元素，但它<strong>原本所占的空间不会改变</strong>相对定位元素经常被用来作为绝对定位元素的容器块。<br><a href="https://song-nan17.github.io/2018/11/29/relative/" target="_blank" rel="noopener">relative</a></li>
-<li><code>absolute</code>绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于<html>。absolute 定位使元素的位置与文档流无关，因此<strong>不占据空间</strong>。</html></li>
-<li><code>sticky</code>粘性定位，基于用户的滚动位置来定位。</li>
-<li>元素重叠<br>-元素的定位与文档流无关，所以它们可以覆盖页面上的其它元素。<code>z-index</code>属性指定了一个元素的堆叠顺序（哪个元素应该放在前面，或后面）,具有更高堆叠顺序的元素总是在较低的堆叠顺序元素的前面。<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxpbim43o6j20py09rmxc.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fxpbiun89dj20gl069jsb.jpg" alt=""></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>clear<br>清除浮动，指定元素哪一边不能与之前的浮动框相邻。</p>
-</li>
-<li>取值：<code>left</code> | <code>right</code> | <code>both</code></li>
-</ul>
-<h1 id="待补充-display-flex"><a href="#待补充-display-flex" class="headerlink" title="待补充 display flex"></a>待补充 display flex</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/notes_of_css/" data-id="cjr3nv6ah000mosowg22c8p6j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/23/summary_week2_1/" data-id="cjr5923s30008x8ow155f8j7c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2393,6 +2272,10 @@ div.ex4 {
       <ul>
         
           <li>
+            <a href="/2019/01/20/notes_of_this/">this, call(), apply() 和bind()</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/19/summary_of_exam/">测评总结与反思</a>
           </li>
         
@@ -2406,10 +2289,6 @@ div.ex4 {
         
           <li>
             <a href="/2019/01/15/IntelliJ-IDEA-Tutorial/">初级IntelliJ IDEA使用总结</a>
-          </li>
-        
-          <li>
-            <a href="/2019/01/14/jvm_jre_jdk/">JVM, JRE, JDK 的区别和联系</a>
           </li>
         
       </ul>

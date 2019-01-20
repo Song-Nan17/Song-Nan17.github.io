@@ -66,6 +66,117 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-notes_of_this" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/notes_of_this/" class="article-date">
+  <time datetime="2019-01-20T14:56:13.826Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/notes_of_this/">this, call(), apply() 和bind()</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于<code>this</code>，以前只是在定义一个指定类型的对象一节，了解到<code>this</code>就是代码运行时的对象，指向调用函数的对象。周六的测评有道<code>this</code>和箭头函数的题，以及最后一道题<code>call</code>, <code>apply</code>和<code>bind</code>方法，都和<code>this</code>指向有。</p>
+<h1 id="this-指向"><a href="#this-指向" class="headerlink" title="this 指向"></a>this 指向</h1><p>##全局环境下<br>在全局环境下，<code>this</code> 始终指向全局对象（<code>window</code>）, 无论是否严格模式；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log(this.document === document); // true</span><br><span class="line"></span><br><span class="line">// 在浏览器中，全局对象为 window 对象：</span><br><span class="line">console.log(this === window); // true</span><br><span class="line"></span><br><span class="line">this.a = 37;</span><br><span class="line">console.log(window.a); // 37</span><br></pre></td></tr></table></figure></p>
+<h2 id="函数上下文调用"><a href="#函数上下文调用" class="headerlink" title="函数上下文调用"></a>函数上下文调用</h2><h3 id="函数直接调用"><a href="#函数直接调用" class="headerlink" title="函数直接调用"></a>函数直接调用</h3><p>普通函数内部的<code>this</code>分两种情况，<strong>严格模式</strong>和<strong>非严格模式</strong>。</p>
+<ul>
+<li><p>非严格模式下，<code>this</code> 默认指向全局对象<code>window</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function f1()&#123;</span><br><span class="line">  return this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f1() === window; // true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>严格模式下， <code>this</code>为<code>undefined</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function f2()&#123;</span><br><span class="line">  &quot;use strict&quot;; // 这里是严格模式</span><br><span class="line">  return this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f2() === undefined; // true</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="对象中的this"><a href="#对象中的this" class="headerlink" title="对象中的this"></a>对象中的this</h3><p>对象内部方法的<code>this</code>指向<strong>调用这些方法的对象</strong></p>
+<ol>
+<li>函数的定义位置不影响其<code>this</code>指向，<code>this</code>指向只和调用函数的对象有关。</li>
+<li>多层嵌套的对象，内部方法的<code>this</code>指向离被调用函数最近的对象（window也是对象，其内部对象调用方法的this指向内部对象， 而非window）。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">//1</span><br><span class="line"></span><br><span class="line">var o = &#123;</span><br><span class="line">  prop: 37,</span><br><span class="line">  f: function() &#123;</span><br><span class="line">    return this.prop;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">console.log(o.f());  //37</span><br><span class="line">var a = o.f;</span><br><span class="line">console.log(a()):  //undefined</span><br><span class="line"></span><br><span class="line">var o = &#123;prop: 37&#125;;</span><br><span class="line"></span><br><span class="line">function independent() &#123;</span><br><span class="line">  return this.prop;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">o.f = independent;</span><br><span class="line"></span><br><span class="line">console.log(o.f()); // 37</span><br><span class="line"></span><br><span class="line">//2</span><br><span class="line"></span><br><span class="line">o.b = &#123;</span><br><span class="line">  g: independent,</span><br><span class="line">  prop: 42</span><br><span class="line">&#125;;</span><br><span class="line">console.log(o.b.g()); // 42</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="原型链中this"><a href="#原型链中this" class="headerlink" title="原型链中this"></a>原型链中this</h3><p>原型链中的方法的<code>this</code>仍然指向调用它的对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var o = &#123;</span><br><span class="line">  f : function()&#123; </span><br><span class="line">    return this.a + this.b; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">var p = Object.create(o);</span><br><span class="line">p.a = 1;</span><br><span class="line">p.b = 4;</span><br><span class="line"></span><br><span class="line">console.log(p.f()); // 5</span><br></pre></td></tr></table></figure></p>
+<p>在<code>p</code>中没有属性<code>f</code>，当执行<code>p.f()</code>时，会查找<code>p</code>的原型链，找到<code>f</code> 函数并执行，但函数内部<code>this</code>指向对象 <code>p</code>,只需记住谁调用指向谁。</p>
+<ul>
+<li>以上对于函数作为<code>getter</code> &amp; <code>setter</code> 调用时同样适用。(<strong>后续再去了解</strong>)</li>
+</ul>
+<h3 id="构造函数中this"><a href="#构造函数中this" class="headerlink" title="构造函数中this"></a>构造函数中this</h3><p>构造函数中的<code>this</code>与被创建的新对象绑定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function C()&#123;</span><br><span class="line">  this.a = 37;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var o = new C();</span><br><span class="line">console.log(o.a); // 37 o = C &#123;a:37&#125;</span><br><span class="line"></span><br><span class="line">function C2()&#123;</span><br><span class="line">  this.a = 37;</span><br><span class="line">  return &#123;a:38&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var b = new C2();</span><br><span class="line">console.log(b.a); // 38 b=&#123;a:38&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="call-amp-apply"><a href="#call-amp-apply" class="headerlink" title="call &amp; apply"></a>call &amp; apply</h3><p>当函数通过Function对象的原型中继承的方法<code>call()</code> 和 <code>apply()</code> 方法调用时， 其函数内部的<code>this</code>值可绑定到 <code>call()</code> &amp; <code>apply()</code> 方法指定的第一个对象上， 如果第一个参数不是对象，JavaScript内部会尝试将其转换成对象然后指向它。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function add(c, d)&#123;</span><br><span class="line">  return this.a + this.b + c + d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var o = &#123;a:1, b:3&#125;;</span><br><span class="line"></span><br><span class="line">add.call(o, 5, 7); // 1 + 3 + 5 + 7 = 16</span><br><span class="line"></span><br><span class="line">add.apply(o, [10, 20]); // 1 + 3 + 10 + 20 = 34</span><br><span class="line"></span><br><span class="line">function tt() &#123;</span><br><span class="line">  console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">// 返回对象见下图</span><br><span class="line">tt.call(5);  </span><br><span class="line">tt.call(&apos;asd&apos;);</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fzdkwttbj6j2084087dft.jpg" alt=""></p>
+<h3 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind 方法"></a>bind 方法</h3><p><code>bind</code>方法在ES5引入， 在<code>Function</code>的原型链上， <code>Function.prototype.bind</code>。通过<code>bind</code>方法绑定后， 函数将被永远绑定在其第一个参数对象上， 而无论其在什么情况下被调用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function f()&#123;</span><br><span class="line">  return this.a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var g = f.bind(&#123;a:&quot;azerty&quot;&#125;);</span><br><span class="line">console.log(g()); // azerty</span><br><span class="line"></span><br><span class="line">var o = &#123;a:37, f:f, g:g&#125;;</span><br><span class="line">console.log(o.f(), o.g()); // 37, azerty</span><br></pre></td></tr></table></figure></p>
+<h3 id="DOM-事件处理函数中的-this-amp-内联事件中的-this-后续再使用html实例理解"><a href="#DOM-事件处理函数中的-this-amp-内联事件中的-this-后续再使用html实例理解" class="headerlink" title="DOM 事件处理函数中的 this &amp; 内联事件中的 this(后续再使用html实例理解)"></a>DOM 事件处理函数中的 this &amp; 内联事件中的 this(后续再使用html实例理解)</h3><ul>
+<li>DOM事件处理函数</li>
+</ul>
+<p>当函数被当做监听事件处理函数时， 其 <code>this</code> 指向触发该事件的元素 （针对于<code>addEventListener</code>事件）</p>
+<ul>
+<li><p>内联事件<br>内联事件中的<code>this</code>指向分两种情况：</p>
+<ul>
+<li>当代码被内联处理函数调用时，它的<code>this</code>指向监听器所在的DOM元素</li>
+<li>当代码被包括在函数内部执行时，其<code>this</code>指向等同于 <strong>函数直接调用</strong>的情况，即在非严格模式指向全局对象<code>window</code>， 在严格模式指向<code>undefined</code><h3 id="setTimeout-amp-setInterval"><a href="#setTimeout-amp-setInterval" class="headerlink" title="setTimeout &amp; setInterval"></a>setTimeout &amp; setInterval</h3>对于延时函数内部的回调函数的<code>this</code>指向全局对象<code>window</code>（可以通过<code>bind</code>方法改变其内部函数的this指向）<br>看下边代码及截图<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//默认情况下代码</span><br><span class="line">function Person() &#123;  </span><br><span class="line">    this.age = 0;  </span><br><span class="line">    setTimeout(function() &#123;</span><br><span class="line">        console.log(this);</span><br><span class="line">    &#125;, 3000);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var p = new Person();//3秒后返回 window 对象</span><br><span class="line">==============================================</span><br><span class="line">//通过bind绑定</span><br><span class="line">function Person() &#123;  </span><br><span class="line">    this.age = 0;  </span><br><span class="line">    setTimeout((function() &#123;</span><br><span class="line">        console.log(this);</span><br><span class="line">    &#125;).bind(this), 3000);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var p = new Person();//3秒后返回构造函数新生成的对象 Person&#123;...&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="箭头函数中的-this"><a href="#箭头函数中的-this" class="headerlink" title="箭头函数中的 this"></a>箭头函数中的 this</h3><p>由于箭头函数不绑定<code>this</code>， 它会捕获其所在（即定义的位置）上下文的<code>this</code>值， 作为自己的<code>this</code>值，</p>
+<p>因为箭头函数可以捕获其所在上下文的this值 所以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Person() &#123;  </span><br><span class="line">    this.age = 0;  </span><br><span class="line">    setInterval(() =&gt; &#123;</span><br><span class="line">        // 回调里面的 `this` 变量就指向了期望的那个对象 Person 了</span><br><span class="line">        this.age++;</span><br><span class="line">    &#125;, 3000);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var p = new Person();</span><br></pre></td></tr></table></figure></p>
+<p>下图可以看到，在setTimeout中的<code>this</code>指向了构造函数新生成的对象，而普通函数指向了全局<code>window</code>对象<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fzdl7sy5hfj20dm06qmx4.jpg" alt=""></p>
+<ol>
+<li><p><code>call()</code> / <code>apply()</code> / <code>bind()</code> 方法对<strong>于箭头函数来说只是传入参数,对它的 <code>this</code> 毫无影响</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var adder = &#123;</span><br><span class="line">  base : 1,</span><br><span class="line">    </span><br><span class="line">  add : function(a) &#123;</span><br><span class="line">    var f = v =&gt; v + this.base;</span><br><span class="line">    return f(a);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  addThruCall: function inFun(a) &#123;</span><br><span class="line">    var f = v =&gt; v + this.base;</span><br><span class="line">    var b = &#123;</span><br><span class="line">      base : 2</span><br><span class="line">    &#125;;</span><br><span class="line">            </span><br><span class="line">    return f.call(b, a);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(adder.add(1));         // 输出 2</span><br><span class="line">console.log(adder.addThruCall(1)); // 仍然输出 2（而不是3，其内部的this并没有因为call() 而改变，其this值仍然为函数inFun的this值，指向对象adder</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>考虑到 this 是词法层面上的，严格模式中与 <code>this</code> 相关的规则都将被忽略。（可以<strong>忽略是否在严格模式下</strong>的影响）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var f = () =&gt; &#123;&apos;use strict&apos;; return this&#125;;</span><br><span class="line">var p = () =&gt; &#123; return this&#125;;</span><br><span class="line">console.log(1,f() === window);</span><br><span class="line">console.log(2,f() === p());</span><br><span class="line">//1 true</span><br><span class="line">//2 true</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="如果将箭头函数当做一个方法使用"><a href="#如果将箭头函数当做一个方法使用" class="headerlink" title="如果将箭头函数当做一个方法使用"></a>如果将箭头函数当做一个方法使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  i: 10,</span><br><span class="line">  b: () =&gt; console.log(this.i, this),</span><br><span class="line">  c: function() &#123;</span><br><span class="line">    console.log( this.i, this)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.b();  // undefined window&#123;...&#125;</span><br><span class="line">obj.c();  // 10 Object &#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>作为方法的箭头函数this指向全局window对象，而普通函数则指向调用它的对象</strong></p>
+<p>所以，对于测评的这道题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> window.name = &quot;bar&quot;;</span><br><span class="line">const object = &#123;</span><br><span class="line">  name: &quot;foo&quot;,</span><br><span class="line">  hi: function() &#123;</span><br><span class="line">    console.assert(this.name === &quot;foo&quot;);</span><br><span class="line">  &#125;,</span><br><span class="line">  hello: () =&gt;  &#123;</span><br><span class="line">    console.assert(this.name === &quot;foo&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">object.hi(); //正常or报错？</span><br><span class="line">object.hello(); //正常or报错？</span><br></pre></td></tr></table></figure></p>
+<p>对于<code>object.hi()</code>,<code>this</code>指向<code>object</code>,<code>this.name=&quot;foo&quot;</code>,而对于<code>object.hello()</code>,<code>this</code>指向全局对象，<code>this.name=&quot;bar&quot;</code></p>
+<h1 id="call-apply-bind"><a href="#call-apply-bind" class="headerlink" title="call(), apply(), bind()"></a>call(), apply(), bind()</h1><p>从上面<code>this</code>指向的部分例子中就可以看出，<code>apply</code> 、 <code>call</code> 、<code>bind</code> 三者都是用来改变函数的this对象的指向的。</p>
+<h2 id="apply-amp-call"><a href="#apply-amp-call" class="headerlink" title="apply &amp; call"></a>apply &amp; call</h2><p>其中<code>call</code>和<code>apply</code>更相似，先看下它们俩的语法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fun.call(thisArg, arg1, arg2, ...)</span><br><span class="line">fun.apply(thisArg, [argsArray])</span><br></pre></td></tr></table></figure></p>
+<p>其中<code>thisArg</code>为函数<code>fun</code>运行时使用的<code>this</code>值，如果这个函数处于非严格模式下，则指定为 <code>null</code> 或 <code>undefined</code> 时会自动替换为指向全局对象，原始值会被包装。而<code>arg1, arg2, ...</code>和<code>[argsArray]</code>均为传递给函数<code>fun</code>的参数。<br>由语法规范可以看出，<code>call()</code>方法接受的是参数列表，而<code>apply()</code>方法接受的是一个参数数组。</p>
+<p>出了<code>this指向</code>中一类的例子外，在一个子构造函数中，可以通过调用父构造函数的<code>call</code>或<code>apply</code>方法来实现继承<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Product(name, price) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.price = price;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Food(name, price) &#123;</span><br><span class="line">  Product.call(this, name, price);</span><br><span class="line">  this.category = &apos;food&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Toy(name, price) &#123;</span><br><span class="line">  Product.apply(this, [name, price]);</span><br><span class="line">  this.category = &apos;toy&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var cheese = new Food(&apos;feta&apos;, 5);</span><br><span class="line">var fun = new Toy(&apos;robot&apos;, 40);</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fzdltxlz62j20bv0a6aa7.jpg" alt=""></p>
+<h2 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h2><p>而<code>bind()</code>的不同之处在于它会创建一个新函数。</p>
+<p>bind()方法<strong>创建一个新的函数</strong>，在调用时设置this关键字为提供的值。并在调用新函数时，将给定参数列表作为原函数的参数序列的前若干项。</p>
+<p>例如，在 <code>f()</code> 函数上调用<code>bind()</code> 方法并传入参数 <code>obj</code> ，即 <code>f.bind(obj)</code> ，这将返回一个新函数, 新函数会把原始的函数 <code>f()</code> 当做 <code>obj</code> 的方法来调用,就像 <code>obj.f()</code> 似的，当然这时 <code>f()</code> 函数中的 <code>this</code> 对象指向的是 obj 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function f(y,z)&#123;</span><br><span class="line">    return this.x+y+z;</span><br><span class="line">&#125;</span><br><span class="line">var m=f.bind(&#123;x:1&#125;,2); </span><br><span class="line">console.log(m(3));  // 6</span><br></pre></td></tr></table></figure>
+<p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function.bind(thisArg[, arg1[, arg2[, ...]]])</span><br></pre></td></tr></table></figure></p>
+<p><code>thisArg</code>是调用绑定函数时作为this参数传递给目标函数的值。 如果使用<code>new</code>运算符构造绑定函数，则忽略该值。<code>bind</code>传递参数和<code>call</code>相同，接受的是参数列表。</p>
+<ul>
+<li>简单使用情形一<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var o=&#123;</span><br><span class="line">    f: function () &#123;</span><br><span class="line">        var self=this;</span><br><span class="line">        var fff=function() &#123;</span><br><span class="line">            console.log(self.value);  //此时 this 指向的是全局作用域 global/window，因此需要使用 self 指向对象o</span><br><span class="line">        &#125;;</span><br><span class="line">        fff();</span><br><span class="line">    &#125;,</span><br><span class="line">    value: &quot;Hello World!&quot;</span><br><span class="line">&#125;;</span><br><span class="line">o.f(); // Hello World!</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上例把 <code>this</code> 赋值给了中间变量 <code>self</code>来保持 <code>this</code> 上下文，这样在内部嵌套的函数中能够使用 <code>self</code> 访问到对象<code>o</code>，否则仍使用 <code>this.value</code>，内部嵌套函数的<code>this</code>此时指向的是全局作用域，最后的输出将会是 <code>undefined</code>，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var o=&#123;</span><br><span class="line">    f: function () &#123;</span><br><span class="line">        var self=this;</span><br><span class="line">        var fff=function() &#123;</span><br><span class="line">            console.log(this.value); </span><br><span class="line">        &#125;;</span><br><span class="line">        fff();</span><br><span class="line">    &#125;,</span><br><span class="line">    value: &quot;Hello World!&quot;</span><br><span class="line">&#125;;</span><br><span class="line">o.f(); // undefined</span><br></pre></td></tr></table></figure></p>
+<p>但是，如果使用<code>bind()</code>函数，将<code>fff</code>函数的绑定在对象<code>o</code>中，即将<code>fff()</code>函数内部的 <code>this</code> 对象绑定为对象 <code>o</code>，那么此时 <code>this.value</code> 是存在的。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var o=&#123;</span><br><span class="line">    f: function () &#123;</span><br><span class="line">        var self=this;</span><br><span class="line">        var fff=function() &#123;</span><br><span class="line">            console.log(this.value); // bind(this) 中 this 指向的是o，这里也可直接写成 bind(o)</span><br><span class="line">        &#125;.bind(this);</span><br><span class="line">        fff();</span><br><span class="line">    &#125;,</span><br><span class="line">    value: &quot;Hello World!&quot;</span><br><span class="line">&#125;;</span><br><span class="line">o.f(); // Hello World！</span><br></pre></td></tr></table></figure></p>
+<p><code>bind</code>只能使用一次，多次使用无效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var bar = function()&#123;</span><br><span class="line">    console.log(this.x);</span><br><span class="line">&#125;</span><br><span class="line">var foo = &#123;</span><br><span class="line">    x:3</span><br><span class="line">&#125;</span><br><span class="line">var sed = &#123;</span><br><span class="line">    x:4</span><br><span class="line">&#125;</span><br><span class="line">var func = bar.bind(foo).bind(sed);</span><br><span class="line">func(); // 3</span><br><span class="line"> </span><br><span class="line">var fiv = &#123;</span><br><span class="line">    x:5</span><br><span class="line">&#125;</span><br><span class="line">var func = bar.bind(foo).bind(sed).bind(fiv);</span><br><span class="line">func(); // 3</span><br></pre></td></tr></table></figure></p>
+<p>原因是，在<code>Javascript</code>中，多次 <code>bind()</code> 是无效的。更深层次的原因， <code>bind()</code> 的实现，相当于使用函数在内部包了一个 <code>call</code> /<code>apply</code> ，第二次 <code>bind()</code> 相当于再包住第一次<code>bind()</code> ,故第二次以后的 <code>bind</code> 是无法生效的。</p>
+<h3 id="apply、call、bind比较"><a href="#apply、call、bind比较" class="headerlink" title="apply、call、bind比较"></a>apply、call、bind比较</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    x: 81,</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">var foo = &#123;</span><br><span class="line">    getX: function() &#123;</span><br><span class="line">        return this.x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">console.log(foo.getX.bind(obj)());  //81</span><br><span class="line">console.log(foo.getX.call(obj));    //81</span><br><span class="line">console.log(foo.getX.apply(obj));   //81</span><br></pre></td></tr></table></figure>
+<p><code>apply</code> 、 <code>call</code> 、<code>bind</code> 三者都是用来改变函数的<code>this</code>对象的指向的；<br><code>apply</code> 、 <code>call</code> 、<code>bind</code> 三者第一个参数都是<code>this</code>要指向的对象，也就是想指定的上下文；<br><code>apply</code> 、 <code>call</code> 、<code>bind</code> 三者都可以利用后续参数传参；<br><code>bind</code> 是返回对应函数，便于稍后调用；<code>apply</code> 、<code>call</code> 则是立即调用 。<br><img src="http://ww1.sinaimg.cn/large/a85d55ddly1fzdmexhrrsj20og0aidgi.jpg" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/notes_of_this/" data-id="cjr5923u5000gx8owiqzw6151" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-summary_of_exam" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/19/summary_of_exam/" class="article-date">
@@ -97,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/19/summary_of_exam/" data-id="cjr3nv6540005osowb3xo4nb1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/19/summary_of_exam/" data-id="cjr5923rm0005x8ow57xspn07" class="article-share-link">Share</a>
       
       
     </footer>
@@ -145,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/16/single_responsibility_principle/" data-id="cjr3nv64w0004osowk5nz0a0c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/16/single_responsibility_principle/" data-id="cjr5923q80004x8owfwjw7w3i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -392,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/16/notes_of_java_foundation/" data-id="cjr3nv687000hosowpihik336" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/16/notes_of_java_foundation/" data-id="cjr5923ya000ox8owiopzvvmt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1193,7 +1304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/15/IntelliJ-IDEA-Tutorial/" data-id="cjr3nv6a4000kosowdun1v688" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/15/IntelliJ-IDEA-Tutorial/" data-id="cjr5923va000jx8owrsbmsu11" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1250,7 +1361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/14/jvm_jre_jdk/" data-id="cjr3nv63y0001osowc4diojz6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/14/jvm_jre_jdk/" data-id="cjr5923ph0001x8owmwm70zbx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1289,7 +1400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/13/summary_week5_2/" data-id="cjr3nv673000dosow1aqut2bo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/13/summary_week5_2/" data-id="cjr5923sw000bx8owxt2tggua" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1327,7 +1438,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/29/summary_week3_2/" data-id="cjr3nv66c000bosow90c6vpxx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/29/summary_week3_2/" data-id="cjr5923si000ax8owjcji7cjc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1367,7 +1478,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/23/summary_week2_2/" data-id="cjr3nv65y0009osowfa9l9q8l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/23/summary_week2_2/" data-id="cjr5923sc0009x8owy6aaldaz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1411,260 +1522,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/summary_week1_2/" data-id="cjr3nv65j0007osow8tocdbrj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-notes_of_advanced_js" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/09/notes_of_advanced_js/" class="article-date">
-  <time datetime="2018-12-09T10:37:53.798Z" itemprop="datePublished">2018-12-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/09/notes_of_advanced_js/">JavaScript进阶笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><ul>
-<li><code>Node.js</code>概述<ul>
-<li><code>Node.js</code> 是一个基于 Chrome V8 引擎的 <code>JavaScript</code> 运行环境。</li>
-<li><code>Node.js</code> 使用了一个事件驱动、非阻塞式 <code>I/O</code> 的模型，使其轻量又高效。</li>
-<li><code>Node.js</code> 的包管理器 <code>npm</code>，是全球最大的开源库生态系统。</li>
-</ul>
-</li>
-<li><code>Node.js</code>特点<ul>
-<li>使用的是为Google Chrome提供动力的V8虚拟机。V8让node在性能上得到巨大的提升，因为它去掉了中间环节，执行的不是字节码，用的也不是解释器，而是直接编译成了本地机器码。</li>
-<li><code>JavaScript</code>语言</li>
-<li>事件驱动，非阻塞式<code>I/O</code></li>
-<li>使用 <code>npm</code> 来管理包</li>
-</ul>
-</li>
-<li>使用<code>node</code>运行<code>js</code>文件：<ul>
-<li>交互模式（连按两次<code>Ctrl+C</code>退出交互模式）</li>
-<li>命令行模式</li>
-</ul>
-</li>
-</ul>
-<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><ul>
-<li>NPM是什么？<br>NPM（node package manager)，通常称为node包管理器，主要功能就是管理node包，包括：安装、卸载、更新、查看、搜索、发布等。NPM是基于couchdb一个数据库，详细记录了每个包的信息（作者、版本、依赖、授权信息等）。它是世界上最大的软件注册表，每星期大约有 30 亿次的下载量，包含超过 600000 个 包（package） （即，代码模块）。来自各大洲的开源软件开发者使用 npm 互相分享和借鉴。包的结构使您能够轻松跟踪依赖项和版本。</li>
-<li>NPM的作用<ul>
-<li>允许用户从NPM服务器下载别人编写的第三方包到本地使用。</li>
-<li>允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。</li>
-<li>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。</li>
-</ul>
-</li>
-<li>NPM常用命令<ul>
-<li><code>npm -v</code>：查看npm版本号</li>
-<li><code>npm init</code>: 初始化项目</li>
-<li><code>npm install module</code>:本地安装需要的模块module</li>
-<li><code>npm install module -g</code>:全局安装需要的模块module</li>
-<li>在<code>package.json</code>文件的<code>dependencies</code>块下或通过<code>npm ls</code>命令查看当前项目下依赖的包</li>
-<li><code>npm uninstall module</code>：卸载模块</li>
-<li><code>npm update module</code>：更新模块</li>
-<li><code>npm search module</code>:搜索模块</li>
-<li><code>npm help &lt;command&gt;</code>:查看某条命令的详细帮助</li>
-</ul>
-</li>
-</ul>
-<h2 id="ECMAScript-6"><a href="#ECMAScript-6" class="headerlink" title="ECMAScript 6"></a>ECMAScript 6</h2><ul>
-<li>ECMAScript 6 简介：<ul>
-<li>ECMAScript(ES6) 是JavaScript语言的下一代标准，已经在2015年6月正式发布了；在 JavaScript 的基础上做了重大的更新，提供了更优雅的语法和特性。</li>
-</ul>
-</li>
-<li>ECMAScript 和 JavaScript 的关系<ul>
-<li>ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现。名字不同的原因：<ol>
-<li>商标，1996年11月，JavaScript的创造者Netscape公司，决定将JavaScript提交给国际标准化组织ECMA，希望这种语言能够成为国际标准。根据授权协议，只有Netscape公司(Javascript 的创造者)可以合法地使用JavaScript这个名字，且 JavaScript 本身也已经被 Netscape 公司注册为商标</li>
-<li>想体现这门语言的制定者是 ECMA，不是 Netscape，这样有利于保证这门语言的开放性和中立性。</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>块级作用域</li>
-</ul>
-<h4 id="没有块级作用域，会带来很多不合理的场景。如："><a href="#没有块级作用域，会带来很多不合理的场景。如：" class="headerlink" title="没有块级作用域，会带来很多不合理的场景。如："></a>没有块级作用域，会带来很多不合理的场景。如：</h4><ul>
-<li>第一种场景，内层变量可能会覆盖外层变量。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var tmp = new Date();</span><br><span class="line"></span><br><span class="line">function f() &#123;</span><br><span class="line">  console.log(tmp);</span><br><span class="line">  if (false) &#123;</span><br><span class="line">    var tmp = &apos;hello world&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); // undefined</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>函数<code>f</code>执行后，输出结果为<code>undefined</code>，原因在于<code>if</code>内的<code>tmp</code>用<code>var</code>声明，在全局范围内有效，导致内层的tmp变量覆盖了外层的tmp变量，变量提升，输出语句写在<code>tmp</code>声明语句之前，输出<code>undefined</code>。</p>
-<ul>
-<li>第二种场景，用来计数的循环变量泄露为全局变量。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var s = &apos;hello&apos;;</span><br><span class="line"></span><br><span class="line">for (var i = 0; i &lt; s.length; i++) &#123;</span><br><span class="line">  console.log(s[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(i); // 5</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>上面代码中，变量<code>i</code>只用来控制循环，但是循环结束后，它并没有消失，泄露成了全局变量。</p>
-<p>为了避免这些不合理的场景，ES6通过<code>let</code>和<code>const</code>增加了块级作用域。<code>let</code> 和 <code>const</code> 只在于当前的块作用域中有效，而 <code>var</code> 声明的变量是在函数作用域内有效。<code>const</code> 和 <code>let</code> 的区别则在于， <code>const</code> 声明变量的同时必须立即给一个初始值，且无法在对该值进行修改。如果该初始值是一个对象，那么该对象的值是可以被修改的。</p>
-<h4 id="有块级作用域后："><a href="#有块级作用域后：" class="headerlink" title="有块级作用域后："></a>有块级作用域后：</h4><ul>
-<li><p>ES6 允许块级作用域的任意嵌套。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#123;&#123;&#123;let insane = &apos;Hello World&apos;&#125;&#125;&#125;&#125;&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>外层作用域无法读取内层作用域的变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#123;&#123;</span><br><span class="line">  &#123;let insane = &apos;Hello World&apos;&#125;</span><br><span class="line">  console.log(insane); // 报错</span><br><span class="line">&#125;&#125;&#125;&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>内层作用域可以定义外层作用域的同名变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#123;&#123;</span><br><span class="line">  let insane = &apos;Hello World&apos;;</span><br><span class="line">  &#123;let insane = &apos;Hello World&apos;&#125;</span><br><span class="line">&#125;&#125;&#125;&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>let</code>不允许在相同作用域内，重复声明同一个变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 报错</span><br><span class="line">function func() &#123;</span><br><span class="line">  let a = 10;</span><br><span class="line">  var a = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 报错</span><br><span class="line">function func() &#123;</span><br><span class="line">  let a = 10;</span><br><span class="line">  let a = 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在块级作用域内，使用<code>let</code>命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if (true) &#123;</span><br><span class="line">  // TDZ开始</span><br><span class="line">  tmp = &apos;abc&apos;; // ReferenceError</span><br><span class="line">  console.log(tmp); // ReferenceError</span><br><span class="line"></span><br><span class="line">  let tmp; // TDZ结束</span><br><span class="line">  console.log(tmp); // undefined</span><br><span class="line"></span><br><span class="line">  tmp = 123;</span><br><span class="line">  console.log(tmp); // 123</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>块级作用域与函数声明</p>
-</li>
-</ul>
-<p>ES6 规定，块级作用域之中，函数声明语句的行为类似于<code>let</code>，在块级作用域之外不可引用。但是为了减轻对老代码的影响，，ES6 在附录 B里面规定，浏览器的实现可以不遵守上面的规定，有自己的行为方式。</p>
-<ul>
-<li>允许在块级作用域内声明函数。</li>
-<li>函数声明类似于var，即会提升到全局作用域或函数作用域的头部。</li>
-<li>同时，函数声明还会提升到所在的块级作用域的头部。</li>
-</ul>
-<p>根据这三条规则，在浏览器的 ES6 环境中，块级作用域内声明的函数，行为类似于<code>var</code>声明的变量。考虑到环境导致的行为差异太大，应该避免在块级作用域内声明函数。如果确实需要，也应该写成函数表达式，而不是函数声明语句。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 函数声明语句</span><br><span class="line">&#123;</span><br><span class="line">  let a = &apos;secret&apos;;</span><br><span class="line">  function f() &#123;</span><br><span class="line">    return a;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 函数表达式</span><br><span class="line">&#123;</span><br><span class="line">  let a = &apos;secret&apos;;</span><br><span class="line">  let f = function () &#123;</span><br><span class="line">    return a;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>另外，还有一个需要注意的地方。ES6 的块级作用域允许声明函数的规则，只在使用大括号的情况下成立，如果没有使用大括号，就会报错。</p>
-<ul>
-<li>变量的解构赋值</li>
-</ul>
-<p>ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。</p>
-<ul>
-<li><p>数组的解构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">let [foo, [[bar], baz]] = [1, [[2], 3]];</span><br><span class="line">foo // 1</span><br><span class="line">bar // 2</span><br><span class="line">baz // 3</span><br><span class="line"></span><br><span class="line">let [ , , third] = [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;];</span><br><span class="line">third // &quot;baz&quot;</span><br><span class="line"></span><br><span class="line">let [x, , y] = [1, 2, 3];</span><br><span class="line">x // 1</span><br><span class="line">y // 3</span><br><span class="line"></span><br><span class="line">let [head, ...tail] = [1, 2, 3, 4];</span><br><span class="line">head // 1</span><br><span class="line">tail // [2, 3, 4]</span><br><span class="line"></span><br><span class="line">let [x, y, ...z] = [&apos;a&apos;];</span><br><span class="line">x // &quot;a&quot;</span><br><span class="line">y // undefined</span><br><span class="line">z // []</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>如果解构不成功，变量的值就等于undefined。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let [foo] = [];</span><br><span class="line">let [bar, foo] = [1];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>不完全解构：等号左边的模式，只匹配一部分的等号右边的数组。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let [x, y] = [1, 2, 3];</span><br><span class="line">x // 1</span><br><span class="line">y // 2</span><br><span class="line"></span><br><span class="line">let [a, [b], d] = [1, [2, 3], 4];</span><br><span class="line">a // 1</span><br><span class="line">b // 2</span><br><span class="line">d // 4</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果等号的右边不是数组（或者严格地说，不是可遍历的结构，参见《Iterator》一章），那么将会报错。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 报错</span><br><span class="line">let [foo] = 1;</span><br><span class="line">let [foo] = false;</span><br><span class="line">let [foo] = NaN;</span><br><span class="line">let [foo] = undefined;</span><br><span class="line">let [foo] = null;</span><br><span class="line">let [foo] = &#123;&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>对象的解构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let &#123; foo, bar &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">foo // &quot;aaa&quot;</span><br><span class="line">bar // &quot;bbb&quot;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let &#123; bar, foo &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">foo // &quot;aaa&quot;</span><br><span class="line">bar // &quot;bbb&quot;</span><br><span class="line"></span><br><span class="line">let &#123; baz &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">baz // undefined</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对象的解构赋值的内部机制，是先找到同名属性，然后再赋给对应的变量。真正被赋值的是后者，而不是前者。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let &#123; foo: baz &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">baz // &quot;aaa&quot;</span><br><span class="line">foo // error: foo is not defined</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>字符串的解构赋值<br>字符串也可以解构赋值。这是因为此时，字符串被转换成了一个类似数组的对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const [a, b, c, d, e] = &apos;hello&apos;;</span><br><span class="line">a // &quot;h&quot;</span><br><span class="line">b // &quot;e&quot;</span><br><span class="line">c // &quot;l&quot;</span><br><span class="line">d // &quot;l&quot;</span><br><span class="line">e // &quot;o&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>字符串拓展</p>
-<ul>
-<li>模版字符串</li>
-</ul>
-<p>模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串（所有的空格和缩进都会被保留在输出之中），或者在字符串中嵌入变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 普通字符串</span><br><span class="line">`In JavaScript &apos;\n&apos; is a line-feed.`</span><br><span class="line"></span><br><span class="line">// 多行字符串</span><br><span class="line">`In JavaScript this is</span><br><span class="line">not legal.`</span><br><span class="line"></span><br><span class="line">console.log(`string text line 1</span><br><span class="line">string text line 2`);</span><br><span class="line"></span><br><span class="line">// 字符串中嵌入变量</span><br><span class="line">let name = &quot;Bob&quot;, time = &quot;today&quot;;</span><br><span class="line">`Hello $&#123;name&#125;, how are you $&#123;time&#125;?`</span><br></pre></td></tr></table></figure>
-<p>上面代码中的模板字符串，都是用反引号表示。如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let greeting = `\`Yo\` World!`;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函数的扩展</p>
-<ul>
-<li><p>ES6 允许为函数的参数设置默认值，即直接写在参数定义的后面。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function log(x, y = &apos;World&apos;) &#123;</span><br><span class="line">  console.log(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">log(&apos;Hello&apos;) // Hello World</span><br><span class="line">log(&apos;Hello&apos;, &apos;China&apos;) // Hello China</span><br><span class="line">log(&apos;Hello&apos;, &apos;&apos;) // Hello</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ES6 引入 <code>rest</code> 参数（形式为…变量名），用于获取函数的多余参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function example(...values)&#123;</span><br><span class="line">    console.log(values)// console: [1,2,3,4]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">example(1,2,3,4) </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var a = [1,2,3]</span><br><span class="line"></span><br><span class="line">var b = [...a,4,5,6] //b = [1,2,3,4,5,6]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>箭头函数</p>
-<ul>
-<li><p>ES6 允许使用“箭头”（=&gt;）定义函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var f = v =&gt; v;</span><br><span class="line"></span><br><span class="line">// 等同于</span><br><span class="line">var f = function (v) &#123;</span><br><span class="line">  return v;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var f = () =&gt; 5;</span><br><span class="line">// 等同于</span><br><span class="line">var f = function () &#123; return 5 &#125;;</span><br><span class="line"></span><br><span class="line">var sum = (num1, num2) =&gt; num1 + num2;</span><br><span class="line">// 等同于</span><br><span class="line">var sum = function(num1, num2) &#123;</span><br><span class="line">  return num1 + num2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果箭头函数的函数体只包含一行代码，则可以不需要写大括号以及 return 语句返回（如果有返回值）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var sum = (num1,num2) =&gt; num1+num2</span><br><span class="line">等同于</span><br><span class="line">var sum = (num1,num2) =&gt; &#123;return num1+num2&#125;</span><br><span class="line">等同于</span><br><span class="line">var sum = function(num1,num2)&#123;return num1+num2&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><ul>
-<li>面向对象编程：<br>把一组数据结构和处理它们的方法组成<strong>对象</strong>(Object), 把相同行为的对象归纳为<strong>类</strong>(Class), 通过类的<strong>封装</strong>(encapsulation)隐藏内部细节，通过<strong>继承</strong>(inheritance)实现类的<strong>特化</strong>(specializetion)/<strong>泛化</strong>(generalization), 通过<strong>多态</strong>(polymorphism)实现基于对象类型的<strong>动态分派</strong>。其实就是我们按照正常的思维去写程序，我们会将现实世界中的东西视为一个个对象，然后他们的行为就是一个个方法。<br><img src="https://pic1.zhimg.com/80/664ba37eeee9f4623c06c066867f1d38_hd.jpg" alt=""></li>
-<li>面向对象这个<strong>对象</strong>，指的是客体。所谓客体是指客观存在的对象实体和主观抽象的概念。 </li>
-<li>面向对象的好处？<ol>
-<li>接近人的思维，符合人类对现实世界的认知；</li>
-<li>封装特性可以使开发者不必在意内部的具体实现，更方便互相协作；</li>
-<li>继承特性可以减少代码冗余，实现代码复用；</li>
-<li>多态特性令子类相比父类有不同的行为，这是非常接近现实的。</li>
-</ol>
-</li>
-<li>面向对象是为了解决系统的<strong>可维护性</strong>，<strong>可扩展性</strong>，<strong>可重用性</strong>。<ul>
-<li>面向对象的三大特征： <ul>
-<li>封装：找到变化并且把它封装起来。封装的作用，就解决了程序的可扩展性。 </li>
-<li>继承：子类继承父类，可以继承父类的方法及属性，实现了多态以及代码的重用，因此也解决了系统的重用性和扩展性，但是继承破坏了封装，因为他是对子类开放的，修改父类会导致所有子类的改变，因此继承一定程度上又破坏了系统的可扩展性，所以继承需要慎用。</li>
-<li>多态：接口的多种不同的实现方式即为多态。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>面对对象编程三大步骤：<ul>
-<li>面向对象的分析(OOA)：分析需求，先不要思考怎么用程序实现它，先分析需求中稳定不变的客体都是些什么，这些客体之间的关系是什么。</li>
-<li>面向对象的设计(OOD)：把第一步分析出来的需求，通过进一步扩充模型，变成可实现的、符合成本的、模块化的、低耦合高内聚的模型。</li>
-<li>面向对象的编程实现(OOP)：使用面向对象的实现模型 。</li>
-</ul>
-</li>
-<li>面向对象和基于对象的区别<br>“面向对象”和“基于对象”都实现了“封装”的概念，但是面向对象实现了“继承和多态”，而“基于对象”没有实现这些</li>
-</ul>
-<h3 id="1-生成实例对象的原始模式-字面量"><a href="#1-生成实例对象的原始模式-字面量" class="headerlink" title="1.生成实例对象的原始模式,字面量"></a>1.生成实例对象的原始模式,字面量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">　　var Cat = &#123;</span><br><span class="line">　　　　name : &apos;&apos;,</span><br><span class="line"></span><br><span class="line">　　　　color : &apos;&apos;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
-<p>根据这个原型对象的规格（schema），生成两个实例对象:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">　　var cat1 = &#123;&#125;; // 创建一个空对象</span><br><span class="line"></span><br><span class="line">　　　　cat1.name = &quot;大毛&quot;; // 按照原型对象的属性赋值</span><br><span class="line"></span><br><span class="line">　　　　cat1.color = &quot;黄色&quot;;</span><br><span class="line"></span><br><span class="line">　　var cat2 = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">　　　　cat2.name = &quot;二毛&quot;;</span><br><span class="line"></span><br><span class="line">　　　　cat2.color = &quot;黑色&quot;;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>这样的写法有两个缺点<ul>
-<li>一是如果多生成几个实例，写起来就非常麻烦；</li>
-<li>二是实例与原型之间，没有任何办法，可以看出有什么联系。</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-工厂模式"><a href="#2-工厂模式" class="headerlink" title="2.工厂模式"></a>2.工厂模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Cat(name,color) &#123;</span><br><span class="line"></span><br><span class="line">　　　　return &#123;</span><br><span class="line"></span><br><span class="line">　　　　　　name:name,</span><br><span class="line"></span><br><span class="line">　　　　　　color:color</span><br><span class="line"></span><br><span class="line">　　　　&#125;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
-<p>然后生成实例对象，就等于是在调用函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　var cat1 = Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line"></span><br><span class="line">　　var cat2 = Cat(&quot;二毛&quot;,&quot;黑色&quot;);</span><br></pre></td></tr></table></figure></p>
-<p>这种方法的问题依然是，cat1和cat2之间没有内在的联系，不能反映出它们是同一个原型对象的实例。</p>
-<h3 id="3-构造函数"><a href="#3-构造函数" class="headerlink" title="3.构造函数"></a>3.构造函数</h3><p>“构造函数”，其实就是一个普通函数，但是内部使用了this变量。对构造函数使用new运算符，就能生成实例，并且this变量会绑定在实例对象上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　function Cat(name,color)&#123;</span><br><span class="line"></span><br><span class="line">　　　　this.name=name;</span><br><span class="line"></span><br><span class="line">　　　　this.color=color;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure></p>
-<p>生成实例对象了:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line"></span><br><span class="line">　　var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);</span><br><span class="line"></span><br><span class="line">　　alert(cat1.name); // 大毛</span><br><span class="line"></span><br><span class="line">　　alert(cat1.color); // 黄色</span><br></pre></td></tr></table></figure></p>
-<p><code>instanceof</code>运算符，验证原型对象与实例对象之间的关系<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　alert(cat1 instanceof Cat); //true</span><br><span class="line"></span><br><span class="line">　　alert(cat2 instanceof Cat); //true</span><br></pre></td></tr></table></figure></p>
-<p>构造函数方法存在浪费内存的问题,生成示例时，对象内的方法和属性都是指向不同的内存地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(cat1.eat == cat2.eat); //false</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-prototype模式"><a href="#4-prototype模式" class="headerlink" title="4.prototype模式"></a>4.prototype模式</h3><p>Javascript规定，每一个构造函数都有一个<code>prototype</code>属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承。</p>
-<p>这意味着，我们可以把那些不变的属性和方法，直接定义在<code>prototype</code>对象上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">　　function Cat(name,color)&#123;</span><br><span class="line"></span><br><span class="line">　　　　this.name = name;</span><br><span class="line"></span><br><span class="line">　　　　this.color = color;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">　　Cat.prototype.type = &quot;猫科动物&quot;;</span><br><span class="line"></span><br><span class="line">　　Cat.prototype.eat = function()&#123;alert(&quot;吃老鼠&quot;)&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>生成实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line"></span><br><span class="line">　　var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);</span><br><span class="line"></span><br><span class="line">　　alert(cat1.type); // 猫科动物</span><br><span class="line"></span><br><span class="line">　　cat1.eat(); // 吃老鼠</span><br><span class="line"></span><br><span class="line">　　alert(cat1.eat == cat2.eat); //true</span><br></pre></td></tr></table></figure></p>
-<p>prototype模式的缺点在于给实例添加或删除属性和方法时，原型的属性和方法也会添加或删除。所以，可以结合构造函数和prototype模式。</p>
-<h3 id="5-class"><a href="#5-class" class="headerlink" title="5.class"></a>5.class</h3><p>ES6 引入了 Class（类）这个概念，作为对象的模板。通过<code>class</code>关键字，可以定义类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">  constructor(x, y) &#123;</span><br><span class="line">    this.x = x;</span><br><span class="line">    this.y = y;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toString() &#123;</span><br><span class="line">    return &apos;(&apos; + this.x + &apos;, &apos; + this.y + &apos;)&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>类的数据类型就是函数，类本身就指向构造函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typeof Point // &quot;function&quot;</span><br><span class="line">Point === Point.prototype.constructor // true</span><br></pre></td></tr></table></figure></p>
-<p>使用实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Bar &#123;</span><br><span class="line">  doStuff() &#123;</span><br><span class="line">    console.log(&apos;stuff&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var b = new Bar();</span><br><span class="line">b.doStuff() // &quot;stuff&quot;</span><br></pre></td></tr></table></figure></p>
-<p>类的所有方法都定义在类的<code>prototype</code>属性上面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toString() &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toValue() &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 等同于</span><br><span class="line"></span><br><span class="line">Point.prototype = &#123;</span><br><span class="line">  constructor() &#123;&#125;,</span><br><span class="line">  toString() &#123;&#125;,</span><br><span class="line">  toValue() &#123;&#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p><code>Object.assign</code>方法可以很方便地一次向类添加多个方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">  constructor()&#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Object.assign(Point.prototype, &#123;</span><br><span class="line">  toString()&#123;&#125;,</span><br><span class="line">  toValue()&#123;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>Class 可以通过<code>extends</code>关键字实现继承，这比 ES5 的通过修改原型链实现继承，要清晰和方便很多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class ColorPoint extends Point &#123;</span><br><span class="line">  constructor(x, y, color) &#123;</span><br><span class="line">    super(x, y); // 调用父类的constructor(x, y)</span><br><span class="line">    this.color = color;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toString() &#123;</span><br><span class="line">    return this.color + &apos; &apos; + super.toString(); // 调用父类的toString()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>constructor</code>方法和<code>toString</code>方法之中，都出现了<code>super</code>关键字，它在这里表示父类的构造函数，用来新建父类的<code>this</code>对象。</p>
-<p>子类必须在<code>constructor</code>方法中调用<code>super</code>方法，否则新建实例时会报错。这是因为子类自己的<code>this</code>对象，必须先通过父类的构造函数完成塑造，得到与父类同样的实例属性和方法，然后再对其进行加工，加上子类自己的实例属性和方法。如果不调用<code>super</code>方法，子类就得不到<code>this</code>对象。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/09/notes_of_advanced_js/" data-id="cjr3nv6ab000losow6m46ppfd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/15/summary_week1_2/" data-id="cjr5923rs0006x8owxc4nnhb9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1710,6 +1568,10 @@
       <ul>
         
           <li>
+            <a href="/2019/01/20/notes_of_this/">this, call(), apply() 和bind()</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/19/summary_of_exam/">测评总结与反思</a>
           </li>
         
@@ -1723,10 +1585,6 @@
         
           <li>
             <a href="/2019/01/15/IntelliJ-IDEA-Tutorial/">初级IntelliJ IDEA使用总结</a>
-          </li>
-        
-          <li>
-            <a href="/2019/01/14/jvm_jre_jdk/">JVM, JRE, JDK 的区别和联系</a>
           </li>
         
       </ul>
