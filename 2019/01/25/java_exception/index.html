@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JavaScript进阶笔记 | 宋博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Java异常异常程序运行时，发生的不被期望的事件，它阻止了程序按照程序员的预期正常执行，这就是异常。在java中，阻止当前方法或作用域的情况，称之为异常。 异常和错误Java中的所有异常都是由Throwable类的子类生成的对象，所有的异常类都是Throwable类的子类或子类的子类。Throwable类是Object类的直接子类，Error类和Exception类是Throwable类的两个直接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript进阶笔记">
+<meta property="og:url" content="http://yoursite.com/2019/01/25/java_exception/index.html">
+<meta property="og:site_name" content="宋博客">
+<meta property="og:description" content="Java异常异常程序运行时，发生的不被期望的事件，它阻止了程序按照程序员的预期正常执行，这就是异常。在java中，阻止当前方法或作用域的情况，称之为异常。 异常和错误Java中的所有异常都是由Throwable类的子类生成的对象，所有的异常类都是Throwable类的子类或子类的子类。Throwable类是Object类的直接子类，Error类和Exception类是Throwable类的两个直接">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-25T14:19:25.534Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript进阶笔记">
+<meta name="twitter:description" content="Java异常异常程序运行时，发生的不被期望的事件，它阻止了程序按照程序员的预期正常执行，这就是异常。在java中，阻止当前方法或作用域的情况，称之为异常。 异常和错误Java中的所有异常都是由Throwable类的子类生成的对象，所有的异常类都是Throwable类的子类或子类的子类。Throwable类是Object类的直接子类，Error类和Exception类是Throwable类的两个直接">
+  
+    <link rel="alternate" href="/atom.xml" title="宋博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">宋博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">我爱学习</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java_exception" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/25/java_exception/" class="article-date">
+  <time datetime="2019-01-25T13:59:23.975Z" itemprop="datePublished">2019-01-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript进阶笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java异常"><a href="#Java异常" class="headerlink" title="Java异常"></a>Java异常</h1><h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>程序运行时，发生的不被期望的事件，它阻止了程序按照程序员的预期正常执行，这就是异常。在java中，阻止当前方法或作用域的情况，称之为异常。</p>
+<h2 id="异常和错误"><a href="#异常和错误" class="headerlink" title="异常和错误"></a>异常和错误</h2><p>Java中的所有异常都是由<code>Throwable</code>类的子类生成的对象，所有的异常类都是<code>Throwable</code>类的子类或子类的子类。<code>Throwable</code>类是<code>Object</code>类的直接子类，<code>Error</code>类和<code>Exception</code>类是<code>Throwable</code>类的两个直接子类。</p>
+<h3 id="Error类："><a href="#Error类：" class="headerlink" title="Error类："></a>Error类：</h3><p>不能处理的系统错误类，如内存溢出、虚拟机错误、栈溢出等。这类错误一般与硬件有关，与程序本身无关，通常由系统进行处理，程序本身无法捕获和处理。</p>
+<p>包括虚拟机错误(<code>VirtualMachineError</code>)和线程死锁(<code>ThreadDeath</code>)，一旦<code>Error</code>出现了，程序就彻底的挂了。</p>
+<p>常见的<code>error</code>有：<code>NotClassDeFountError</code>（类未定义错误），<code>OutofMemoryError</code>(内存溢出错误)，<code>StackOverFlowError</code>(栈溢出错误)。</p>
+<h3 id="Exception类："><a href="#Exception类：" class="headerlink" title="Exception类："></a>Exception类：</h3><p>即常说的异常。</p>
+<p>异常分为运行时异常(<code>RuntimeException</code>)和检查型异常(<code>CheckedException</code>)。</p>
+<ul>
+<li><p>检查型异常：java编译器对检查性异常会要求我们进行<code>catch</code>，必须得进行捕获，否则编译不过去。java认为检查性异常都可以被处理，所以必须显示的处理检查型异常。常见的检查性异常有<code>IOException</code>，<code>SqlException</code>。</p>
+</li>
+<li><p>运行时异常：程序员<strong>不需要</strong>去手动的<code>catch</code>。当程序中出现运行时异常时，<code>java</code>虚拟机会进行处理（就算我们没写异常捕获语句运行时也会抛出错误！！），此类异常的出现绝大数情况是代码本身有问题应该从逻辑上去解决并改进代码。常见的运行时异常有：空指针异常、数组下标越界异常、类型转换异常、算术异常等。</p>
+</li>
+<li><p>此外，还有自定义异常：为了表示应用程序的一些特定错误类型，为代码可能发生的一个或多个问题提供新的确切的含义。由软件开发者自己根据系统的需求而定义。</p>
+<h3 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h3><p>总结：</p>
+</li>
+<li>错误是系统错误或者资源错误，是不可控制的。</li>
+<li>异常是程序错误引起的，检查型异常在程序中必须被程序员<code>try</code>，<code>catch</code>的进行显示处理，而运行时异常不需要，它会有jvm进行处理。<h2 id="几种常见异常"><a href="#几种常见异常" class="headerlink" title="几种常见异常"></a>几种常见异常</h2><h3 id="检查型异常"><a href="#检查型异常" class="headerlink" title="检查型异常"></a>检查型异常</h3></li>
+<li>Java.alng.NullPointerException<br>这个异常的解释是 “程序遇上了空指针“，简单地说就是调用了未经初始化的对象或者是不存在的对象，这个错误经常出现在创建图片，调用数组这些操作中，比如图片未经初始化，或者图片创建时的路径错误等等。对数组操作中出现空指针，很多情况下是即把数组的初始化和数组元素的初始化混淆起来了。数组的初始化是对数组分配需要的空间，而初始化后的数组，其中的元素并没有实例化，依然是空的，所以还需要对每个元素都进行初始化（如果要调用的话）。解决这个问题的方法是在使用前进行判空比较。</li>
+<li>java.lang.ClassNotFoundException<br>这个异常的解释是 “指定的类不存在 ，这里主要考虑一下类的名称和路径是否正确即可。</li>
+<li>java.lang.ArithmeticException<br>这个异常的解释是 “数学运算异常”，比如程序中出现(1/0)除以零这样的运算就会出这样的异常，对这种异常，我们就要好好检查一下自己程序中涉及到数学运算的地方，公式是不是有不妥了。</li>
+<li>java.lang.ArrayIndexOutOfBoundsException<br>这个异常的解释是 “数组下标越界 “，在调用数组的时候一定要认真检查，看自己调用的下标是不是超出了数组的范围。</li>
+</ul>
+<p>一般来说，显式（即直接用常数当下标）调用不太容易出这样的错，但隐式（即用变量表示下标）调用就经常出错了。</p>
+<p>还有一种情况，是程序中定义的数组的长度是通过某些特定方法决定的，不是事先声明的，这个时候，最好先查看一下数组的<code>length</code>，以免出现这个异常</p>
+<ul>
+<li>java.lang.IllegalArgumentException<br>这个异常的解释是 “方法的参数错误 “，很多J2ME的类库中的方法在一些情况下都会引发这样的错误，比如音量调节方法中的音量参数如果写成负数就会出现这个异常，再比如<code>g.setColor(int red,int green,int blue)</code>这个方法中的三个值，如果有超过<code>255</code>的也会出现这个异常，因此一旦发现这个异常，我们要做的，就是赶紧去检查一下方法调用中的参数传递是不是出现了错误。</li>
+<li>java.lang.IllegalAccessException<br>这个异常的解释是 “没有访问权限 “，当应用程序要调用一个类，但当前的方法即没有对该类的访问权限便会出现这个异常。对程序中用了Package的情况下要注意这个异常。</li>
+<li>java.lang.IncompatibleClassChangeError<br>“不兼容的类变化错误”，当正在执行的方法所依赖的类定义发生了不兼容的改变时，抛出该异常。一般在修改了应用中的某些类的声明定义而没有对整个应用重新编译而直接运行的情况下，容易引发该错误。</li>
+<li>java.lang.InstantiationError<br>“实例化错误”，当一个应用试图通过Java的new操作符构造一个抽象类或者接口时抛出该异常。</li>
+<li>java.lang.LinkageError<br>“链接错误”，该错误及其所有子类指示某个类依赖于另外一些类，在该类编译之后，被依赖的类改变了其类定义而没有重新编译所有的类，进而引发错误的情况。</li>
+<li>java.lang.StackOverflowError<br>“堆栈溢出错误”，当一个应用递归调用的层次太深而导致堆栈溢出时抛出该错误。<h2 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h2>异常处理就是在异常发生的地方，通过有效的处理手段，来增加系统的稳定性，不让应用程序中断。通常有两种方式，处理异常和声明异常。</li>
+<li>处理异常：表示这个异常就地可以解决，一般通过<code>try...catch...</code>语句块来解决。</li>
+<li>声明异常：表示这个异常在异常发生的地方无法解决，将其抛出去(用<code>throw</code>将锅甩给他人)，并在方法定义中予以声明。<h3 id="处理异常-1"><a href="#处理异常-1" class="headerlink" title="处理异常"></a>处理异常</h3><h4 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h4>使用 <code>try</code> 和<code>catch</code> 关键字可以捕获异常。<code>try</code>/<code>catch</code> 代码块放在异常可能发生的地方。</li>
+</ul>
+<p><code>try</code>/<code>catch</code>代码块中的代码称为保护代码，使用 <code>try</code>/<code>catch</code> 的语法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">   // 程序代码</span><br><span class="line">&#125;catch(ExceptionName e1)</span><br><span class="line">&#123;</span><br><span class="line">   //Catch 块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>Catch</code> 语句包含要捕获异常类型的声明。当保护代码块中发生一个异常时，<code>try</code> 后面的 <code>catch</code> 块就会被检查。<br>如果发生的异常包含在 <code>catch</code>块中，异常会被传递到该 <code>catch</code> 块，这和传递一个参数到方法是一样。</p>
+<p>实例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 文件名 : ExcepTest.java</span><br><span class="line">import java.io.*;</span><br><span class="line">public class ExcepTest&#123;</span><br><span class="line"> </span><br><span class="line">   public static void main(String args[])&#123;</span><br><span class="line">      try&#123;</span><br><span class="line">         int a[] = new int[2];</span><br><span class="line">         System.out.println(&quot;Access element three :&quot; + a[3]);</span><br><span class="line">      &#125;catch(ArrayIndexOutOfBoundsException e)&#123;</span><br><span class="line">         System.out.println(&quot;Exception thrown  :&quot; + e);</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println(&quot;Out of the block&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的例子中声明有两个元素的一个数组，当代码试图访问数组的第三个元素的时候就会抛出一个异常，<code>ArrayIndexOutOfBoundsException</code>。</p>
+<p>以上代码编译运行输出结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Exception thrown  :java.lang.ArrayIndexOutOfBoundsException: 3</span><br><span class="line">Out of the block</span><br></pre></td></tr></table></figure></p>
+<h4 id="多重捕获块"><a href="#多重捕获块" class="headerlink" title="多重捕获块"></a>多重捕获块</h4><p>一个 <code>try</code> 代码块后面跟随<strong>多个</strong><code>catch</code>代码块的情况就叫多重捕获。</p>
+<p>多重捕获块的语法如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">   // 程序代码</span><br><span class="line">&#125;catch(异常类型1 异常的变量名1)&#123;</span><br><span class="line">  // 程序代码</span><br><span class="line">&#125;catch(异常类型2 异常的变量名2)&#123;</span><br><span class="line">  // 程序代码</span><br><span class="line">&#125;catch(异常类型2 异常的变量名2)&#123;</span><br><span class="line">  // 程序代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码段包含了 <code>3</code> 个<code>catch</code>块。</p>
+<ul>
+<li>可以在 try 语句后面添加任意数量的 <code>catch</code> 块。</li>
+<li>如果保护代码中发生异常，异常被抛给第一个 <code>catch</code> 块。</li>
+<li>如果抛出异常的数据类型与 <code>ExceptionType1</code> 匹配，它在这里就会被捕获。</li>
+<li>如果不匹配，它会被传递给第二个 <code>catch</code> 块。</li>
+<li>如此，直到异常被捕获或者通过所有的 <code>catch</code> 块。<h4 id="finally块"><a href="#finally块" class="headerlink" title="finally块"></a>finally块</h4></li>
+<li><code>finally</code> 关键字用来创建在 <code>try</code> 代码块后面执行的代码块。</li>
+<li>无论是否发生异常，<code>finally</code> 代码块中的代码总会被执行。</li>
+<li>在 <code>finally</code>代码块中，可以运行清理类型等收尾善后性质的语句。</li>
+<li><code>finally</code> 代码块出现在 <code>catch</code> 代码块最后，语法如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">  // 程序代码</span><br><span class="line">&#125;catch(异常类型1 异常的变量名1)&#123;</span><br><span class="line">  // 程序代码</span><br><span class="line">&#125;catch(异常类型2 异常的变量名2)&#123;</span><br><span class="line">  // 程序代码</span><br><span class="line">&#125;finally&#123;</span><br><span class="line">  // 程序代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class ExcepTest&#123;</span><br><span class="line">  public static void main(String args[])&#123;</span><br><span class="line">    int a[] = new int[2];</span><br><span class="line">    try&#123;</span><br><span class="line">       System.out.println(&quot;Access element three :&quot; + a[3]);</span><br><span class="line">    &#125;catch(ArrayIndexOutOfBoundsException e)&#123;</span><br><span class="line">       System.out.println(&quot;Exception thrown  :&quot; + e);</span><br><span class="line">    &#125;</span><br><span class="line">    finally&#123;</span><br><span class="line">       a[0] = 6;</span><br><span class="line">       System.out.println(&quot;First element value: &quot; +a[0]);</span><br><span class="line">       System.out.println(&quot;The finally statement is executed&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上实例编译运行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Exception thrown  :java.lang.ArrayIndexOutOfBoundsException: 3</span><br><span class="line">First element value: 6</span><br><span class="line">The finally statement is executed</span><br></pre></td></tr></table></figure></p>
+<h4 id="注意下面事项："><a href="#注意下面事项：" class="headerlink" title="注意下面事项："></a>注意下面事项：</h4><ul>
+<li><code>catch</code> 不能独立于 <code>try</code> 存在。</li>
+<li>在 <code>try</code>/<code>catch</code> 后面添加 <code>finally</code> 块并非强制性要求的。</li>
+<li><code>try</code> 代码后不能既没 catch 块也没 <code>finally</code> 块。</li>
+<li><code>try</code>, <code>catch</code>, <code>finally</code> 块之间不能添加任何代码。<h3 id="声明异常"><a href="#声明异常" class="headerlink" title="声明异常"></a>声明异常</h3>如果一个方法没有捕获到一个检查性异常，那么该方法必须使用 <code>throws</code> 关键字来声明。<code>throws</code> 关键字放在方法签名的尾部。</li>
+</ul>
+<p>也可以使用 <code>throw</code> 关键字抛出一个异常，无论它是新实例化的还是刚捕获到的。</p>
+<p>下面方法的声明抛出一个 <code>RemoteException</code> 异常：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import java.io.*;</span><br><span class="line">public class className</span><br><span class="line">&#123;</span><br><span class="line">  public void deposit(double amount) throws RemoteException</span><br><span class="line">  &#123;</span><br><span class="line">    // Method implementation</span><br><span class="line">    throw new RemoteException();</span><br><span class="line">  &#125;</span><br><span class="line">  //Remainder of class definition</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一个方法可以声明抛出多个异常，多个异常之间用<strong>逗号</strong>隔开。如下<br>抛出 <code>RemoteException</code> 和 <code>InsufficientFundsException</code>异常：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import java.io.*;</span><br><span class="line">public class className</span><br><span class="line">&#123;</span><br><span class="line">   public void withdraw(double amount) throws RemoteException,</span><br><span class="line">                              InsufficientFundsException</span><br><span class="line">   &#123;</span><br><span class="line">       // Method implementation</span><br><span class="line">   &#125;</span><br><span class="line">   //Remainder of class definition</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/25/java_exception/" data-id="cjrc4wlgs0001z4owoxagnpwz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/20/notes_of_this/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">this, call(), apply() 和bind()</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/25/java_exception/">JavaScript进阶笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/notes_of_this/">this, call(), apply() 和bind()</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/19/summary_of_exam/">测评总结与反思</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/16/single_responsibility_principle/">单一职责原则</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/16/notes_of_java_foundation/">Java基础语法笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Song Nan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
